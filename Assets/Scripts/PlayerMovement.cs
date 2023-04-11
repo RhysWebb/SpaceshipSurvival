@@ -5,20 +5,22 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Variables
-    private float speed = 2f;
-    private float maxVelocity = 2f;
-    private float rotationalSpeed = 25f;
+    private float speed = 1.2f;
+    private float maxVelocity = 1.2f;
+    private float rotationalSpeed = 125f;
     private float playerInputY;
     private float playerInputX;
     [SerializeField] GameObject rocket;
     [SerializeField] GameObject bomb;
     private Rigidbody2D rb;
     public int health;
+    [SerializeField] GameObject[] brokenPieces;
+    private int totalPieces;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        totalPieces = 0;
         health = 15;
     }
 
@@ -74,6 +76,11 @@ public class PlayerMovement : MonoBehaviour
         if (health <= 0 )
         {
             Destroy(gameObject);
+            for (int i = 0; i < 3; i++) 
+            {
+                Instantiate(brokenPieces[totalPieces], transform.position, transform.rotation);
+                totalPieces++;
+            }
         }
     }
 }
