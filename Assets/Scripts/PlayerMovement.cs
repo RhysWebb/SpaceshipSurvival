@@ -5,18 +5,21 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     // Variables
-    public float speed = 2f;
-    public float maxVelocity = 2f;
-    public float rotationalSpeed = 25f;
-    public float playerInputY;
-    public float playerInputX;
-    public GameObject rocket;
-    public GameObject bomb;
+    private float speed = 2f;
+    private float maxVelocity = 2f;
+    private float rotationalSpeed = 25f;
+    private float playerInputY;
+    private float playerInputX;
+    [SerializeField] GameObject rocket;
+    [SerializeField] GameObject bomb;
     private Rigidbody2D rb;
+    public int health;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        health = 15;
     }
 
     // Update is called once per frame
@@ -66,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        Debug.Log("Health Lowered");
+        health--;
+        if (health <= 0 )
+        {
+            Destroy(gameObject);
+        }
     }
 }
