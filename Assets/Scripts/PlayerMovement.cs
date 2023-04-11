@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ClampedVelocity();
-        Velocity();
+        //Velocity();
     }
 
     void DropBombs()
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Health Lowered");
+        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion"))
         health--;
         if (health <= 0 )
         {
