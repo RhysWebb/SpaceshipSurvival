@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Rocket
+  - Item
+  - Asteroid
+  - Debris
+  - SupportShip
+  - Explosion
+  - MiniRoid
+  - Fragment
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1154019893
+    locked: 0
+  - name: Rockets
+    uniqueID: 1918691659
+    locked: 0
+  - name: Item
+    uniqueID: 1207998855
+    locked: 0
+  - name: Player
+    uniqueID: 1347533965
+    locked: 0
+  - name: Spawner
+    uniqueID: 3022619007
+    locked: 0
