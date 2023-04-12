@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     // Variables -------------------------------------------------------
     // Health ----------------------------------------------------------
-    private int maximumHealth = 10;
+    private int maximumHealth;
     public int maxHealth
     {
         get { return maximumHealth; }
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
         get { return currentAmmo; }
         set { currentAmmo = value; }
     }
-    private int maximumAmmo = 10;
+    private int maximumAmmo;
     public int maxAmmo
     {
         get { return maximumAmmo; }
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         get { return currentBombs; }
         set { currentBombs = value; }
     }
-    private int maximumBombs = 5;
+    private int maximumBombs;
     public int maxBombs
     {
         get { return maximumBombs; }
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         get { return currentShields; }
         set { currentShields = value; }
     }
-    private int shieldMaximum = 5;
+    private int shieldMaximum;
     public int shieldMax
     {
         get { return shieldMaximum; }
@@ -76,9 +76,49 @@ public class GameManager : MonoBehaviour
         set { currentScore = value; }
     }
     // Score -----------------------------------------------------------
+    private bool isGameCurrentlyActive;
+    public bool isGameActive
+    {
+        get { return isGameCurrentlyActive; }
+        set { isGameCurrentlyActive = value; }
+    }
+    private float spawnRate;
     // Variables -------------------------------------------------------
 
+    public void StartGame(int difficulty)
+    {
+        if (difficulty == 1)
+        {
+            maxHealth = 10;
+            maxAmmo = 15;
+            maxBombs = 5;
+            shieldMax = 5;
+            spawnRate = 2.0f;
+        }
+        else if (difficulty == 2)
+        {
+            maxHealth = 8;
+            maxAmmo = 10;
+            maxBombs = 4;
+            shieldMax = 3;
+            spawnRate = 1.5f;
+        }
+        else if (difficulty == 3)
+        {
+            maxHealth = 5;
+            maxAmmo = 5;
+            maxBombs = 3;
+            shieldMax = 1;
+            spawnRate = 1.0f;
+        }
 
+        currentScore = 0;
+        health = maxHealth;
+        bombs = maxBombs;
+        ammo = maxAmmo;
+        isGameActive = true;
+        Time.timeScale = 1.0f;
+    }
 
 
 
@@ -92,7 +132,14 @@ public class GameManager : MonoBehaviour
     {
         score += scoreIncrement;
     }
-
-
-
+    public void LivesUpdate()
+    {
+        maxHealth--;
+        if (maxHealth <= 0)
+            GameOver();
+    }
+    public void GameOver()
+    {
+        isGameActive = false;
+    }
 }
