@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private float playerInputX;
     [SerializeField] GameObject rocket;
     [SerializeField] GameObject bomb;
-    public Rigidbody2D rb;
+    private Rigidbody2D rb;
     public int health;
     [SerializeField] GameObject[] brokenPieces;
     private int totalPieces;

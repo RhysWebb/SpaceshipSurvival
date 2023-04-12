@@ -5,22 +5,44 @@ using UnityEngine;
 public class Fragments : MonoBehaviour
 {
     // Variables
-    public float time;
-    public float timeToLive = 10.0f; 
-    private Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
+    Rigidbody2D rb;
+    float randomOne;
+    float randomTwo;
+    [SerializeField] float torque;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.AddForce(Vector2.up, ForceMode2D.Impulse);
+        randomOne = RandomNumber();
+        randomTwo = RandomNumber();
     }
 
-    // Update is called once per frame
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(randomOne, randomTwo) * 0.01f);
+        rb.AddTorque(torque, ForceMode2D.Impulse);
+    }
+
     void Update()
     {
-        time += Time.deltaTime;
-        if (time > timeToLive)
+        Color color = spriteRenderer.color;
+        float colorA = color.a;
+        colorA -= 0.1f * Time.deltaTime;
+        color.a = colorA;
+        spriteRenderer.color = color;
+        if (colorA <= 0.1)
             Destroy(gameObject);
+    }
+
+    float RandomNumber()
+    {
+        float selector;
+        selector = Random.Range(0.0f, 1.0f);
+        if (selector < 0.5)
+            return Random.Range(0.1f, 0.2f);
+        else
+            return Random.Range(-0.1f, -0.2f);
     }
 }

@@ -99,8 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5a8deeb8e4ee14d803ea9d8362dedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 0
-  timeToLive: 10
 --- !u!50 &456709900150944889
 Rigidbody2D:
   serializedVersion: 4
@@ -113,7 +111,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.05
+  m_Mass: 0.0001
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

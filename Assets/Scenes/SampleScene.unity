@@ -317,15 +317,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f03da1be0ebea34286c7f955c7d6a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocket: {fileID: 0}
-  bomb: {fileID: 0}
-  health: 0
-  brokenPieces: []
   thrusters:
   - {fileID: 184911352}
   - {fileID: 1823924464}
   - {fileID: 1551166373}
   - {fileID: 1352733107}
+  parentRb: {fileID: 1596394191}
 --- !u!1 &757316137 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1535952785, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
@@ -348,15 +345,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f03da1be0ebea34286c7f955c7d6a91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rocket: {fileID: 0}
-  bomb: {fileID: 0}
-  health: 0
-  brokenPieces: []
   thrusters:
   - {fileID: 757316137}
   - {fileID: 1742824067}
   - {fileID: 956855616}
   - {fileID: 1253420066}
+  parentRb: {fileID: 1596394191}
 --- !u!1 &956855616 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1027558465, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
@@ -684,6 +678,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1528136147, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
   m_PrefabInstance: {fileID: 1780782601631399025}
   m_PrefabAsset: {fileID: 0}
+--- !u!50 &1596394191 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: -8834624188985790079, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1742824067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2033584014, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
@@ -750,6 +749,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8834624188985790079, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_Mass
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1780782600807252022, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -758,6 +761,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1596394191}
     - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: brokenPieces.Array.data[0]
       value: 

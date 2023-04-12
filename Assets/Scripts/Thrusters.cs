@@ -2,16 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Thrusters : PlayerMovement
+public class Thrusters : MonoBehaviour
 {
     [SerializeField] GameObject[] thrusters;
-    private Rigidbody2D parentRb;
+    [SerializeField] Rigidbody2D parentRb;
     float testSpeed;
 
-    public override void Start()
-    {
-        parentRb = GetComponentInParent<Rigidbody2D>();
-    }
     private void Update()
     {
         testSpeed = parentRb.velocity.magnitude;

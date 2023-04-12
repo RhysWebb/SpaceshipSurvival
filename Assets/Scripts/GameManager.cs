@@ -4,33 +4,77 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Variables
-    public int health;
-    public int maxHealth = 10;
-    public int ammo;
-    public int maxAmmo = 10;
-    public int bombs;
-    public int maxBombs = 5;
-    public float fuel;
-    public float maxFuel = 100;
-    public float score;
-    public bool shieldTrigger;
-    public int shieldHealth;
-    public int shieldMaxHealth = 5;
-
-    // Start is called before the first frame update
-    void Start()
+    // Variables -------------------------------------------------------
+    // Health ----------------------------------------------------------
+    private int maximumHealth = 10;
+    public int maxHealth
     {
-        health = maxHealth;
-        ammo = maxAmmo;
-        bombs = maxBombs;
-        fuel = maxFuel;
-        shieldTrigger = false;
+        get { return maximumHealth; }
+        set { maximumHealth = value; }
     }
-
-    // Update is called once per frame
-    void Update()
+    private int currentHealth;
+    public int health
     {
-        
+        get { return currentHealth; }
+        set { currentHealth = value; }
     }
+    // Health -----------------------------------------------------------
+
+    // Ammo -------------------------------------------------------------
+    private int currentAmmo;
+    public int ammo
+    {
+        get { return currentAmmo; }
+        set { currentAmmo = value; }
+    }
+    private int maximumAmmo = 10;
+    public int maxAmmo
+    {
+        get { return maximumAmmo; }
+        set { maximumAmmo = value; }
+    }
+    private int currentBombs;
+    public int bombs
+    {
+        get { return currentBombs; }
+        set { currentBombs = value; }
+    }
+    private int maximumBombs = 5;
+    public int maxBombs
+    {
+        get { return maximumBombs; }
+        set { maximumBombs = value; }
+    }
+    // Ammo -------------------------------------------------------------
+
+    // Shields ----------------------------------------------------------
+    private bool shieldTrigger;
+    public bool shieldTriggerInput
+    {
+        get { return shieldTrigger; }
+        set { shieldTrigger = value; }
+    }
+    private int currentShields;
+    public int shields
+    {
+        get { return currentShields; }
+        set { currentShields = value; }
+    }
+    private int shieldMaximum = 5;
+    public int shieldMax
+    {
+        get { return shieldMaximum; }
+        set { shieldMaximum = value; }
+    }
+    // Shields ---------------------------------------------------------
+
+    // Score -----------------------------------------------------------
+    private int currentScore;
+    public int score
+    { 
+        get { return currentScore; }
+        set { currentScore = value; }
+    }
+    // Score -----------------------------------------------------------
+    // Variables -------------------------------------------------------
 }

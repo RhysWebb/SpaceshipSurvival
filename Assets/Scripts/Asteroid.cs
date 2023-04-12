@@ -7,14 +7,13 @@ public class Asteroid : MonoBehaviour
     // Variables
     private float xRange = 10.0f;
     private float yRange = 10.0f;
-    private int counter;
     private int count = 3;
-    public GameObject particle;
+    [SerializeField] GameObject particle;
     private Rigidbody2D rb;
-    public float minSpeed = 500.0f;
-    public float maxSpeed = 800.0f;
-    public float maxTorque = 60.0f;
-    public float xSpawnRange = 7.0f;
+    [SerializeField] float minSpeed = 500.0f;
+    [SerializeField] float maxSpeed = 800.0f;
+    [SerializeField] float maxTorque = 60.0f;
+    [SerializeField] float xSpawnRange = 7.0f;
     private float ySpawnRange = 5.0f;
 
 
@@ -89,9 +88,7 @@ public class Asteroid : MonoBehaviour
             ContactPoint2D contact = collision.contacts[0];
             Vector2 hitPoint = contact.point;
             Instantiate(particle, hitPoint, transform.rotation);
-            if (collision.gameObject.CompareTag("Asteroid") || collision.gameObject.CompareTag("Debris"))
-                counter++;
-            if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket") || counter >= count)
+            if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
                 Destroy(gameObject);
             if (collision.gameObject.CompareTag("Explosion"))
                 Destroy(rb.gameObject);
