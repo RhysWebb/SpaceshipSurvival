@@ -82,34 +82,49 @@ public class GameManager : MonoBehaviour
         get { return isGameCurrentlyActive; }
         set { isGameCurrentlyActive = value; }
     }
-    private float spawnRate;
+    private float asteroidSpawnRate;
+    private float supportShipSpawnRate;
     // Variables -------------------------------------------------------
 
     public void StartGame(int difficulty)
     {
-        if (difficulty == 1)
+        switch (difficulty)
         {
-            maxHealth = 10;
-            maxAmmo = 15;
-            maxBombs = 5;
-            shieldMax = 5;
-            spawnRate = 2.0f;
-        }
-        else if (difficulty == 2)
-        {
-            maxHealth = 8;
-            maxAmmo = 10;
-            maxBombs = 4;
-            shieldMax = 3;
-            spawnRate = 1.5f;
-        }
-        else if (difficulty == 3)
-        {
-            maxHealth = 5;
-            maxAmmo = 5;
-            maxBombs = 3;
-            shieldMax = 1;
-            spawnRate = 1.0f;
+            case 1:
+                maxHealth = 10;
+                maxAmmo = 15;
+                maxBombs = 5;
+                shieldMax = 5;
+                asteroidSpawnRate = 2.0f;
+                supportShipSpawnRate = 45.0f;
+                break;
+
+            case 2:
+                maxHealth = 8;
+                maxAmmo = 10;
+                maxBombs = 4;
+                shieldMax = 3;
+                asteroidSpawnRate = 1.5f;
+                supportShipSpawnRate = 60.0f;
+                break;
+
+            case 3:
+                maxHealth = 5;
+                maxAmmo = 5;
+                maxBombs = 3;
+                shieldMax = 1;
+                asteroidSpawnRate = 1.0f;
+                supportShipSpawnRate = 75.0f;
+                break;
+
+            default:
+                // Endless gamemode
+                /* 
+                In endless gamemode there is no health variable but a counter that constantly rolls down. Each asteroid destroyed increaes this gamemodes time. This is 3 seconds for every small asteroid and 5 for larger asteroids (same as their score values in the normal gamemode. Over time less and less will spawn and ammo will slowly decrease. I'm tempted to add fuel here as it will be a minor update to my current script but would mean a lot of work on player movement.
+
+                Time would also be their highscore. So score will be total time played and the countdown will just be a roll down. 
+                 */
+                break;
         }
 
         currentScore = 0;
