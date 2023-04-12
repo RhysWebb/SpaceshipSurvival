@@ -179,6 +179,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &184911352 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1431109084, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,6 +300,68 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &729018817 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780782601075180750, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &729018819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729018817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f03da1be0ebea34286c7f955c7d6a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocket: {fileID: 0}
+  bomb: {fileID: 0}
+  health: 0
+  brokenPieces: []
+  thrusters:
+  - {fileID: 184911352}
+  - {fileID: 1823924464}
+  - {fileID: 1551166373}
+  - {fileID: 1352733107}
+--- !u!1 &757316137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535952785, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &820863553 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780782601106998045, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &820863555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820863553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f03da1be0ebea34286c7f955c7d6a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rocket: {fileID: 0}
+  bomb: {fileID: 0}
+  health: 0
+  brokenPieces: []
+  thrusters:
+  - {fileID: 757316137}
+  - {fileID: 1742824067}
+  - {fileID: 956855616}
+  - {fileID: 1253420066}
+--- !u!1 &956855616 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1027558465, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1008766346
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,6 +669,31 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1253420066 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780782600214317495, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1352733107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1780782600807252022, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1551166373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1528136147, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1742824067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2033584014, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1823924464 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 479167412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1951487727
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +750,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1780782600807252022, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1780782601042082410, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_Name
       value: Player

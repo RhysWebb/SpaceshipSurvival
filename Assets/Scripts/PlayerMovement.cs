@@ -12,12 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private float playerInputX;
     [SerializeField] GameObject rocket;
     [SerializeField] GameObject bomb;
-    private Rigidbody2D rb;
+    public Rigidbody2D rb;
     public int health;
     [SerializeField] GameObject[] brokenPieces;
     private int totalPieces;
 
-    private void Start()
+    public virtual void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         totalPieces = 0;
@@ -41,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ClampedVelocity();
-        //Velocity();
     }
 
     void DropBombs()
@@ -52,12 +51,6 @@ public class PlayerMovement : MonoBehaviour
     void FireRocket()
     {
         Instantiate(rocket, transform.position, transform.rotation);
-    }
-
-    void Velocity()
-    {
-        float speed = rb.velocity.magnitude;
-        Debug.Log("Speed: " + speed);
     }
 
     void ClampedVelocity()
