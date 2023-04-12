@@ -9,7 +9,7 @@ public class Fragments : MonoBehaviour
     Rigidbody2D rb;
     float randomOne;
     float randomTwo;
-    [SerializeField] float torque;
+    [SerializeField] float maxTorque = 10.0f;
 
     private void Awake()
     {
@@ -22,10 +22,16 @@ public class Fragments : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(new Vector2(randomOne, randomTwo) * 0.01f);
-        rb.AddTorque(torque, ForceMode2D.Impulse);
+        float addedTorque = Random.Range(-maxTorque, maxTorque);
+        rb.AddTorque(addedTorque, ForceMode2D.Impulse);
     }
 
     void Update()
+    {
+        Lifetime();
+    }
+
+    void Lifetime()
     {
         Color color = spriteRenderer.color;
         float colorA = color.a;

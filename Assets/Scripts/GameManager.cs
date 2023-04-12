@@ -77,4 +77,22 @@ public class GameManager : MonoBehaviour
     }
     // Score -----------------------------------------------------------
     // Variables -------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+    public void ScoreUpdate(int scoreIncrement)
+    {
+        score += scoreIncrement;
+    }
+
+
+
 }

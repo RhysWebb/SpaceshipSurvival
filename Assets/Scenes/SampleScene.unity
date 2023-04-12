@@ -152,18 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6f1c4abeb5d9849834a6b4da9643b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  maxHealth: 10
-  ammo: 0
-  maxAmmo: 10
-  bombs: 0
-  maxBombs: 5
-  fuel: 0
-  maxFuel: 100
-  score: 0
-  shieldTrigger: 0
-  shieldHealth: 0
-  shieldMaxHealth: 5
 --- !u!4 &26780965
 Transform:
   m_ObjectHideFlags: 0
@@ -820,6 +808,10 @@ PrefabInstance:
     - target: {fileID: 1780782601042082415, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780782601122162849, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}

@@ -15,6 +15,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField] float maxTorque = 60.0f;
     [SerializeField] float xSpawnRange = 7.0f;
     private float ySpawnRange = 5.0f;
+    [SerializeField] int scoreValue;
 
 
     void Start()
