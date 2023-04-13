@@ -1,6 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
 public class GameManager : MonoBehaviour
 {
@@ -84,6 +89,13 @@ public class GameManager : MonoBehaviour
     }
     private float asteroidSpawnRate;
     private float supportShipSpawnRate;
+    public GameObject[] spawnedItem;
+    // UI --------------------------------------------------------------
+    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI ammoText;
+    [SerializeField] TextMeshProUGUI bombText;
+    // UI --------------------------------------------------------------
+
     // Variables -------------------------------------------------------
 
     public void StartGame(int difficulty)
@@ -98,7 +110,6 @@ public class GameManager : MonoBehaviour
                 asteroidSpawnRate = 2.0f;
                 supportShipSpawnRate = 45.0f;
                 break;
-
             case 2:
                 maxHealth = 8;
                 maxAmmo = 10;
@@ -107,7 +118,6 @@ public class GameManager : MonoBehaviour
                 asteroidSpawnRate = 1.5f;
                 supportShipSpawnRate = 60.0f;
                 break;
-
             case 3:
                 maxHealth = 5;
                 maxAmmo = 5;
@@ -116,7 +126,6 @@ public class GameManager : MonoBehaviour
                 asteroidSpawnRate = 1.0f;
                 supportShipSpawnRate = 75.0f;
                 break;
-
             default:
                 // Endless gamemode
                 /* 
@@ -126,8 +135,8 @@ public class GameManager : MonoBehaviour
                  */
                 break;
         }
-
         currentScore = 0;
+        scoreText.text = $"{currentScore}";
         health = maxHealth;
         bombs = maxBombs;
         ammo = maxAmmo;
@@ -135,17 +144,38 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
+    private void Start()
+    {
+        bombs = 5;
+        ammo = 15;
+        health = maxHealth;
+    }
 
-
-
-
-
-
+    IEnumerator SpawnTarget(float inputSpawnRate)
+    {
+        while (isGameActive)
+        {
+            yield return new WaitForSeconds(inputSpawnRate);
+            int spawnerRandomiser = Random.Range(0, spawnedItem.Length);
+            Instantiate(spawnedItem[spawnerRandomiser]);
+        }
+    }
 
 
     public void ScoreUpdate(int scoreIncrement)
     {
         score += scoreIncrement;
+        scoreText.text = $"{score}";
+    }
+    public void DropBombs()
+    {
+        bombs--;
+        bombText.text = $"{currentBombs}";
+    }
+    public void FireRockets()
+    {
+        ammo--;
+        ammoText.text = $"{currentAmmo}";
     }
     public void LivesUpdate()
     {
@@ -157,4 +187,12 @@ public class GameManager : MonoBehaviour
     {
         isGameActive = false;
     }
+    public void RestartGame()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+
 }

@@ -220,3 +220,4 @@ MonoBehaviour:
   maxSpeed: 600
   maxTorque: 40
   xSpawnRange: 7
+  scoreValue: 5

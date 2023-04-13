@@ -43,7 +43,11 @@ public class Rocket : MonoBehaviour
         if (collision.gameObject.CompareTag("Asteroid") || collision.gameObject.CompareTag("Debris"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

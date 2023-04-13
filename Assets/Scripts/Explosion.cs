@@ -16,12 +16,4 @@ public class Explosion : MonoBehaviour
         if (time > timeToLive)
             Destroy(gameObject);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("SupportShip"))
-            Debug.Log("Health lowered");
-            // reduce health
-        else     
-            Destroy(collision.gameObject);
-    }
 }

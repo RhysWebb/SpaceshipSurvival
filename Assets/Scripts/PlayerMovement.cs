@@ -16,9 +16,11 @@ public class PlayerMovement : MonoBehaviour
     public int health;
     [SerializeField] GameObject[] brokenPieces;
     private int totalPieces;
+    GameManager gameManager;
 
     public virtual void Start()
     {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         rb = GetComponent<Rigidbody2D>();
         totalPieces = 0;
         health = 15;
@@ -46,11 +48,13 @@ public class PlayerMovement : MonoBehaviour
     void DropBombs()
     {
         Instantiate(bomb, transform.position, transform.rotation);
+        gameManager.DropBombs();
     }
 
     void FireRocket()
     {
         Instantiate(rocket, transform.position, transform.rotation);
+        gameManager.FireRockets();
     }
 
     void ClampedVelocity()
