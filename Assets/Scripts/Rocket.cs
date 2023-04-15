@@ -6,7 +6,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public class Rocket : MonoBehaviour
 {
     // Variable
-    public float speed = 2f;
+    public float speed = 3f;
     public GameObject explosion;
     public float maxDistance = 3.0f;
     private Vector3 lastPosition;
@@ -40,12 +40,7 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Asteroid") || collision.gameObject.CompareTag("Debris"))
-        {
-            Instantiate(explosion, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
-        else
+        if (!collision.gameObject.CompareTag("Player"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
