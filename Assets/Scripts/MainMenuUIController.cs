@@ -18,6 +18,8 @@ public class MainMenuUIController : MonoBehaviour
     private bool isMovementActive;
     [SerializeField] private GameObject tutorialCombatHolder;
     private bool isCombatActive;
+    [SerializeField] private Animator rocketAnimator;
+    [SerializeField] private Animator bombAnimator;
     // Tutorial ---------------------------------------------------------------------
     // High Score -------------------------------------------------------------------
     [Space, SerializeField] private GameObject highscoreHolder;
@@ -107,11 +109,11 @@ public class MainMenuUIController : MonoBehaviour
     // Combat Buttons --------------------------------------------------------------
     public void CombatSpaceButton()
     {
-
+        bombAnimator.SetTrigger("DropBomb");
     }
     public void CombatLMBButton()
     {
-
+        rocketAnimator.SetTrigger("FireRocket");
     }
     // Combat Buttons --------------------------------------------------------------
     // Movement On & Off -----------------------------------------------------------
@@ -162,6 +164,11 @@ public class MainMenuUIController : MonoBehaviour
     }
     // Movement WASD ---------------------------------------------------------------
     
+
+
+
+
+
     public void StartGame()
     {
 
