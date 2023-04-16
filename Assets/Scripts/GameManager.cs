@@ -9,6 +9,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+    
     // Variables -------------------------------------------------------
     // Health ----------------------------------------------------------
     private int maximumHealth;
@@ -97,6 +99,19 @@ public class GameManager : MonoBehaviour
     // UI --------------------------------------------------------------
 
     // Variables -------------------------------------------------------
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        // end of new code
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+        //LoadSaveFile(); Not Implemented yet
+    }
 
     public void StartGame(int difficulty)
     {
