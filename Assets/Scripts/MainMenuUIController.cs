@@ -39,21 +39,16 @@ public class MainMenuUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPos = player.transform.position;
-        Vector3 playerVelocity = player.GetComponent<Rigidbody2D>().velocity;
-        Vector3 newPos = playerPos + playerVelocity * Time.deltaTime;
-
+        Vector3 newPos = player.transform.localPosition;
         if (newPos.x < -screenBounds.x)
             newPos.x = screenBounds.x;
         else if (newPos.x > screenBounds.x)
             newPos.x = -screenBounds.x;
-
         if (newPos.y < -screenBounds.y)
             newPos.y = screenBounds.y;
         else if (newPos.y > screenBounds.y)
             newPos.y = -screenBounds.y;
-
-        player.transform.position = newPos;
+        player.transform.localPosition = newPos;
     }
 
     // Open and Close Tutorials/Controls -------------------------------------------
@@ -147,23 +142,23 @@ public class MainMenuUIController : MonoBehaviour
     // Movement WASD ---------------------------------------------------------------
     public void MovementButtonW()
     {
-        float speed = 2.0f;
-        player.transform.position += new Vector3(0, 1, 0) * speed;
+        float speed = 5.0f;
+        player.transform.Translate(Vector3.up * speed);
     }
     public void MovementButtonA()
     {
-        float rotationalSpeed = 25.0f;
-        player.transform.localEulerAngles += new Vector3(0, 0, 1) * rotationalSpeed;
+        float rotationalSpeed = 15.0f;
+        player.transform.eulerAngles += new Vector3(0, 0, 1) * rotationalSpeed;
     }
     public void MovementButtonS()
     {
-        float speed = 2.0f;
-        player.transform.position += new Vector3(0, -1, 0) * speed;
+        float speed = 5.0f;
+        player.transform.Translate(-Vector3.up * speed);
     }
     public void MovementButtonD()
     {
-        float rotationalSpeed = 25.0f;
-        player.transform.localEulerAngles += new Vector3(0, 0, -1) * rotationalSpeed;
+        float rotationalSpeed = 15.0f;
+        player.transform.eulerAngles += new Vector3(0, 0, -1) * rotationalSpeed;
     }
     // Movement WASD ---------------------------------------------------------------
     
