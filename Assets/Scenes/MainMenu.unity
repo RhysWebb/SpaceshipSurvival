@@ -395,6 +395,10 @@ MonoBehaviour:
   highscoreFiveText: {fileID: 128193482}
   highscoreFiveInt: {fileID: 319336591}
   statsHolder: {fileID: 331174600}
+  asteroidStats: {fileID: 0}
+  smallAsteroidStats: {fileID: 0}
+  rocketStats: {fileID: 0}
+  bombStats: {fileID: 0}
 --- !u!1 &48053527
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,6 +3788,7 @@ GameObject:
   - component: {fileID: 736051312}
   - component: {fileID: 736051314}
   - component: {fileID: 736051313}
+  - component: {fileID: 736051315}
   m_Layer: 5
   m_Name: HighScoreBackground
   m_TagString: Untagged
@@ -3854,6 +3859,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 736051311}
   m_CullTransparentMesh: 1
+--- !u!95 &736051315
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736051311}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 22c72af747ec7834aabd387fb1251aad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &743519856
 GameObject:
   m_ObjectHideFlags: 0

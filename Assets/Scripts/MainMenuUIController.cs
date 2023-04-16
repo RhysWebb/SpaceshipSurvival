@@ -38,33 +38,28 @@ public class MainMenuUIController : MonoBehaviour
     private bool isHighscoreActive;
     [SerializeField] private GameObject statsHolder;
     private bool isStatsActive;
+    // High Score --------------------------------------------------------------------
+    // Stats -------------------------------------------------------------------------
+    [Space, SerializeField] private TextMeshProUGUI asteroidStats;
+    [SerializeField] private TextMeshProUGUI smallAsteroidStats;
+    [SerializeField] private TextMeshProUGUI rocketStats;
+    [SerializeField] private TextMeshProUGUI bombStats;
+    // Stats -------------------------------------------------------------------------
+    // Variables ---------------------------------------------------------------------
 
-    // Start is called before the first frame update
+
+    // Start & Updates ---------------------------------------------------------------
     void Start()
     {
-        screenBounds = new Vector2(160, 110);
-        isTutorialActive = false;
-        isMovementActive = false;
-        isCombatActive = false;
-        isStatiticsActive = false;
-        isHighscoreActive = false;
-        isStatsActive = false;
+        StartingCaller();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = player.transform.localPosition;
-        if (newPos.x < -screenBounds.x)
-            newPos.x = screenBounds.x;
-        else if (newPos.x > screenBounds.x)
-            newPos.x = -screenBounds.x;
-        if (newPos.y < -screenBounds.y)
-            newPos.y = screenBounds.y;
-        else if (newPos.y > screenBounds.y)
-            newPos.y = -screenBounds.y;
-        player.transform.localPosition = newPos;
+        MovementUpdater();
     }
+    // Start & Updates -------------------------------------------------------------
+
     // Tutorials -------------------------------------------------------------------------------
     // Open and Close Tutorials/Controls -------------------------------------------
     public void OpenControls()
@@ -175,6 +170,19 @@ public class MainMenuUIController : MonoBehaviour
         float rotationalSpeed = 15.0f;
         player.transform.eulerAngles += new Vector3(0, 0, -1) * rotationalSpeed;
     }
+    void MovementUpdater()
+    {
+        Vector3 newPos = player.transform.localPosition;
+        if (newPos.x < -screenBounds.x)
+            newPos.x = screenBounds.x;
+        else if (newPos.x > screenBounds.x)
+            newPos.x = -screenBounds.x;
+        if (newPos.y < -screenBounds.y)
+            newPos.y = screenBounds.y;
+        else if (newPos.y > screenBounds.y)
+            newPos.y = -screenBounds.y;
+        player.transform.localPosition = newPos;
+    }
     // Movement WASD ---------------------------------------------------------------
     // Tutorials -------------------------------------------------------------------------------
 
@@ -191,9 +199,9 @@ public class MainMenuUIController : MonoBehaviour
         {
             highscoreHolder.SetActive(false);
             isStatiticsActive = false;
-            highscoreHolder.SetActive(false);
+            highscoresHolder.SetActive(false);
             isHighscoreActive = false;
-            highscoreHolder.SetActive(false);
+            statsHolder.SetActive(false);
             isStatsActive = false;
         }
     }
@@ -260,6 +268,19 @@ public class MainMenuUIController : MonoBehaviour
     // Stats On & Off --------------------------------------------------------------
     // High Scores -----------------------------------------------------------------------------
 
+    // Misc ------------------------------------------------------------------------
+    void StartingCaller()
+    {
+        screenBounds = new Vector2(160, 110);
+        tutorialHolder.SetActive(false);
+        highscoreHolder.SetActive(false);
+        isTutorialActive = false;
+        isMovementActive = false;
+        isCombatActive = false;
+        isStatiticsActive = false;
+        isHighscoreActive = false;
+        isStatsActive = false;
+    }
     public void StartGame()
     {
 
@@ -274,4 +295,5 @@ public class MainMenuUIController : MonoBehaviour
         Application.Quit();
 #endif
     }
+    // Misc ------------------------------------------------------------------------
 }
