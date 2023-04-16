@@ -23,19 +23,32 @@ public class MainMenuUIController : MonoBehaviour
     // Tutorial ---------------------------------------------------------------------
     // High Score -------------------------------------------------------------------
     [Space, SerializeField] private GameObject highscoreHolder;
-    [SerializeField] private GameObject highscoreMovementHolder;
+    private bool isStatiticsActive;
+    [SerializeField] private GameObject highscoresHolder;
     [SerializeField] private TextMeshProUGUI highscoreOneText;
+    [SerializeField] private TextMeshProUGUI highscoreOneInt;
     [SerializeField] private TextMeshProUGUI highscoreTwoText;
+    [SerializeField] private TextMeshProUGUI highscoreTwoInt;
     [SerializeField] private TextMeshProUGUI highscoreThreeText;
+    [SerializeField] private TextMeshProUGUI highscoreThreeInt;
     [SerializeField] private TextMeshProUGUI highscoreFourText;
+    [SerializeField] private TextMeshProUGUI highscoreFourInt;
     [SerializeField] private TextMeshProUGUI highscoreFiveText;
+    [SerializeField] private TextMeshProUGUI highscoreFiveInt;
     private bool isHighscoreActive;
+    [SerializeField] private GameObject statsHolder;
+    private bool isStatsActive;
 
     // Start is called before the first frame update
     void Start()
     {
         screenBounds = new Vector2(160, 110);
+        isTutorialActive = false;
         isMovementActive = false;
+        isCombatActive = false;
+        isStatiticsActive = false;
+        isHighscoreActive = false;
+        isStatsActive = false;
     }
 
     // Update is called once per frame
@@ -52,7 +65,7 @@ public class MainMenuUIController : MonoBehaviour
             newPos.y = -screenBounds.y;
         player.transform.localPosition = newPos;
     }
-
+    // Tutorials -------------------------------------------------------------------------------
     // Open and Close Tutorials/Controls -------------------------------------------
     public void OpenControls()
     {
@@ -163,11 +176,89 @@ public class MainMenuUIController : MonoBehaviour
         player.transform.eulerAngles += new Vector3(0, 0, -1) * rotationalSpeed;
     }
     // Movement WASD ---------------------------------------------------------------
-    
+    // Tutorials -------------------------------------------------------------------------------
 
+    // High Scores -----------------------------------------------------------------------------
+    // Open and Close Statistics ---------------------------------------------------
+    public void OpenStatistics()
+    {
+        if (!isStatiticsActive)
+        {
+            highscoreHolder.SetActive(true);
+            isStatiticsActive = true;
+        }
+        else if (isStatiticsActive)
+        {
+            highscoreHolder.SetActive(false);
+            isStatiticsActive = false;
+            highscoreHolder.SetActive(false);
+            isHighscoreActive = false;
+            highscoreHolder.SetActive(false);
+            isStatsActive = false;
+        }
+    }
+    public void CloseStatisticsButton() 
+    {
+        highscoreHolder.SetActive(false);
+        isStatiticsActive = false;
+        highscoresHolder.SetActive(false);
+        isHighscoreActive = false;
+        statsHolder.SetActive(false);
+        isStatsActive = false;
+    }
+    // Open and Close Statistics ---------------------------------------------------
+    // High scores On & Off --------------------------------------------------------
+    public void OpenHighScores()
+    {
+        if (!isHighscoreActive)
+        {
+            if (isStatsActive)
+            {
+                statsHolder.SetActive(false);
+                isStatsActive = false;
+                highscoresHolder.SetActive(true);
+                isHighscoreActive = true;
+            }
+            else
+            {
+                highscoresHolder.SetActive(true);
+                isHighscoreActive = true;
+            }
 
-
-
+        }
+        else if (isHighscoreActive)
+        {
+            highscoresHolder.SetActive(false);
+            isHighscoreActive = false;
+        }
+    }
+    // High scores On & Off --------------------------------------------------------
+    // Stats On & Off --------------------------------------------------------------
+    public void OpenStatisticsMini()
+    {
+        if (!isStatsActive)
+        {
+            if (isHighscoreActive)
+            {
+                highscoresHolder.SetActive(false);
+                isHighscoreActive = false;
+                statsHolder.SetActive(true);
+                isStatsActive = true;
+            }
+            else
+            {
+                statsHolder.SetActive(true);
+                isStatsActive = true;
+            }
+        }
+        else if (isStatsActive)
+        {
+            statsHolder.SetActive(false);
+            isStatsActive = false;
+        }
+    }
+    // Stats On & Off --------------------------------------------------------------
+    // High Scores -----------------------------------------------------------------------------
 
     public void StartGame()
     {
