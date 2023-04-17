@@ -16,13 +16,10 @@ public class Asteroid : MonoBehaviour
     [SerializeField] float xSpawnRange = 7.0f;
     private float ySpawnRange = 5.0f;
     [SerializeField] int scoreValue;
-    GameManager gameManager;
-
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         if (transform.position.x < xSpawnRange && transform.position.x > -xSpawnRange && transform.position.y < ySpawnRange && transform.position.y > -ySpawnRange)
         {
             int randomSpawn = Random.Range(0, count);
@@ -94,7 +91,6 @@ public class Asteroid : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
         {
-            gameManager.ScoreUpdate(scoreValue);
             Destroy(gameObject);
         }
     }
