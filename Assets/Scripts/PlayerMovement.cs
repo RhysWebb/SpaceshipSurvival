@@ -44,6 +44,10 @@ public class PlayerMovement : MonoBehaviour
             FireRocket();
         if (Input.GetButtonDown("Bomb") && !paused)
             DropBombs();
+        if (playerDamaged)
+        {
+
+        }
     }
     private void FixedUpdate()
     {
@@ -81,8 +85,12 @@ public class PlayerMovement : MonoBehaviour
     // Trigggers & Enumorators -------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion"))
-        health--;
+        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion") && !playerDamaged) 
+        {
+            playerDamaged = true;
+            health--;
+        }
+        
         if (health <= 0 )
         {
             Destroy(gameObject);
@@ -93,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    private IEnumerator FadeOut()
+    private IEnumerator DamageIndicator()
     {
         float fadeSpeed = 1f;
         float delay = 1f;
@@ -101,23 +109,18 @@ public class PlayerMovement : MonoBehaviour
         Color targetColor; 
         startColor = spriteRenderer.color;
         targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
-        playerDamaged = true;
         yield return new WaitForSeconds(delay);
-
         while (spriteRenderer.color.a > 0f)
         {
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, targetColor, fadeSpeed * Time.deltaTime);
             yield return null;
         }
-
         yield return new WaitForSeconds(delay);
-
         while (spriteRenderer.color.a < 1f)
         {
             spriteRenderer.color = Color.Lerp(spriteRenderer.color, startColor, fadeSpeed * Time.deltaTime);
             yield return null;
         }
-
         playerDamaged = false;
     }
     // Trigggers & Enumorators -------------------------------
