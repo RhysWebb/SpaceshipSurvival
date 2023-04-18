@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using TMPro;
 using UnityEngine;
 
@@ -116,8 +117,13 @@ public class MainGameUIController : MonoBehaviour
     // Game UI -------------------------------------------------------------------------
     public void Pause()
     {
-        if (pauseActive)
+        if (!pauseActive)
         {
+            pauseScreen.gameObject.SetActive(true);
+            pauseAnimator.SetTrigger("Paused");
+            pauseActive = true;
+            Time.timeScale = 0.0f;
+            /*
             if (isGameActive)
             {
                 pauseScreen.gameObject.SetActive(true);
@@ -129,17 +135,24 @@ public class MainGameUIController : MonoBehaviour
                 pauseScreen.gameObject.SetActive(false);
                 isGameActive = true;
                 Time.timeScale = 1.0f;
-            }
+            }*/
+        }
+        else if (pauseActive) 
+        {
+            pauseAnimator.SetTrigger("UnPause");
+            pauseScreen.gameObject.SetActive(false);
+            pauseActive = false;
+            Time.timeScale = 1.0f;
         }
     }
     public void Settings()
     {
-        if (!isGameActive && pauseActive && !isSettingsActive) 
+        if (pauseActive && !isSettingsActive) 
         {
             pauseAnimator.SetTrigger("SettingsSelected");
             isSettingsActive = true;
         }
-        else if (!isGameActive && pauseActive && isSettingsActive) 
+        else if (pauseActive && isSettingsActive) 
         {
             pauseAnimator.SetTrigger("SettingsClosed");
             isSettingsActive = false;

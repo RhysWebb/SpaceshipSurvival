@@ -11,12 +11,10 @@ public class Rocket : MonoBehaviour
     public float maxDistance = 3.0f;
     private Vector3 lastPosition;
     private float distanceTraveled;
-    private GameManager gameManager;
 
     private void Start()
     {
         lastPosition = transform.position;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
