@@ -12,6 +12,7 @@ TagManager:
   - Explosion
   - MiniRoid
   - Fragment
+  - PauseButton
   layers:
   - Default
   - TransparentFX

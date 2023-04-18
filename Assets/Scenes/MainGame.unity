@@ -887,7 +887,7 @@ GameObject:
   - component: {fileID: 928341038}
   m_Layer: 5
   m_Name: PauseButton
-  m_TagString: Untagged
+  m_TagString: PauseButton
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3511,6 +3511,10 @@ PrefabInstance:
     - target: {fileID: 1780782601122162849, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_Color.a
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780782601122162879, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_Name
+      value: PlayerRenderer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
