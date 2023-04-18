@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class MainGameUIController : MonoBehaviour
 {
@@ -114,6 +116,11 @@ public class MainGameUIController : MonoBehaviour
     }
     // Start game function -------------------------------------------------------------
 
+    private void Update()
+    {
+        isGameActive = GameManager.Instance.isGameActive;
+    }
+
     // Game UI -------------------------------------------------------------------------
     public void Pause()
     {
@@ -158,7 +165,41 @@ public class MainGameUIController : MonoBehaviour
             isSettingsActive = false;
         }
     }
+    public void ScoreUpdate(int scoreIncrement)
+    {
+        GameManager.Instance.score += scoreIncrement;
+        scoreText.text = $"{GameManager.Instance.score}";
+    }
+    public void DropBombs()
+    {
+        GameManager.Instance.bombs--;
+        bombText.text = $"{GameManager.Instance.bombs}";
+    }
+    public void FireRockets()
+    {
+        GameManager.Instance.ammo--;
+        ammoText.text = $"{GameManager.Instance.ammo}";
+    }
     // Game UI -------------------------------------------------------------------------
+
+    // Misc. ---------------------------------------------------------------------------
+    public void LivesUpdate()
+    {
+        GameManager.Instance.health--;
+        if (GameManager.Instance.health <= 0)
+            GameOver();
+    }
+    public void GameOver()
+    {
+        isGameActive = false;
+    }
+    public void RestartGame()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    // Misc. ---------------------------------------------------------------------------
+
     // Spawners ------------------------------------------------------------------------
     IEnumerator SpawnAsteroids(float inputSpawnRate)
     {

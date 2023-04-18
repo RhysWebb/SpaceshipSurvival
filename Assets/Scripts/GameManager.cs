@@ -89,14 +89,6 @@ public class GameManager : MonoBehaviour
         get { return isGameCurrentlyActive; }
         set { isGameCurrentlyActive = value; }
     }
-    private float asteroidSpawnRate;
-    private float supportShipSpawnRate;
-    public GameObject[] spawnedItem;
-    // UI --------------------------------------------------------------
-    [SerializeField] TextMeshProUGUI scoreText;
-    [SerializeField] TextMeshProUGUI ammoText;
-    [SerializeField] TextMeshProUGUI bombText;
-    // UI --------------------------------------------------------------
 
     // Variables -------------------------------------------------------
     private void Awake()
@@ -113,36 +105,7 @@ public class GameManager : MonoBehaviour
         //LoadSaveFile(); Not Implemented yet
     }
 
-    public void ScoreUpdate(int scoreIncrement)
-    {
-        score += scoreIncrement;
-        scoreText.text = $"{score}";
-    }
-    public void DropBombs()
-    {
-        bombs--;
-        bombText.text = $"{currentBombs}";
-    }
-    public void FireRockets()
-    {
-        ammo--;
-        ammoText.text = $"{currentAmmo}";
-    }
-    public void LivesUpdate()
-    {
-        maxHealth--;
-        if (maxHealth <= 0)
-            GameOver();
-    }
-    public void GameOver()
-    {
-        isGameActive = false;
-    }
-    public void RestartGame()
-    {
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+
 
 
 
