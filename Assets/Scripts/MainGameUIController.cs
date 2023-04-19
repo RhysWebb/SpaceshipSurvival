@@ -48,7 +48,7 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.maxHealth = 10;
                 GameManager.Instance.maxAmmo = 15;
                 GameManager.Instance.maxBombs = 5;
-                GameManager.Instance.shieldMax = 5;
+                GameManager.Instance.shieldMax = 15;
                 asteroidSpawnRate = 2.0f;
                 supportShipSpawnRate = 45.0f;
                 GameManager.Instance.score = 0;
@@ -63,7 +63,7 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.maxHealth = 8;
                 GameManager.Instance.maxAmmo = 10;
                 GameManager.Instance.maxBombs = 4;
-                GameManager.Instance.shieldMax = 3;
+                GameManager.Instance.shieldMax = 10;
                 asteroidSpawnRate = 1.5f;
                 supportShipSpawnRate = 60.0f;
                 GameManager.Instance.score = 0;
@@ -78,7 +78,7 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.maxHealth = 5;
                 GameManager.Instance.maxAmmo = 5;
                 GameManager.Instance.maxBombs = 3;
-                GameManager.Instance.shieldMax = 1;
+                GameManager.Instance.shieldMax = 5;
                 asteroidSpawnRate = 1.0f;
                 supportShipSpawnRate = 75.0f;
                 GameManager.Instance.score = 0;
@@ -93,7 +93,7 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.maxHealth = 10;
                 GameManager.Instance.maxAmmo = 15;
                 GameManager.Instance.maxBombs = 5;
-                GameManager.Instance.shieldMax = 5;
+                GameManager.Instance.shieldMax = 15;
                 asteroidSpawnRate = 2.0f;
                 supportShipSpawnRate = 45.0f;
                 GameManager.Instance.score = 0;

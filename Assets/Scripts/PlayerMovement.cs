@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool paused = false;
     [SerializeField] GameObject shield;
     public bool isShieldActive = false;
+    private int shieldMaximum;
     private float counter;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
@@ -36,16 +37,18 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         totalPieces = 0;
         health = GameManager.Instance.health;
+        shieldMaximum = GameManager.Instance.shieldMax;
     }
     void Update()
     {
         if (isShieldActive)
         {
             counter += Time.deltaTime;
-            if (counter > 3)
+            if (counter > shieldMaximum)
             {
                 isShieldActive = false;
                 shield.SetActive(false);
+                counter = 0;
             }
         }
         Debug.Log(health);
@@ -98,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         {
             health--;
         } 
-        else if (collision.CompareTag("SupportShip"))
+        else if (collision.CompareTag("Shields"))
         {
             shield.SetActive(true);
             isShieldActive = true;

@@ -55,18 +55,6 @@ public class GameManager : MonoBehaviour
     // Ammo -------------------------------------------------------------
 
     // Shields ----------------------------------------------------------
-    private bool shieldTrigger;
-    public bool shieldTriggerInput
-    {
-        get { return shieldTrigger; }
-        set { shieldTrigger = value; }
-    }
-    private int currentShields;
-    public int shields
-    {
-        get { return currentShields; }
-        set { currentShields = value; }
-    }
     private int shieldMaximum;
     public int shieldMax
     {
