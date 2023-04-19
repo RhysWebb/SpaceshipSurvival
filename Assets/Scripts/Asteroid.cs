@@ -8,7 +8,6 @@ public class Asteroid : MonoBehaviour
     private float xRange = 10.0f;
     private float yRange = 10.0f;
     private int count = 3;
-    [SerializeField] GameObject particle;
     private Rigidbody2D rb;
     [SerializeField] float minSpeed = 500.0f;
     [SerializeField] float maxSpeed = 800.0f;
@@ -87,7 +86,6 @@ public class Asteroid : MonoBehaviour
         {
             ContactPoint2D contact = collision.contacts[0];
             Vector2 hitPoint = contact.point;
-            Instantiate(particle, hitPoint, transform.rotation);
         }
         else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
         {

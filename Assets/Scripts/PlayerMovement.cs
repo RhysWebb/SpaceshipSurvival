@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         totalPieces = 0;
+        health = GameManager.Instance.health;
     }
     void Update()
     {
@@ -48,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         Debug.Log(health);
-        health = GameManager.Instance.health;
+        GameManager.Instance.health = health;
         paused = GameManager.Instance.isGameActive;
         if (!paused)
             PlayerMoving();
