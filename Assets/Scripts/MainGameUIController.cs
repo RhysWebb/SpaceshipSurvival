@@ -116,10 +116,16 @@ public class MainGameUIController : MonoBehaviour
     }
     // Start game function -------------------------------------------------------------
 
+    // Awake, Start & Update -----------------------------------------------------------
+    private void Awake()
+    {
+        StartGame(GameManager.Instance.gameDifficultyNumber);
+    }
     private void Update()
     {
         isGameActive = GameManager.Instance.isGameActive;
     }
+    // Awake, Start & Update -----------------------------------------------------------
 
     // Game UI -------------------------------------------------------------------------
     public void Pause()

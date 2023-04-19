@@ -45,6 +45,11 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rocketStats;
     [SerializeField] private TextMeshProUGUI bombStats;
     // Stats -------------------------------------------------------------------------
+    // Difficulty --------------------------------------------------------------------
+    [SerializeField] private Animator menus;
+    private int difficultyInput;
+    private bool selected = false;
+    // Difficulty --------------------------------------------------------------------
     // Variables ---------------------------------------------------------------------
 
 
@@ -268,6 +273,38 @@ public class MainMenuUIController : MonoBehaviour
     // Stats On & Off --------------------------------------------------------------
     // High Scores -----------------------------------------------------------------------------
 
+    // Difficulty ------------------------------------------------------------------
+    public void NewGame()
+    {
+        if (!selected)
+        {
+            selected = true;
+            menus.SetTrigger("DifficultySelection");
+        }
+        else
+            menus.SetTrigger("Reselected");
+    }
+    public void ReturnToMenus()
+    {
+        menus.SetTrigger("BackToMenu");
+    }
+    public void DifficultyEasy()
+    {
+        difficultyInput = 1;
+        StartGame();
+    }
+    public void DifficultyMedium()
+    {
+        difficultyInput = 2;
+        StartGame();
+    }
+    public void DifficultyHard()
+    {
+        difficultyInput = 3;
+        StartGame();
+    }
+    // Difficulty ------------------------------------------------------------------
+
     // Misc ------------------------------------------------------------------------
     void StartingCaller()
     {
@@ -281,9 +318,9 @@ public class MainMenuUIController : MonoBehaviour
         isHighscoreActive = false;
         isStatsActive = false;
     }
-    public void StartGame()
+    void StartGame()
     {
-
+        GameManager.Instance.gameDifficultyNumber = difficultyInput;
         SceneManager.LoadScene(1);
     }
     public void ExitGame()

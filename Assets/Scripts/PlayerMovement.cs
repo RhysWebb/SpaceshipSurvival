@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private int totalPieces;
     private bool paused = false;
     private bool playerDamaged = false;
+    private Color player;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
 
@@ -33,6 +34,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         totalPieces = 0;
+        player = spriteRenderer.color;
     }
     void Update()
     {
@@ -46,7 +48,13 @@ public class PlayerMovement : MonoBehaviour
             DropBombs();
         if (playerDamaged)
         {
-
+            for (int i = 0; i < 3; i++)
+            {
+                spriteRenderer.material.color = Color.white;
+                StartCoroutine(DamageIndicator());
+                spriteRenderer.material.color = player;
+                StartCoroutine(DamageIndicator());
+            }
         }
     }
     private void FixedUpdate()
@@ -103,25 +111,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private IEnumerator DamageIndicator()
     {
-        float fadeSpeed = 1f;
-        float delay = 1f;
-        Color startColor;
-        Color targetColor; 
-        startColor = spriteRenderer.color;
-        targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f);
-        yield return new WaitForSeconds(delay);
-        while (spriteRenderer.color.a > 0f)
-        {
-            spriteRenderer.color = Color.Lerp(spriteRenderer.color, targetColor, fadeSpeed * Time.deltaTime);
-            yield return null;
-        }
-        yield return new WaitForSeconds(delay);
-        while (spriteRenderer.color.a < 1f)
-        {
-            spriteRenderer.color = Color.Lerp(spriteRenderer.color, startColor, fadeSpeed * Time.deltaTime);
-            yield return null;
-        }
-        playerDamaged = false;
+        yield return new WaitForSeconds(1);
     }
     // Trigggers & Enumorators -------------------------------
 } // Class

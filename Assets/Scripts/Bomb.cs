@@ -26,8 +26,11 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Instantiate(explosion, transform.position, transform.rotation);
-        Destroy(collision.gameObject);
-        Destroy(gameObject);
+        if (!collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Bomb"))
+        {
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
     }
 }

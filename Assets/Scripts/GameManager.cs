@@ -83,13 +83,21 @@ public class GameManager : MonoBehaviour
         set { currentScore = value; }
     }
     // Score -----------------------------------------------------------
+
+    // Game Management -------------------------------------------------
     private bool isGameCurrentlyActive;
     public bool isGameActive
     {
         get { return isGameCurrentlyActive; }
         set { isGameCurrentlyActive = value; }
     }
-
+    private int gameDifficulty;
+    public int gameDifficultyNumber
+    {
+        get { return gameDifficulty; }
+        set { gameDifficulty = value; }
+    }
+    // Game Management -------------------------------------------------
     // Variables -------------------------------------------------------
     private void Awake()
     {
