@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         get { return isGameCurrentlyActive; }
         set { isGameCurrentlyActive = value; }
     }
-    private int gameDifficulty;
+    [SerializeField] private int gameDifficulty;
     public int gameDifficultyNumber
     {
         get { return gameDifficulty; }

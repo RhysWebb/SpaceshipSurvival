@@ -56,8 +56,6 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
                 GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
-                StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
-                StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
                 isGameActive = true;
                 Time.timeScale = 1.0f;
                 break;
@@ -73,8 +71,6 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
                 GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
-                StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
-                StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
                 isGameActive = true;
                 Time.timeScale = 1.0f;
                 break;
@@ -90,8 +86,6 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
                 GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
-                StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
-                StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
                 isGameActive = true;
                 Time.timeScale = 1.0f;
                 break;
@@ -107,8 +101,6 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
                 GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
-                StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
-                StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
                 isGameActive = true;
                 Time.timeScale = 1.0f;
                 break;
@@ -117,13 +109,11 @@ public class MainGameUIController : MonoBehaviour
     // Start game function -------------------------------------------------------------
 
     // Awake, Start & Update -----------------------------------------------------------
-    private void Awake()
+    private void Start()
     {
         StartGame(GameManager.Instance.gameDifficultyNumber);
-    }
-    private void Update()
-    {
-        isGameActive = GameManager.Instance.isGameActive;
+        StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
+        StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
     }
     // Awake, Start & Update -----------------------------------------------------------
 
@@ -135,37 +125,26 @@ public class MainGameUIController : MonoBehaviour
             pauseScreen.gameObject.SetActive(true);
             pauseAnimator.SetTrigger("Paused");
             pauseActive = true;
+            isGameActive = false;
             Time.timeScale = 0.0f;
-            /*
-            if (isGameActive)
-            {
-                pauseScreen.gameObject.SetActive(true);
-                isGameActive = false;
-                Time.timeScale = 0.0f;
-            }
-            else if (!isGameActive)
-            {
-                pauseScreen.gameObject.SetActive(false);
-                isGameActive = true;
-                Time.timeScale = 1.0f;
-            }*/
         }
-        else if (pauseActive) 
+        else if (pauseActive)
         {
             pauseAnimator.SetTrigger("UnPause");
             pauseScreen.gameObject.SetActive(false);
             pauseActive = false;
+            isGameActive = true;
             Time.timeScale = 1.0f;
         }
     }
     public void Settings()
     {
-        if (pauseActive && !isSettingsActive) 
+        if (pauseActive && !isSettingsActive)
         {
             pauseAnimator.SetTrigger("SettingsSelected");
             isSettingsActive = true;
         }
-        else if (pauseActive && isSettingsActive) 
+        else if (pauseActive && isSettingsActive)
         {
             pauseAnimator.SetTrigger("SettingsClosed");
             isSettingsActive = false;
@@ -192,6 +171,7 @@ public class MainGameUIController : MonoBehaviour
     public void LivesUpdate()
     {
         GameManager.Instance.health--;
+        Debug.Log("Lives Lowered");
         if (GameManager.Instance.health <= 0)
             GameOver();
     }

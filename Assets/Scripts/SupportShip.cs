@@ -11,6 +11,8 @@ public class SupportShip : MonoBehaviour
     private int airDropsIndex;
     private int airDropsCount;
     [SerializeField] public int maxDrops = 5;
+    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private GameObject sheilds;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +26,10 @@ public class SupportShip : MonoBehaviour
         transform.Translate(Vector2.up * Time.deltaTime * speed);
         transform.Rotate(new Vector3(0.0f, 0.0f, rotation * Time.deltaTime * speed));
         airDropsIndex = Random.Range(0, airDrops.Length);
+        if (playerMovement.isShieldActive)
+        {
+            sheilds.SetActive(false);
+        }
     }
 
     void AirDrops()
@@ -32,5 +38,11 @@ public class SupportShip : MonoBehaviour
         {
             Instantiate(airDrops[airDropsIndex], transform.position, transform.rotation);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Player"))
+            Destroy(gameObject);
     }
 }

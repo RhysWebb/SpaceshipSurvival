@@ -23,8 +23,9 @@ public class PlayerMovement : MonoBehaviour
     [Space, SerializeField] GameObject[] brokenPieces;
     private int totalPieces;
     private bool paused = false;
-    private bool playerDamaged = false;
-    private Color player;
+    [SerializeField] GameObject shield;
+    public bool isShieldActive = false;
+    private float counter;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
 
@@ -34,10 +35,19 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         totalPieces = 0;
-        player = spriteRenderer.color;
     }
     void Update()
     {
+        if (isShieldActive)
+        {
+            counter += Time.deltaTime;
+            if (counter > 3)
+            {
+                isShieldActive = false;
+                shield.SetActive(false);
+            }
+        }
+        Debug.Log(health);
         health = GameManager.Instance.health;
         paused = GameManager.Instance.isGameActive;
         if (!paused)
@@ -46,16 +56,6 @@ public class PlayerMovement : MonoBehaviour
             FireRocket();
         if (Input.GetButtonDown("Bomb") && !paused)
             DropBombs();
-        if (playerDamaged)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                spriteRenderer.material.color = Color.white;
-                StartCoroutine(DamageIndicator());
-                spriteRenderer.material.color = player;
-                StartCoroutine(DamageIndicator());
-            }
-        }
     }
     private void FixedUpdate()
     {
@@ -93,10 +93,14 @@ public class PlayerMovement : MonoBehaviour
     // Trigggers & Enumorators -------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion") && !playerDamaged) 
+        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion")) 
         {
-            playerDamaged = true;
             health--;
+        } 
+        else if (collision.CompareTag("SupportShip"))
+        {
+            shield.SetActive(true);
+            isShieldActive = true;
         }
         
         if (health <= 0 )

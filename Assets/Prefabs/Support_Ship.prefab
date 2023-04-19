@@ -100,6 +100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   airDrops: []
   maxDrops: 5
+  playerMovement: {fileID: 0}
+  sheilds: {fileID: 0}
 --- !u!1 &7364708025170025789
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +116,7 @@ GameObject:
   - component: {fileID: 7364708025170025784}
   m_Layer: 0
   m_Name: ForceField_Full
-  m_TagString: Untagged
+  m_TagString: SupportShip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
