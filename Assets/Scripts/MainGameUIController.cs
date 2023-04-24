@@ -45,7 +45,7 @@ public class MainGameUIController : MonoBehaviour
         switch (difficulty)
         {
             case 1:
-                GameManager.Instance.maxHealth = 10;
+                GameManager.Instance.maxHealth = 6;
                 GameManager.Instance.maxAmmo = 15;
                 GameManager.Instance.maxBombs = 5;
                 GameManager.Instance.shieldMax = 15;
@@ -60,7 +60,7 @@ public class MainGameUIController : MonoBehaviour
                 Time.timeScale = 1.0f;
                 break;
             case 2:
-                GameManager.Instance.maxHealth = 8;
+                GameManager.Instance.maxHealth = 6;
                 GameManager.Instance.maxAmmo = 10;
                 GameManager.Instance.maxBombs = 4;
                 GameManager.Instance.shieldMax = 10;
@@ -75,7 +75,7 @@ public class MainGameUIController : MonoBehaviour
                 Time.timeScale = 1.0f;
                 break;
             case 3:
-                GameManager.Instance.maxHealth = 5;
+                GameManager.Instance.maxHealth = 6;
                 GameManager.Instance.maxAmmo = 5;
                 GameManager.Instance.maxBombs = 3;
                 GameManager.Instance.shieldMax = 5;
@@ -90,7 +90,7 @@ public class MainGameUIController : MonoBehaviour
                 Time.timeScale = 1.0f;
                 break;
             default:
-                GameManager.Instance.maxHealth = 10;
+                GameManager.Instance.maxHealth = 6;
                 GameManager.Instance.maxAmmo = 15;
                 GameManager.Instance.maxBombs = 5;
                 GameManager.Instance.shieldMax = 15;

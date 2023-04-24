@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     private float playerInputY;
     private float playerInputX;
     // Input -------------------------------------------------
+    // Player health -----------------------------------------
+    [SerializeField] private Sprite[] playerHealthSprite;
+    // Player health -----------------------------------------
     // Misc. -------------------------------------------------
     [SerializeField] GameObject rocket;
     [SerializeField] GameObject bomb;
@@ -26,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject shield;
     public bool isShieldActive = false;
     private int shieldMaximum;
-    private float counter;
+    public float counter;
     private MainGameUIController mainGameUIController;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
@@ -43,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
+        PlayerHealthSprite();
         if (isShieldActive)
         {
             counter += Time.deltaTime;
@@ -105,7 +109,37 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = clampedVelocity;
     }
     // Player Functions --------------------------------------
-
+    
+    // Player Health -----------------------------------------
+    void PlayerHealthSprite()
+    {
+        switch(health)
+        {
+            case 6:
+                spriteRenderer.sprite = playerHealthSprite[0];
+                break;
+            case 5:
+                spriteRenderer.sprite = playerHealthSprite[1];
+                break;
+            case 4:
+                spriteRenderer.sprite = playerHealthSprite[2];
+                break;
+            case 3: 
+                spriteRenderer.sprite = playerHealthSprite[3];
+                break;
+            case 2: 
+                spriteRenderer.sprite = playerHealthSprite[4];
+                break;
+            case 1: 
+                spriteRenderer.sprite = playerHealthSprite[5];
+                break;
+            default: 
+                spriteRenderer.sprite = playerHealthSprite[0]; 
+                break;
+        }
+    }
+    // Player Health -----------------------------------------
+    
     // Trigggers & Enumorators -------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
