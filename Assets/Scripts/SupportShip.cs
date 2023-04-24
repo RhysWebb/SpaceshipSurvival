@@ -81,7 +81,7 @@ public class SupportShip : MonoBehaviour
         {
             SpawnedSpeedBTT();
         }
-        if (miniTimer >=2 && dropCounter < airDropsCount) 
+        if (miniTimer >= 2 && dropCounter < airDropsCount) 
         {
             AirDrops();
             dropCounter++;
