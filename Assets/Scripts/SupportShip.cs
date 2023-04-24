@@ -10,14 +10,16 @@ public class SupportShip : MonoBehaviour
     public GameObject[] airDrops;
     private int airDropsIndex;
     private int airDropsCount;
-    [SerializeField] public int maxDrops = 5;
-    [SerializeField] private PlayerMovement playerMovement;
-    [SerializeField] private GameObject sheilds;
+    public int maxDrops = 5;
+    private PlayerMovement playerMovement;
+    [SerializeField] private GameObject shields;
 
     // Start is called before the first frame update
     void Start()
     {
         airDropsCount = Random.Range(0, maxDrops);
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        shields = GameObject.FindGameObjectWithTag("Shields");
     }
 
     // Update is called once per frame
@@ -28,7 +30,7 @@ public class SupportShip : MonoBehaviour
         airDropsIndex = Random.Range(0, airDrops.Length);
         if (playerMovement.isShieldActive)
         {
-            sheilds.SetActive(false);
+            shields.SetActive(false);
         }
     }
 

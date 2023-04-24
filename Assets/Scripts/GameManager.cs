@@ -94,15 +94,8 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        // end of new code
-
         Instance = this;
         DontDestroyOnLoad(gameObject);
         //LoadSaveFile(); Not Implemented yet
     }
-
-
-
-
-
 }

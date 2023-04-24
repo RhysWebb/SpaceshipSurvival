@@ -114,6 +114,9 @@ public class MainGameUIController : MonoBehaviour
         StartGame(GameManager.Instance.gameDifficultyNumber);
         StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
         StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
+        BombGUIUpdater();
+        RocketGGUIUpdater();
+        Time.timeScale = 1.0f;
     }
     // Awake, Start & Update -----------------------------------------------------------
 
@@ -158,11 +161,19 @@ public class MainGameUIController : MonoBehaviour
     public void DropBombs()
     {
         GameManager.Instance.bombs--;
+        BombGUIUpdater();
+    }
+    public void BombGUIUpdater()
+    {
         bombText.text = $"{GameManager.Instance.bombs}";
     }
     public void FireRockets()
     {
         GameManager.Instance.ammo--;
+        RocketGGUIUpdater();
+    }
+    public void RocketGGUIUpdater()
+    {
         ammoText.text = $"{GameManager.Instance.ammo}";
     }
     // Game UI -------------------------------------------------------------------------

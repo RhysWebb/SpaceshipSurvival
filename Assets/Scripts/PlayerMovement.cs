@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isShieldActive = false;
     private int shieldMaximum;
     private float counter;
+    private MainGameUIController mainGameUIController;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
+        mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         totalPieces = 0;
         health = GameManager.Instance.health;
         shieldMaximum = GameManager.Instance.shieldMax;
@@ -55,11 +57,13 @@ public class PlayerMovement : MonoBehaviour
         GameManager.Instance.health = health;
         paused = GameManager.Instance.isGameActive;
         if (!paused)
+        {            
             PlayerMoving();
-        if (Input.GetButtonDown("FireRocket") && !paused)
-            FireRocket();
-        if (Input.GetButtonDown("Bomb") && !paused)
-            DropBombs();
+            if (Input.GetButtonDown("FireRocket"))
+                FireRocket();
+            if (Input.GetButtonDown("Bomb"))
+                DropBomb();
+        }
     }
     private void FixedUpdate()
     {
@@ -76,13 +80,21 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(movement * speed);
         transform.Rotate(Vector3.back * Time.deltaTime * rotationalSpeed * playerInputX);
     }
-    void DropBombs()
+    void DropBomb()
     {
-        Instantiate(bomb, transform.position, transform.rotation);
+        if (GameManager.Instance.bombs > 0)
+        {
+            Instantiate(bomb, transform.position, transform.rotation);
+            mainGameUIController.DropBombs();
+        }
     }
     void FireRocket()
     {
-        Instantiate(rocket, transform.position, transform.rotation);
+        if (GameManager.Instance.ammo > 0)
+        {
+            Instantiate(rocket, transform.position, transform.rotation);
+            mainGameUIController.FireRockets();
+        }
     }
     void ClampedVelocity()
     {
@@ -97,14 +109,50 @@ public class PlayerMovement : MonoBehaviour
     // Trigggers & Enumorators -------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion")) 
+        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion"))
         {
             health--;
-        } 
+        }
         else if (collision.CompareTag("Shields"))
         {
             shield.SetActive(true);
             isShieldActive = true;
+        }
+        else if (collision.CompareTag("InstantShields"))
+        {
+            if (!isShieldActive)
+            {
+                Destroy(collision.gameObject);
+                shield.SetActive(true);
+                isShieldActive = true;
+            }
+        }
+        else if (collision.CompareTag("AmmoBombs"))
+        {
+            if (GameManager.Instance.bombs < GameManager.Instance.maxBombs)
+            {
+                Destroy(collision.gameObject);
+                GameManager.Instance.bombs = GameManager.Instance.maxBombs;
+                mainGameUIController.BombGUIUpdater();
+            }
+        }
+        else if (collision.CompareTag("AmmoRockets"))
+        {
+            if (GameManager.Instance.ammo < GameManager.Instance.maxAmmo)
+            {
+                if (GameManager.Instance.maxAmmo - GameManager.Instance.ammo >= 5)
+                {
+                    Destroy(collision.gameObject);
+                    GameManager.Instance.ammo += 5;
+                    mainGameUIController.RocketGGUIUpdater();
+                }
+                else if (GameManager.Instance.maxAmmo - GameManager.Instance.ammo < 5)
+                {
+                    Destroy(collision.gameObject);
+                    GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
+                    mainGameUIController.RocketGGUIUpdater();
+                }
+            }
         }
         
         if (health <= 0 )

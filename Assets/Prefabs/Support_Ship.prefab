@@ -98,7 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94ec63907a8bd0647bf84e6a6f49060c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  airDrops: []
+  airDrops:
+  - {fileID: 3524524436452428579, guid: f161b7de52ec648469839cd567f6fdd3, type: 3}
+  - {fileID: 3524524436452428579, guid: f161b7de52ec648469839cd567f6fdd3, type: 3}
+  - {fileID: 3524524436452428579, guid: f161b7de52ec648469839cd567f6fdd3, type: 3}
+  - {fileID: 3524524436452428579, guid: f161b7de52ec648469839cd567f6fdd3, type: 3}
+  - {fileID: 4575392289349569010, guid: b3f2aa02c0f87034da23cf215e596310, type: 3}
+  - {fileID: 4575392289349569010, guid: b3f2aa02c0f87034da23cf215e596310, type: 3}
+  - {fileID: 4575392289349569010, guid: b3f2aa02c0f87034da23cf215e596310, type: 3}
+  - {fileID: 4575392289349569010, guid: b3f2aa02c0f87034da23cf215e596310, type: 3}
+  - {fileID: 3355544225309158013, guid: 924fea5921098c046b1eccdb9a08ac86, type: 3}
   maxDrops: 5
   playerMovement: {fileID: 0}
   sheilds: {fileID: 7364708025170025789}
