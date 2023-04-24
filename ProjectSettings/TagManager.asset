@@ -17,6 +17,7 @@ TagManager:
   - InstantShields
   - AmmoRockets
   - AmmoBombs
+  - PlayerShield
   layers:
   - Default
   - TransparentFX

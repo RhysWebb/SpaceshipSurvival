@@ -38,10 +38,14 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Rocket"))
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Rocket") && !collision.gameObject.CompareTag("PlayerShield"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("PlayerShield"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
     }
 }

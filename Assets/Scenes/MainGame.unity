@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 71686554}
   m_Layer: 0
   m_Name: ForceField_Full
-  m_TagString: Untagged
+  m_TagString: PlayerShield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

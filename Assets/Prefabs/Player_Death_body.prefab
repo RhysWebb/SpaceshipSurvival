@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4085029108089641224}
   m_Layer: 0
   m_Name: Player_Death_body
-  m_TagString: Untagged
+  m_TagString: Fragment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b5a8deeb8e4ee14d803ea9d8362dedf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxTorque: 10
 --- !u!50 &-5091117312525832564
 Rigidbody2D:
   serializedVersion: 4

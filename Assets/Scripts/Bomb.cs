@@ -26,11 +26,15 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Bomb"))
+        if (!collision.gameObject.CompareTag("Player") && !collision.gameObject.CompareTag("Bomb") && !collision.gameObject.CompareTag("PlayerShield"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
             Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("PlayerShield"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
     }
 }
