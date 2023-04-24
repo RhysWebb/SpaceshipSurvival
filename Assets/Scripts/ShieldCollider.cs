@@ -51,5 +51,9 @@ public class ShieldCollider : MonoBehaviour
                 }
             }
         }
+        else if (collision.gameObject.CompareTag("Shields"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
     }
 }

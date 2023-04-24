@@ -36,7 +36,6 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private GameObject[] spawnedItem;
     [SerializeField] private GameObject supportShip;
     // Spawners ---------------------------------------------------
-
     // Variables --------------------------------------------------
 
     // Start game function -------------------------------------------------------------
