@@ -3077,49 +3077,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 364274514, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 364274514, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 364274514, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1347533965
+      objectReference: {fileID: 0}
     - target: {fileID: 1780782601042082410, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.data[0]
-      value: 
-      objectReference: {fileID: 1516720740, guid: 2ac2cd139da39f049827a9c78f01ad29, type: 3}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.data[1]
-      value: 
-      objectReference: {fileID: -1532710377, guid: 2ac2cd139da39f049827a9c78f01ad29, type: 3}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.data[2]
-      value: 
-      objectReference: {fileID: -1851672417, guid: 2ac2cd139da39f049827a9c78f01ad29, type: 3}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.data[3]
-      value: 
-      objectReference: {fileID: 1749014160, guid: 2ac2cd139da39f049827a9c78f01ad29, type: 3}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.data[4]
-      value: 
-      objectReference: {fileID: -1199007293, guid: 2ac2cd139da39f049827a9c78f01ad29, type: 3}
-    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: playerHealthSprite.Array.data[5]
-      value: 
-      objectReference: {fileID: -1067097347, guid: 2ac2cd139da39f049827a9c78f01ad29, type: 3}
     - target: {fileID: 1780782601042082415, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1780782601042082415, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1780782601042082415, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1780782601042082415, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3163,20 +3139,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
---- !u!1 &1780782601631399027 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 71686553, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
-  m_PrefabInstance: {fileID: 1780782601631399025}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1780782601631399028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1780782601631399027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dcb7cc50fe58e74e936c4f864138130, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

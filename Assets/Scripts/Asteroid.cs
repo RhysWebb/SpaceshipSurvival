@@ -43,7 +43,6 @@ public class Asteroid : MonoBehaviour
             SpawnedSpeedBTT();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (transform.position.x < -xRange || transform.position.x > xRange || transform.position.y < -yRange || transform.position.y > yRange)
@@ -84,12 +83,7 @@ public class Asteroid : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Asteroid") || collision.gameObject.CompareTag("Debris"))
-        {
-            ContactPoint2D contact = collision.contacts[0];
-            Vector2 hitPoint = contact.point;
-        }
-        else if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
+        if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
         {
             mainGameUIController.ScoreUpdate(scoreValue);
             Destroy(gameObject);

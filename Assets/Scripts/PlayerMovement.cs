@@ -46,7 +46,8 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-        PlayerHealthSprite();
+        PlayerHealthSprite(GameManager.Instance.health);
+        Debug.Log(GameManager.Instance.health);
         if (isShieldActive)
         {
             counter += Time.deltaTime;
@@ -57,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
                 counter = 0;
             }
         }
-        Debug.Log(health);
-        GameManager.Instance.health = health;
         paused = GameManager.Instance.isGameActive;
         if (!paused)
         {            
@@ -111,9 +110,9 @@ public class PlayerMovement : MonoBehaviour
     // Player Functions --------------------------------------
     
     // Player Health -----------------------------------------
-    void PlayerHealthSprite()
+    void PlayerHealthSprite(float inputHealth)
     {
-        switch(health)
+        switch(inputHealth)
         {
             case 6:
                 spriteRenderer.sprite = playerHealthSprite[0];
@@ -133,6 +132,14 @@ public class PlayerMovement : MonoBehaviour
             case 1: 
                 spriteRenderer.sprite = playerHealthSprite[5];
                 break;
+            case 0:           
+                Destroy(gameObject);
+                for (int i = 0; i < 3; i++)
+                {
+                    Instantiate(brokenPieces[totalPieces], transform.position, transform.rotation);
+                    totalPieces++;
+                }
+                break;
             default: 
                 spriteRenderer.sprite = playerHealthSprite[0]; 
                 break;
@@ -145,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion"))
         {
-            health--;
+            GameManager.Instance.health--;
         }
         else if (collision.CompareTag("Shields"))
         {
@@ -186,16 +193,6 @@ public class PlayerMovement : MonoBehaviour
                     GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
                     mainGameUIController.RocketGGUIUpdater();
                 }
-            }
-        }
-        
-        if (health <= 0 )
-        {
-            Destroy(gameObject);
-            for (int i = 0; i < 3; i++) 
-            {
-                Instantiate(brokenPieces[totalPieces], transform.position, transform.rotation);
-                totalPieces++;
             }
         }
     }

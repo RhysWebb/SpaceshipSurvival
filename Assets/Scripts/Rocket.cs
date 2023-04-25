@@ -43,9 +43,5 @@ public class Rocket : MonoBehaviour
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.CompareTag("PlayerShield"))
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
-        }
     }
 }

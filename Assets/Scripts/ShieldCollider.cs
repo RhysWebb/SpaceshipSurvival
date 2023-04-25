@@ -51,7 +51,7 @@ public class ShieldCollider : MonoBehaviour
                 }
             }
         }
-        else if (collision.gameObject.CompareTag("Shields") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("EXplosion") || collision.gameObject.CompareTag("Rocket"))
+        if (collision.gameObject.CompareTag("Shields") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
         {
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
