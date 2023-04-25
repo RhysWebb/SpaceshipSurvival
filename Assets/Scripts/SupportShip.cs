@@ -18,7 +18,7 @@ public class SupportShip : MonoBehaviour
     private bool isRTL = false;
     private bool isTTB = false;
     private bool isBTT = false;
-    private float miniTimer;
+    [SerializeField] private float miniTimer;
     private int dropCounter;
 
     // Start is called before the first frame update
@@ -39,27 +39,25 @@ public class SupportShip : MonoBehaviour
         }
         if (transform.position.x >= xSpawnRange)
         {
-            SpawnedSpeedLTR();
+            transform.Rotate(new Vector3(0.0f, 0.0f, 270.0f));
             isLTR = true;
         }
         else if (transform.position.x <= -xSpawnRange)
         {
-            SpawnedSpeedRTL();
+            transform.Rotate(new Vector3(0.0f, 0.0f, 90.0f));
             isRTL = true;
         }
         else if (transform.position.y >= ySpawnRange)
         {
-            SpawnedSpeedTTB();
+            transform.Rotate(new Vector3(0.0f, 0.0f, 180.0f));
             isTTB = true;
         }
         else if (transform.position.y <= -ySpawnRange)
         {
-            SpawnedSpeedBTT();
+            transform.Rotate(new Vector3(0.0f, 0.0f, 0.0f));
             isBTT = true;
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
         miniTimer += Time.deltaTime;
@@ -85,7 +83,7 @@ public class SupportShip : MonoBehaviour
         {
             AirDrops();
             dropCounter++;
-            miniTimer = 0;
+            miniTimer = 1.2f;
         }
     }
     void AirDrops()
@@ -97,26 +95,22 @@ public class SupportShip : MonoBehaviour
     void SpawnedSpeedLTR()
     {
         float speed = Random.Range(1.5f, 2.5f);
-        transform.Translate(-Vector2.right * Time.deltaTime * speed);
-        transform.Rotate(new Vector3(0.0f, 0.0f, 270.0f));
+        transform.Translate(Vector2.left * Time.deltaTime * speed);
     }
     void SpawnedSpeedRTL()
     {
         float speed = Random.Range(1.5f, 2.5f);
         transform.Translate(Vector2.right * Time.deltaTime * speed);
-        transform.Rotate(new Vector3(0.0f, 0.0f, 90.0f));
     }
     void SpawnedSpeedBTT()
     {
         float speed = Random.Range(1.5f, 2.5f);
         transform.Translate(Vector2.up * Time.deltaTime * speed);
-        transform.Rotate(new Vector3(0.0f, 0.0f, 0.0f));
     }
     void SpawnedSpeedTTB()
     {
         float speed = Random.Range(1.5f, 2.5f);
-        transform.Translate(-Vector2.up * Time.deltaTime * speed);
-        transform.Rotate(new Vector3(0.0f, 0.0f, 180.0f));
+        transform.Translate(Vector2.down * Time.deltaTime * speed);
     }
     // Spawn directions ----------------------------------------------------------
 
@@ -125,10 +119,6 @@ public class SupportShip : MonoBehaviour
     {
         if (!collision.gameObject.CompareTag("Player"))
             Destroy(gameObject);
-    }
-    IEnumerator TimerToWait(int amount)
-    {
-        yield return new WaitForSeconds(amount); 
     }
     // Collisions ----------------------------------------------------------------
 }

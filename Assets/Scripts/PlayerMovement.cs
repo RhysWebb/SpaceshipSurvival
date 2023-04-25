@@ -41,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         totalPieces = 0;
-        health = GameManager.Instance.health;
+        health = GameManager.Instance.maxHealth;
         shieldMaximum = GameManager.Instance.shieldMax;
     }
     void Update()
@@ -198,10 +198,6 @@ public class PlayerMovement : MonoBehaviour
                 totalPieces++;
             }
         }
-    }
-    private IEnumerator DamageIndicator()
-    {
-        yield return new WaitForSeconds(1);
     }
     // Trigggers & Enumorators -------------------------------
 } // Class
