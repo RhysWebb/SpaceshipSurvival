@@ -2231,10 +2231,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForceField_Full
       objectReference: {fileID: 0}
+    - target: {fileID: 5585621122401077637, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585621122401077637, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585621122401077657, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585621122401077657, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1347533965
+      objectReference: {fileID: 0}
     - target: {fileID: 7702062406552947308, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 1780782601631399026}
+    - target: {fileID: 7702062406552947308, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 1780782601631399027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
 --- !u!1 &1866144175
@@ -2450,6 +2470,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911806984}
   m_CullTransparentMesh: 1
+--- !u!1 &1919887493 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5585621122401077637, guid: 15a1bc6a4a561fb499f36e4662567927, type: 3}
+  m_PrefabInstance: {fileID: 1832912850}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1923670322
 GameObject:
   m_ObjectHideFlags: 0
@@ -3142,6 +3167,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: playerShields
+      value: 
+      objectReference: {fileID: 1919887493}
     - target: {fileID: 1780782601042082415, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3193,3 +3222,14 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1780782601042082410, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
   m_PrefabInstance: {fileID: 1780782601631399025}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1780782601631399027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1780782601042082412, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+  m_PrefabInstance: {fileID: 1780782601631399025}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780782601631399026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4e88797bdef3294e9c42cb9941a7221, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

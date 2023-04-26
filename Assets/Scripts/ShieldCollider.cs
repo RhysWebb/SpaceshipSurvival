@@ -7,11 +7,27 @@ public class ShieldCollider : MonoBehaviour
 {
     private MainGameUIController mainGameUIController;
     [SerializeField] private GameObject player;
+    [SerializeField] private PlayerMovement playerMovement;
+    private float miniTimer;
 
     private void Start()
     {
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         transform.position = player.transform.position;
+        miniTimer = 0;
+    }
+    private void Update()
+    {
+        if (playerMovement.isShieldActive)
+        {
+            miniTimer += Time.deltaTime;
+        }
+        if (miniTimer > GameManager.Instance.shieldMax)
+        {
+            miniTimer = 0;
+            playerMovement.isShieldActive = false;
+            gameObject.SetActive(false);
+        }
     }
     private void LateUpdate()
     {
@@ -19,11 +35,7 @@ public class ShieldCollider : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("InstantShields"))
-        {
-
-        }
-        else if (collision.gameObject.CompareTag("AmmoBombs"))
+        if (collision.gameObject.CompareTag("AmmoBombs"))
         {
             if (GameManager.Instance.bombs < GameManager.Instance.maxBombs)
             {
@@ -49,6 +61,8 @@ public class ShieldCollider : MonoBehaviour
                     mainGameUIController.RocketGGUIUpdater();
                 }
             }
+
+
         }
     }
 }

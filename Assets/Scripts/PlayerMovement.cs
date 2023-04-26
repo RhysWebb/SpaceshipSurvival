@@ -21,8 +21,8 @@ public class PlayerMovement : MonoBehaviour
     // Player health -----------------------------------------
     [SerializeField] private Sprite[] playerHealthSprite;
     [SerializeField] private GameObject playerShields;
-    [Space, SerializeField] public bool isShieldActive;
-    private int shieldMaximum;
+    [Space] public bool isShieldActive;
+    private bool playerDamaged;
     // Player health -----------------------------------------
     // Misc. -------------------------------------------------
     private SpriteRenderer spriteRenderer;
@@ -44,7 +44,6 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         totalPieces = 0;
-        StartCoroutine(PlayerShields(GameManager.Instance.shieldMax));
     }
     void Update()
     {
@@ -58,13 +57,23 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetButtonDown("Bomb"))
                 DropBomb();
         }
+        if (isShieldActive)
+        {
+            playerShields.SetActive(true);
+        }
     }
     private void FixedUpdate()
     {
         ClampedVelocity();
     }
     // Start & Update ----------------------------------------
-
+    void PlayerDamaged()
+    {
+        if (playerDamaged)
+        {
+            spriteRenderer.enabled = false;
+        }
+    }
     // Player Functions --------------------------------------
     void PlayerMoving()
     {
@@ -180,16 +189,6 @@ public class PlayerMovement : MonoBehaviour
                     mainGameUIController.RocketGGUIUpdater();
                 }
             }
-        }
-    }
-    IEnumerator PlayerShields(float inputSeconds)
-    {
-        while (isShieldActive)
-        {
-            playerShields.SetActive(true);
-            yield return new WaitForSeconds(inputSeconds); // replace 2f with the delay you want
-            isShieldActive = false;
-            playerShields.SetActive(false);
         }
     }
     // Trigggers & Enumerators -------------------------------

@@ -49,7 +49,7 @@ public class MainGameUIController : MonoBehaviour
                 GameManager.Instance.maxBombs = 5;
                 GameManager.Instance.shieldMax = 15;
                 asteroidSpawnRate = 2.0f;
-                supportShipSpawnRate = 5.0f; // ---------------------------------------------------------- ## Flag ## change to 25.0f 
+                supportShipSpawnRate = 25.0f;  
                 GameManager.Instance.score = 0;
                 scoreText.text = $"{GameManager.Instance.score}";
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
@@ -60,11 +60,11 @@ public class MainGameUIController : MonoBehaviour
                 break;
             case 2:
                 GameManager.Instance.maxHealth = 6;
-                GameManager.Instance.maxAmmo = 10;
+                GameManager.Instance.maxAmmo = 12;
                 GameManager.Instance.maxBombs = 4;
                 GameManager.Instance.shieldMax = 10;
                 asteroidSpawnRate = 1.5f;
-                supportShipSpawnRate = 50.0f;
+                supportShipSpawnRate = 22.0f;
                 GameManager.Instance.score = 0;
                 scoreText.text = $"{GameManager.Instance.score}";
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
@@ -75,11 +75,11 @@ public class MainGameUIController : MonoBehaviour
                 break;
             case 3:
                 GameManager.Instance.maxHealth = 6;
-                GameManager.Instance.maxAmmo = 5;
+                GameManager.Instance.maxAmmo = 8;
                 GameManager.Instance.maxBombs = 3;
                 GameManager.Instance.shieldMax = 5;
                 asteroidSpawnRate = 1.0f;
-                supportShipSpawnRate = 75.0f;
+                supportShipSpawnRate = 20.0f;
                 GameManager.Instance.score = 0;
                 scoreText.text = $"{GameManager.Instance.score}";
                 GameManager.Instance.health = GameManager.Instance.maxHealth;
