@@ -11,17 +11,13 @@ public class SupportShip : MonoBehaviour
     private int maxDrops = 5;
     private float xSpawnRange = 7.0f;
     private float ySpawnRange = 5.0f;
-    private float xRange = 10.0f;
-    private float yRange = 10.0f;
+    private float xRange = 8.0f;
+    private float yRange = 8.0f;
     private int count = 3;
-    private bool isLTR = false;
-    private bool isRTL = false;
-    private bool isTTB = false;
-    private bool isBTT = false;
-    [SerializeField] private float miniTimer;
+    private float miniTimer;
     private int dropCounter;
 
-    // Start is called before the first frame update
+
     void Start()
     {
         airDropsCount = Random.Range(1, maxDrops);
@@ -35,50 +31,23 @@ public class SupportShip : MonoBehaviour
             else if (randomSpawn == 2)
                 transform.position = new Vector3(7.5f, Random.Range(-ySpawnRange, ySpawnRange));
             else if (randomSpawn == 3)
-                transform.position = new Vector3(-7.5f, Random.Range(-ySpawnRange, ySpawnRange));
+                transform.position = new Vector3(7.5f, Random.Range(-ySpawnRange, ySpawnRange));
         }
         if (transform.position.x >= xSpawnRange)
-        {
-            transform.Rotate(new Vector3(0.0f, 0.0f, 270.0f));
-            isLTR = true;
-        }
-        else if (transform.position.x <= -xSpawnRange)
-        {
             transform.Rotate(new Vector3(0.0f, 0.0f, 90.0f));
-            isRTL = true;
-        }
+        else if (transform.position.x <= -xSpawnRange)
+            transform.Rotate(new Vector3(0.0f, 0.0f, 270.0f));
         else if (transform.position.y >= ySpawnRange)
-        {
             transform.Rotate(new Vector3(0.0f, 0.0f, 180.0f));
-            isTTB = true;
-        }
         else if (transform.position.y <= -ySpawnRange)
-        {
             transform.Rotate(new Vector3(0.0f, 0.0f, 0.0f));
-            isBTT = true;
-        }
     }
     void Update()
     {
         miniTimer += Time.deltaTime;
+        SuppportShipMoving();
         if (transform.position.x < -xRange || transform.position.x > xRange || transform.position.y < -yRange || transform.position.y > yRange)
             Destroy(gameObject);
-        if (isLTR)
-        {
-            SpawnedSpeedLTR();
-        }
-        else if (isRTL)
-        {
-            SpawnedSpeedRTL();
-        }
-        else if (isTTB)
-        {
-            SpawnedSpeedTTB();
-        }
-        else if (isBTT)
-        {
-            SpawnedSpeedBTT();
-        }
         if (miniTimer >= 2 && dropCounter < airDropsCount) 
         {
             AirDrops();
@@ -92,25 +61,10 @@ public class SupportShip : MonoBehaviour
         Instantiate(airDrops[airDropsIndex], transform.position, transform.rotation);
     }
     // Spawn directions ----------------------------------------------------------
-    void SpawnedSpeedLTR()
+    void SuppportShipMoving()
     {
         float speed = Random.Range(1.5f, 2.5f);
-        transform.Translate(Vector2.left * Time.deltaTime * speed);
-    }
-    void SpawnedSpeedRTL()
-    {
-        float speed = Random.Range(1.5f, 2.5f);
-        transform.Translate(Vector2.right * Time.deltaTime * speed);
-    }
-    void SpawnedSpeedBTT()
-    {
-        float speed = Random.Range(1.5f, 2.5f);
-        transform.Translate(Vector2.up * Time.deltaTime * speed);
-    }
-    void SpawnedSpeedTTB()
-    {
-        float speed = Random.Range(1.5f, 2.5f);
-        transform.Translate(Vector2.down * Time.deltaTime * speed);
+        transform.Translate(Vector3.up * Time.deltaTime * speed);
     }
     // Spawn directions ----------------------------------------------------------
 

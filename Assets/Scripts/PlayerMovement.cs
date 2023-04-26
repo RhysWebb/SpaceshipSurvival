@@ -14,21 +14,24 @@ public class PlayerMovement : MonoBehaviour
     private float playerInputY;
     private float playerInputX;
     // Input -------------------------------------------------
-    // Player health -----------------------------------------
-    [SerializeField] private Sprite[] playerHealthSprite;
-    // Player health -----------------------------------------
-    // Misc. -------------------------------------------------
+    // Weapons -----------------------------------------------
     [SerializeField] GameObject rocket;
     [SerializeField] GameObject bomb;
+    // Weapons -----------------------------------------------
+    // Player health -----------------------------------------
+    [SerializeField] private Sprite[] playerHealthSprite;
+    [SerializeField] private GameObject playerShields;
+    [Space, SerializeField] public bool isShieldActive;
+    private int shieldMaximum;
+    // Player health -----------------------------------------
+    // Misc. -------------------------------------------------
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
-    private int health;
+
     [Space, SerializeField] GameObject[] brokenPieces;
     private int totalPieces;
     private bool paused = false;
-    [SerializeField] GameObject shield;
-    public bool isShieldActive = false;
-    private int shieldMaximum;
+
     public float counter;
     private MainGameUIController mainGameUIController;
     // Misc. -------------------------------------------------
@@ -41,23 +44,11 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         totalPieces = 0;
-        health = GameManager.Instance.maxHealth;
-        shieldMaximum = GameManager.Instance.shieldMax;
+        StartCoroutine(PlayerShields(GameManager.Instance.shieldMax));
     }
     void Update()
     {
         PlayerHealthSprite(GameManager.Instance.health);
-        Debug.Log(GameManager.Instance.health);
-        if (isShieldActive)
-        {
-            counter += Time.deltaTime;
-            if (counter > shieldMaximum)
-            {
-                isShieldActive = false;
-                shield.SetActive(false);
-                counter = 0;
-            }
-        }
         paused = GameManager.Instance.isGameActive;
         if (!paused)
         {            
@@ -147,26 +138,21 @@ public class PlayerMovement : MonoBehaviour
     }
     // Player Health -----------------------------------------
     
-    // Trigggers & Enumorators -------------------------------
+    // Trigggers & Enumerators -------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion"))
+        if ((collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion")))
         {
             GameManager.Instance.health--;
         }
-        else if (collision.CompareTag("Shields"))
+        else if (collision.CompareTag("Shields") && !isShieldActive)
         {
-            shield.SetActive(true);
             isShieldActive = true;
         }
-        else if (collision.CompareTag("InstantShields"))
+        else if (collision.CompareTag("InstantShields") && !isShieldActive)
         {
-            if (!isShieldActive)
-            {
-                Destroy(collision.gameObject);
-                shield.SetActive(true);
-                isShieldActive = true;
-            }
+            Destroy(collision.gameObject);
+            isShieldActive = true;
         }
         else if (collision.CompareTag("AmmoBombs"))
         {
@@ -196,5 +182,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    // Trigggers & Enumorators -------------------------------
+    IEnumerator PlayerShields(float inputSeconds)
+    {
+        while (isShieldActive)
+        {
+            playerShields.SetActive(true);
+            yield return new WaitForSeconds(inputSeconds); // replace 2f with the delay you want
+            isShieldActive = false;
+            playerShields.SetActive(false);
+        }
+    }
+    // Trigggers & Enumerators -------------------------------
 } // Class

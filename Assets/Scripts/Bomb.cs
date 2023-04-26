@@ -32,5 +32,9 @@ public class Bomb : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Shields") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Rocket"))
+        {
+            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+        }
     }
 }

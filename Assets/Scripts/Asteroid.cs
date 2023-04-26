@@ -85,7 +85,7 @@ public class Asteroid : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
         {
-            mainGameUIController.ScoreUpdate(scoreValue);
+            mainGameUIController.ScoreUpdate(scoreValue * GameManager.Instance.gameDifficultyNumber);
             Destroy(gameObject);
         }
     }

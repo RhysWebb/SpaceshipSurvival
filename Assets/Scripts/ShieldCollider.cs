@@ -6,23 +6,22 @@ using UnityEngine;
 public class ShieldCollider : MonoBehaviour
 {
     private MainGameUIController mainGameUIController;
-    private PlayerMovement playerMovement;
+    [SerializeField] private GameObject player;
 
     private void Start()
     {
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
-        playerMovement = GameObject.Find("Player").GetComponentInParent<PlayerMovement>();
+        transform.position = player.transform.position;
+    }
+    private void LateUpdate()
+    {
+        transform.position = player.transform.position;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("InstantShields"))
         {
-            if (!playerMovement.isShieldActive)
-            {
-                Destroy(collision.gameObject);
-                playerMovement.counter = 0;
-                playerMovement.isShieldActive = true;
-            }
+
         }
         else if (collision.gameObject.CompareTag("AmmoBombs"))
         {
@@ -50,10 +49,6 @@ public class ShieldCollider : MonoBehaviour
                     mainGameUIController.RocketGGUIUpdater();
                 }
             }
-        }
-        if (collision.gameObject.CompareTag("Shields") || collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Explosion") || collision.gameObject.CompareTag("Rocket"))
-        {
-            Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
         }
     }
 }
