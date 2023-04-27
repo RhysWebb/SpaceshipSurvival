@@ -16,6 +16,9 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] GameObject pauseScreen;
     [SerializeField] Animator pauseAnimator;
     [SerializeField] GameObject settingsScreen;
+    [SerializeField] TextMeshProUGUI gameOverScore;
+    [SerializeField] GameObject gameOverScreen;
+    [SerializeField] Animator gameOverAninmator;
     [Space]
     // Running Game UI --------------------------------------------
 
@@ -181,7 +184,6 @@ public class MainGameUIController : MonoBehaviour
     public void LivesUpdate()
     {
         GameManager.Instance.health--;
-        Debug.Log("Lives Lowered");
         if (GameManager.Instance.health <= 0)
             GameOver();
     }

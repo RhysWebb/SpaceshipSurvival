@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion")))
         {
-            GameManager.Instance.health--;
+            mainGameUIController.LivesUpdate();
         }
         else if (collision.CompareTag("Shields") && !isShieldActive)
         {
