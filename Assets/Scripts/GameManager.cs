@@ -70,6 +70,12 @@ public class GameManager : MonoBehaviour
         get { return currentScore; }
         set { currentScore = value; }
     }
+    private string currentPlayerName;
+    public string playerName
+    {
+        get { return currentPlayerName;  }
+        set { currentPlayerName = value; }
+    }
     // Score -----------------------------------------------------------
 
     // Game Management -------------------------------------------------
@@ -79,14 +85,36 @@ public class GameManager : MonoBehaviour
         get { return isGameCurrentlyActive; }
         set { isGameCurrentlyActive = value; }
     }
-    [SerializeField] private int gameDifficulty;
+    private int gameDifficulty;
     public int gameDifficultyNumber
     {
         get { return gameDifficulty; }
         set { gameDifficulty = value; }
     }
     // Game Management -------------------------------------------------
+
+    // High score ------------------------------------------------------
+    private string highScoreOne;
+    private int highScoreOneInt;
+    public string highScoreTwo;
+    public int highScoreTwoInt;
+    public string highScoreThree;
+    public int highScoreThreeInt;
+    public string highScoreFour;
+    private int highScoreFourInt;
+    public string highScoreFive;
+    private int highScoreFiveInt;
+    // High score ------------------------------------------------------
+
+    // Stats -----------------------------------------------------------
+    private int asteroidStats;
+    private int smallAsteroidStats;
+    private int rocketsFiredStats;
+    private int bombsDroppedStats;
+    // Stats -----------------------------------------------------------
+
     // Variables -------------------------------------------------------
+    
     private void Awake()
     {
         if (Instance != null)
@@ -98,4 +126,61 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         //LoadSaveFile(); Not Implemented yet
     }
+
+    // High score -------------------------------------------------------
+    public void HighScoreTable(string name, int score)
+    {
+        if (score >= highScoreOneInt)
+        {
+            highScoreFive = highScoreFour;
+            highScoreFiveInt = highScoreFourInt;
+            highScoreFour = highScoreThree;
+            highScoreFourInt = highScoreThreeInt;
+            highScoreThree = highScoreTwo;
+            highScoreThreeInt = highScoreTwoInt;
+            highScoreTwo = highScoreOne;
+            highScoreTwoInt = highScoreOneInt;
+            highScoreOne = name;
+            highScoreOneInt = score;
+        }
+        else if (score >= highScoreTwoInt && score < highScoreOneInt)
+        {
+            highScoreFive = highScoreFour;
+            highScoreFiveInt = highScoreFourInt;
+            highScoreFour = highScoreThree;
+            highScoreFourInt = highScoreThreeInt;
+            highScoreThree = highScoreTwo;
+            highScoreThreeInt = highScoreTwoInt;
+            highScoreTwoInt = score;
+            highScoreTwo = name;
+        }
+        else if (score >= highScoreThreeInt && score < highScoreTwoInt)
+        {
+            highScoreFive = highScoreFour;
+            highScoreFiveInt = highScoreFourInt;
+            highScoreFour = highScoreThree;
+            highScoreFourInt = highScoreThreeInt;
+            highScoreThreeInt = score;
+            highScoreThree = name;
+        }
+        else if (score >= highScoreFourInt && score < highScoreThreeInt)
+        {
+            highScoreFive = highScoreFour;
+            highScoreFiveInt = highScoreFourInt;
+            highScoreFourInt = score;
+        }
+        else if (score >= highScoreFiveInt &&  score < highScoreFourInt)
+        {
+            highScoreFiveInt = score;
+        }
+        //SaveFile();
+    }
+    // high score ------------------------------------------------------- 
+
+
+
+
+
+
+
 }
