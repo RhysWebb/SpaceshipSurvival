@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using System.IO;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        //LoadSaveFile(); Not Implemented yet
+        LoadSaveFile();
     }
     // Awake, Start && Update ------------------------------------------
     // High score ------------------------------------------------------
@@ -169,29 +169,97 @@ public class GameManager : MonoBehaviour
             highScoreFiveInt = score;
             highScoreFive = name;
         }
-        //SaveFile();
+        SaveFile();
     }
     // High score ------------------------------------------------------
     // Statistics ------------------------------------------------------
     public void AsteroidStatsIncrease()
     {
         asteroidStats++;
-        //SaveFile();
+        SaveFile();
     }
     public void SmallAsteroidStatsIncrease()
     {
         smallAsteroidStats++;
-        //SaveFile();
+        SaveFile();
     }
     public void RocketsFiredStatsIncrease()
     {
         rocketsFiredStats++;
-        //SaveFile();
+        SaveFile();
     }
     public void BombsDroppedStatsIncrease()
     {
         bombsDroppedStats++;
-        //SaveFile();
+        SaveFile();
     }
     // Statistics ------------------------------------------------------
+
+    // Save && Load ----------------------------------------------------
+    [System.Serializable]
+    class SaveData
+    {
+        public string highScoreOneString;
+        public int highScoreOneInt;
+        public string highScoreTwoString;
+        public int highScoreTwoInt;
+        public string highScoreThreeString;
+        public int highScoreThreeInt;
+        public string highScoreFourString;
+        public int highScoreFourInt;
+        public string highScoreFiveString;
+        public int highScoreFiveInt;
+        public int asteroidStats;
+        public int smallAsteroidStats;
+        public int rocketsFiredStats;
+        public int bombsDroppedStats;
+    }
+    public void SaveFile()
+    {
+        SaveData data = new SaveData();
+        data.highScoreOneString = highScoreOne;
+        data.highScoreOneInt = highScoreOneInt;
+        data.highScoreTwoString = highScoreTwo;
+        data.highScoreTwoInt = highScoreTwoInt;
+        data.highScoreThreeString = highScoreThree;
+        data.highScoreThreeInt = highScoreThreeInt;
+        data.highScoreFourString = highScoreFour;
+        data.highScoreFourInt = highScoreFourInt;
+        data.highScoreFiveString = highScoreFive;
+        data.highScoreFiveInt = highScoreFiveInt;
+        data.asteroidStats = asteroidStats;
+        data.smallAsteroidStats = smallAsteroidStats;
+        data.rocketsFiredStats = rocketsFiredStats;
+        data.bombsDroppedStats = bombsDroppedStats;
+
+        string json = JsonUtility.ToJson(data);
+        File.WriteAllText(Application.persistentDataPath + "saveFile.json", json);
+    }
+    public void LoadSaveFile()
+    {
+        string path = Application.persistentDataPath + "saveFile.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            highScoreOne = data.highScoreOneString;
+            highScoreOneInt = data.highScoreOneInt;
+            highScoreTwo = data.highScoreTwoString;
+            highScoreTwoInt = data.highScoreTwoInt;
+            highScoreThree = data.highScoreThreeString;
+            highScoreThreeInt = data.highScoreThreeInt;
+            highScoreFour = data.highScoreFourString;
+            highScoreFourInt = data.highScoreFourInt;
+            highScoreFive = data.highScoreFiveString;
+            highScoreFiveInt = data.highScoreFiveInt;
+            asteroidStats = data.asteroidStats;
+            smallAsteroidStats = data.smallAsteroidStats;
+            rocketsFiredStats = data.rocketsFiredStats;
+            bombsDroppedStats = data.bombsDroppedStats;
+        }
+    }
+
+
+    // Save && Load ----------------------------------------------------
 }
