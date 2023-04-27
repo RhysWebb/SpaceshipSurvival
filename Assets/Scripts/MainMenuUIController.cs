@@ -57,7 +57,6 @@ public class MainMenuUIController : MonoBehaviour
     {
         StartingCaller();
     }
-
     void Update()
     {
         MovementUpdater();

@@ -18,7 +18,6 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] GameObject settingsScreen;
     [SerializeField] TextMeshProUGUI gameOverScore;
     [SerializeField] GameObject gameOverScreen;
-    [SerializeField] Animator gameOverAninmator;
     [Space]
     // Running Game UI --------------------------------------------
 
@@ -39,6 +38,10 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private GameObject[] spawnedItem;
     [SerializeField] private GameObject supportShip;
     // Spawners ---------------------------------------------------
+
+    // Game Over --------------------------------------------------
+    private int difficultyInput;
+    // Game Over --------------------------------------------------
     // Variables --------------------------------------------------
 
     // Start game function -------------------------------------------------------------
@@ -190,13 +193,35 @@ public class MainGameUIController : MonoBehaviour
     public void GameOver()
     {
         isGameActive = false;
+        gameOverScreen.SetActive(true);
+        GameManager.Instance.HighScoreTable(GameManager.Instance.playerName, GameManager.Instance.score);
     }
     public void RestartGame()
     {
+        GameManager.Instance.gameDifficultyNumber = difficultyInput;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     // Misc. ---------------------------------------------------------------------------
+
+    // Game Over -----------------------------------------------------------------------
+    public void DifficultyEasy()
+    {
+        difficultyInput = 1;
+        RestartGame();
+    }
+    public void DifficultyMedium()
+    {
+        difficultyInput = 2;
+        RestartGame();
+    }
+    public void DifficultyHard()
+    {
+        difficultyInput = 3;
+        RestartGame();
+    }
+
+    // Game Over -----------------------------------------------------------------------
 
     // Spawners ------------------------------------------------------------------------
     IEnumerator SpawnAsteroids(float inputSpawnRate)

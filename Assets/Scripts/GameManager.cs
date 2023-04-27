@@ -26,7 +26,6 @@ public class GameManager : MonoBehaviour
         set { currentHealth = value; }
     }
     // Health -----------------------------------------------------------
-
     // Ammo -------------------------------------------------------------
     private int currentAmmo;
     public int ammo
@@ -53,7 +52,6 @@ public class GameManager : MonoBehaviour
         set { maximumBombs = value; }
     }
     // Ammo -------------------------------------------------------------
-
     // Shields ----------------------------------------------------------
     private int shieldMaximum;
     public int shieldMax
@@ -62,7 +60,6 @@ public class GameManager : MonoBehaviour
         set { shieldMaximum = value; }
     }
     // Shields ---------------------------------------------------------
-
     // Score -----------------------------------------------------------
     private int currentScore;
     public int score
@@ -77,7 +74,6 @@ public class GameManager : MonoBehaviour
         set { currentPlayerName = value; }
     }
     // Score -----------------------------------------------------------
-
     // Game Management -------------------------------------------------
     private bool isGameCurrentlyActive;
     public bool isGameActive
@@ -92,7 +88,6 @@ public class GameManager : MonoBehaviour
         set { gameDifficulty = value; }
     }
     // Game Management -------------------------------------------------
-
     // High score ------------------------------------------------------
     private string highScoreOne;
     private int highScoreOneInt;
@@ -105,16 +100,15 @@ public class GameManager : MonoBehaviour
     public string highScoreFive;
     private int highScoreFiveInt;
     // High score ------------------------------------------------------
-
     // Stats -----------------------------------------------------------
     private int asteroidStats;
     private int smallAsteroidStats;
     private int rocketsFiredStats;
     private int bombsDroppedStats;
     // Stats -----------------------------------------------------------
-
     // Variables -------------------------------------------------------
     
+    // Awake, Start && Update ------------------------------------------
     private void Awake()
     {
         if (Instance != null)
@@ -126,8 +120,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         //LoadSaveFile(); Not Implemented yet
     }
-
-    // High score -------------------------------------------------------
+    // Awake, Start && Update ------------------------------------------
+    // High score ------------------------------------------------------
     public void HighScoreTable(string name, int score)
     {
         if (score >= highScoreOneInt)
@@ -168,19 +162,36 @@ public class GameManager : MonoBehaviour
             highScoreFive = highScoreFour;
             highScoreFiveInt = highScoreFourInt;
             highScoreFourInt = score;
+            highScoreFour = name;
         }
         else if (score >= highScoreFiveInt &&  score < highScoreFourInt)
         {
             highScoreFiveInt = score;
+            highScoreFive = name;
         }
         //SaveFile();
     }
-    // high score ------------------------------------------------------- 
-
-
-
-
-
-
-
+    // High score ------------------------------------------------------
+    // Statistics ------------------------------------------------------
+    public void AsteroidStatsIncrease()
+    {
+        asteroidStats++;
+        //SaveFile();
+    }
+    public void SmallAsteroidStatsIncrease()
+    {
+        smallAsteroidStats++;
+        //SaveFile();
+    }
+    public void RocketsFiredStatsIncrease()
+    {
+        rocketsFiredStats++;
+        //SaveFile();
+    }
+    public void BombsDroppedStatsIncrease()
+    {
+        bombsDroppedStats++;
+        //SaveFile();
+    }
+    // Statistics ------------------------------------------------------
 }
