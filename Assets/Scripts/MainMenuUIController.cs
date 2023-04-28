@@ -46,8 +46,8 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI bombStats;
     // Stats -------------------------------------------------------------------------
     // Player ------------------------------------------------------------------------
-    [Space, SerializeField] private TMP_InputField playerNameInput;
-    [SerializeField] private TMP_InputField placeholderPlayerName;
+    private TMP_InputField playerNameInput;
+    private GameObject playerNameInputObject;
     // Player ------------------------------------------------------------------------
     // Difficulty --------------------------------------------------------------------
     [Space, SerializeField] private Animator menus;
@@ -60,9 +60,10 @@ public class MainMenuUIController : MonoBehaviour
     void Start()
     {
         StartingCaller();
-        placeholderPlayerName = GetComponent<TMP_InputField>();
-        playerNameInput = GetComponent<TMP_InputField>();
-        playerNameInput.onValueChanged.AddListener();
+        playerNameInputObject = GameObject.Find("PlayerNameInput");
+        playerNameInput = playerNameInputObject.GetComponent<TMP_InputField>();
+        Debug.Log(playerNameInput);
+        playerNameInput.onValueChanged.AddListener(PlayerNameUpdate);
     }
     void Update()
     {
@@ -71,7 +72,10 @@ public class MainMenuUIController : MonoBehaviour
     // Start & Updates -------------------------------------------------------------
 
     // Player ----------------------------------------------------------------------
-
+    public void PlayerNameUpdate(string playerName)
+    {
+        GameManager.Instance.playerName = playerName;
+    }
     // Player ----------------------------------------------------------------------
 
     // Tutorials -------------------------------------------------------------------------------
@@ -303,7 +307,7 @@ public class MainMenuUIController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(playerNameInput.text))
         {
-            placeholderPlayerName.text = "Enter name.";
+            playerNameInput.text = "Swabbie";
         }
         else
         {
@@ -315,7 +319,7 @@ public class MainMenuUIController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(playerNameInput.text))
         {
-            placeholderPlayerName.text = "Enter name.";
+            playerNameInput.text = "Lt. Serge";
         }
         else
         {
@@ -327,7 +331,7 @@ public class MainMenuUIController : MonoBehaviour
     {
         if (string.IsNullOrEmpty(playerNameInput.text))
         {
-            placeholderPlayerName.text = "Enter name.";
+            playerNameInput.text = "Cptn. Hornswaggler";
         }
         else
         {
