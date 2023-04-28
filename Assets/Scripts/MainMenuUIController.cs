@@ -60,8 +60,6 @@ public class MainMenuUIController : MonoBehaviour
     void Start()
     {
         StartingCaller();
-        playerNameInputObject = GameObject.Find("PlayerNameInput");
-        playerNameInput = playerNameInputObject.GetComponent<TMP_InputField>();
 
     }
     void Update()
@@ -294,6 +292,8 @@ public class MainMenuUIController : MonoBehaviour
             menus.SetTrigger("DifficultySelection");
             CloseStatisticsButton();
             ControlsCloseButton();
+            playerNameInputObject = GameObject.Find("PlayerNameInput");
+            playerNameInput = playerNameInputObject.GetComponent<TMP_InputField>();
             playerNameInput.onValueChanged.AddListener(PlayerNameUpdate);
         }
         else
