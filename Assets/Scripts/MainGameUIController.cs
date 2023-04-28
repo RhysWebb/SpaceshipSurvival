@@ -116,6 +116,7 @@ public class MainGameUIController : MonoBehaviour
     // Awake, Start & Update -----------------------------------------------------------
     private void Start()
     {
+        gameOverScreen.SetActive(false);
         StartGame(GameManager.Instance.gameDifficultyNumber);
         StartCoroutine(SpawnAsteroids(asteroidSpawnRate));
         StartCoroutine(SpawnSupportShip(supportShipSpawnRate));
@@ -195,12 +196,17 @@ public class MainGameUIController : MonoBehaviour
         isGameActive = false;
         gameOverScreen.SetActive(true);
         GameManager.Instance.HighScoreTable(GameManager.Instance.playerName, GameManager.Instance.score);
+        gameOverScore.text = $"Score: {GameManager.Instance.playerName} {GameManager.Instance.score}";
     }
-    public void RestartGame()
+    void RestartGame()
     {
         GameManager.Instance.gameDifficultyNumber = difficultyInput;
         Time.timeScale = 1.0f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene(0);
     }
     // Misc. ---------------------------------------------------------------------------
 

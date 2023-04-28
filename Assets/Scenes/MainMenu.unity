@@ -6544,7 +6544,7 @@ GameObject:
   - component: {fileID: 902790884}
   m_Layer: 5
   m_Name: PlayerNameInput
-  m_TagString: Untagged
+  m_TagString: PlayerNameInput
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6618,17 +6618,17 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 0
+  m_ContentType: 5
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 0
+  m_CharacterValidation: 5
   m_RegexValue: 
   m_GlobalPointSize: 14
-  m_CharacterLimit: 0
+  m_CharacterLimit: 32
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls: []
@@ -6661,7 +6661,7 @@ MonoBehaviour:
   m_CaretWidth: 1
   m_ReadOnly: 0
   m_RichText: 1
-  m_GlobalFontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_GlobalFontAsset: {fileID: 11400000, guid: 96023faaed705ea46b16ef97efe63cec, type: 2}
   m_OnFocusSelectAll: 1
   m_ResetOnDeActivation: 1
   m_RestoreOriginalTextOnEscape: 1
@@ -11588,7 +11588,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a6f1c4abeb5d9849834a6b4da9643b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameDifficulty: 0
+  highScoreTwo: 
+  highScoreTwoInt: 0
+  highScoreThree: 
+  highScoreThreeInt: 0
+  highScoreFour: 
+  highScoreFive: 
 --- !u!4 &1962414437
 Transform:
   m_ObjectHideFlags: 0

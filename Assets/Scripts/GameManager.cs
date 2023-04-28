@@ -194,7 +194,6 @@ public class GameManager : MonoBehaviour
         SaveFile();
     }
     // Statistics ------------------------------------------------------
-
     // Save && Load ----------------------------------------------------
     [System.Serializable]
     class SaveData
@@ -259,7 +258,5 @@ public class GameManager : MonoBehaviour
             bombsDroppedStats = data.bombsDroppedStats;
         }
     }
-
-
     // Save && Load ----------------------------------------------------
 }

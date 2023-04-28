@@ -45,8 +45,12 @@ public class MainMenuUIController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rocketStats;
     [SerializeField] private TextMeshProUGUI bombStats;
     // Stats -------------------------------------------------------------------------
+    // Player ------------------------------------------------------------------------
+    [Space, SerializeField] private TMP_InputField playerNameInput;
+    [SerializeField] private TMP_InputField placeholderPlayerName;
+    // Player ------------------------------------------------------------------------
     // Difficulty --------------------------------------------------------------------
-    [SerializeField] private Animator menus;
+    [Space, SerializeField] private Animator menus;
     private int difficultyInput;
     private bool selected = false;
     // Difficulty --------------------------------------------------------------------
@@ -56,12 +60,19 @@ public class MainMenuUIController : MonoBehaviour
     void Start()
     {
         StartingCaller();
+        placeholderPlayerName = GetComponent<TMP_InputField>();
+        playerNameInput = GetComponent<TMP_InputField>();
+        playerNameInput.onValueChanged.AddListener();
     }
     void Update()
     {
         MovementUpdater();
     }
     // Start & Updates -------------------------------------------------------------
+
+    // Player ----------------------------------------------------------------------
+
+    // Player ----------------------------------------------------------------------
 
     // Tutorials -------------------------------------------------------------------------------
     // Open and Close Tutorials/Controls -------------------------------------------
@@ -278,6 +289,8 @@ public class MainMenuUIController : MonoBehaviour
         {
             selected = true;
             menus.SetTrigger("DifficultySelection");
+            CloseStatisticsButton();
+            ControlsCloseButton();
         }
         else
             menus.SetTrigger("Reselected");
@@ -288,18 +301,39 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void DifficultyEasy()
     {
-        difficultyInput = 1;
-        StartGame();
+        if (string.IsNullOrEmpty(playerNameInput.text))
+        {
+            placeholderPlayerName.text = "Enter name.";
+        }
+        else
+        {
+            difficultyInput = 1;
+            StartGame();
+        }
     }
     public void DifficultyMedium()
     {
-        difficultyInput = 2;
-        StartGame();
+        if (string.IsNullOrEmpty(playerNameInput.text))
+        {
+            placeholderPlayerName.text = "Enter name.";
+        }
+        else
+        {
+            difficultyInput = 2;
+            StartGame();
+        }
     }
     public void DifficultyHard()
     {
-        difficultyInput = 3;
-        StartGame();
+        if (string.IsNullOrEmpty(playerNameInput.text))
+        {
+            placeholderPlayerName.text = "Enter name.";
+        }
+        else
+        {
+            difficultyInput = 3;
+            StartGame();
+        }
     }
     // Difficulty ------------------------------------------------------------------
 

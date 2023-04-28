@@ -18,6 +18,7 @@ TagManager:
   - AmmoRockets
   - AmmoBombs
   - PlayerShield
+  - PlayerNameInput
   layers:
   - Default
   - TransparentFX
