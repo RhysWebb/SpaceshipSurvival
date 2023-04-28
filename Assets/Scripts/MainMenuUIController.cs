@@ -62,8 +62,7 @@ public class MainMenuUIController : MonoBehaviour
         StartingCaller();
         playerNameInputObject = GameObject.Find("PlayerNameInput");
         playerNameInput = playerNameInputObject.GetComponent<TMP_InputField>();
-        Debug.Log(playerNameInput);
-        playerNameInput.onValueChanged.AddListener(PlayerNameUpdate);
+
     }
     void Update()
     {
@@ -295,9 +294,13 @@ public class MainMenuUIController : MonoBehaviour
             menus.SetTrigger("DifficultySelection");
             CloseStatisticsButton();
             ControlsCloseButton();
+            playerNameInput.onValueChanged.AddListener(PlayerNameUpdate);
         }
         else
+        {
             menus.SetTrigger("Reselected");
+            playerNameInput.onValueChanged.RemoveListener(PlayerNameUpdate);
+        }
     }
     public void ReturnToMenus()
     {
