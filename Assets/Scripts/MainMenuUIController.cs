@@ -292,9 +292,8 @@ public class MainMenuUIController : MonoBehaviour
             menus.SetTrigger("DifficultySelection");
             CloseStatisticsButton();
             ControlsCloseButton();
-            playerNameInputObject = GameObject.Find("PlayerNameInput");
-            playerNameInput = playerNameInputObject.GetComponent<TMP_InputField>();
-            playerNameInput.onValueChanged.AddListener(PlayerNameUpdate);
+            StartCoroutine(WaitingForSeconds(2));
+
         }
         else
         {
@@ -343,7 +342,15 @@ public class MainMenuUIController : MonoBehaviour
         }
     }
     // Difficulty ------------------------------------------------------------------
-
+    // Enumerators -----------------------------------------------------------------
+    IEnumerator WaitingForSeconds(int input)
+    {
+        yield return new WaitForSeconds(input);
+        playerNameInputObject = GameObject.Find("PlayerNameInput");
+        playerNameInput = playerNameInputObject.GetComponent<TMP_InputField>();
+        playerNameInput.onValueChanged.AddListener(PlayerNameUpdate);
+    }
+    // Enumerators -----------------------------------------------------------------
     // Misc ------------------------------------------------------------------------
     void StartingCaller()
     {
@@ -356,6 +363,7 @@ public class MainMenuUIController : MonoBehaviour
         isStatiticsActive = false;
         isHighscoreActive = false;
         isStatsActive = false;
+        highscoreOneText = GameManager.Instance.highscoreone
     }
     void StartGame()
     {

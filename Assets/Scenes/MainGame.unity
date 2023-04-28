@@ -3277,8 +3277,8 @@ MonoBehaviour:
   pauseScreen: {fileID: 528001749}
   pauseAnimator: {fileID: 2006419293}
   settingsScreen: {fileID: 1626218875}
-  gameOverScore: {fileID: 0}
-  gameOverScreen: {fileID: 0}
+  gameOverScore: {fileID: 1757546195}
+  gameOverScreen: {fileID: 567227192}
   spawnedItem:
   - {fileID: 7209852670713811524, guid: d653a7de135072546929d242beadbfac, type: 3}
   - {fileID: 7209852670713811524, guid: d653a7de135072546929d242beadbfac, type: 3}
