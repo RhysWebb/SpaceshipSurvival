@@ -27,11 +27,5 @@ public class Explosion : MonoBehaviour
             GameManager.Instance.SmallAsteroidStatsIncrease();
             Destroy(collision.gameObject);
         }
-        else if (!collision.gameObject.CompareTag("PlayerShield"))
-        {
-            if (!collision.gameObject.CompareTag("Shields"))
-                Destroy(collision.gameObject);
-            Destroy(gameObject);
-        }
     }
 }

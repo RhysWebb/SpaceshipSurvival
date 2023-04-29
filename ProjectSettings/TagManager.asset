@@ -19,6 +19,7 @@ TagManager:
   - AmmoBombs
   - PlayerShield
   - PlayerNameInput
+  - SmallAsteroid
   layers:
   - Default
   - TransparentFX

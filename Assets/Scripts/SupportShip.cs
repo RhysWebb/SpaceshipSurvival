@@ -6,21 +6,22 @@ public class SupportShip : MonoBehaviour
 {
     // Variables
     [SerializeField] GameObject[] airDrops;
-    private int airDropsIndex;
-    private int airDropsCount;
-    private int maxDrops = 5;
+    [SerializeField] private int airDropsIndex;
+    [SerializeField] private int airDropsCount;
+    [SerializeField] private int maxDrops = 5;
     private float xSpawnRange = 7.0f;
     private float ySpawnRange = 5.0f;
     private float xRange = 8.0f;
     private float yRange = 8.0f;
     private int count = 3;
-    private float miniTimer;
-    private int dropCounter;
+    [SerializeField] private float miniTimer;
+    [SerializeField] private int dropCounter;
 
 
     void Start()
     {
-        airDropsCount = Random.Range(1, maxDrops);
+        miniTimer = 0;
+        airDropsCount = Random.Range(2, maxDrops);
         if (transform.position.x < xSpawnRange && transform.position.x > -xSpawnRange && transform.position.y < ySpawnRange && transform.position.y > -ySpawnRange)
         {
             int randomSpawn = Random.Range(0, count);
@@ -42,23 +43,19 @@ public class SupportShip : MonoBehaviour
         else if (transform.position.y <= -ySpawnRange)
             transform.Rotate(new Vector3(0.0f, 0.0f, 0.0f));
     }
-    void Update()
+    void FixedUpdate()
     {
         miniTimer += Time.deltaTime;
         SuppportShipMoving();
-        if (transform.position.x < -xRange || transform.position.x > xRange || transform.position.y < -yRange || transform.position.y > yRange)
-            Destroy(gameObject);
-        if (miniTimer >= 2 && dropCounter < airDropsCount) 
+        if (miniTimer > 2)// && dropCounter < airDropsCount)
         {
-            AirDrops();
+            airDropsIndex = Random.Range(0, airDrops.Length);
+            Instantiate(airDrops[airDropsIndex], transform.localPosition, transform.localRotation);
             dropCounter++;
             miniTimer = 1.2f;
         }
-    }
-    void AirDrops()
-    {
-        airDropsIndex = Random.Range(0, airDrops.Length);
-        Instantiate(airDrops[airDropsIndex], transform.position, transform.rotation);
+        if (transform.position.x < -xRange || transform.position.x > xRange || transform.position.y < -yRange || transform.position.y > yRange)
+            Destroy(gameObject);
     }
     // Spawn directions ----------------------------------------------------------
     void SuppportShipMoving()

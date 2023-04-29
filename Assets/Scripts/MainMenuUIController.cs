@@ -292,7 +292,7 @@ public class MainMenuUIController : MonoBehaviour
             menus.SetTrigger("DifficultySelection");
             CloseStatisticsButton();
             ControlsCloseButton();
-            StartCoroutine(WaitingForSeconds(4));
+            StartCoroutine(WaitingForSeconds(2));
 
         }
         else
@@ -367,7 +367,7 @@ public class MainMenuUIController : MonoBehaviour
         highscoreOneText.text = GameManager.Instance.highScoreOneInput;
         highscoreOneInt.text = GameManager.Instance.highScoreOneIntInput.ToString();
         highscoreTwoText.text = GameManager.Instance.highScoreTwoInput;
-        highscoreTwoInt.text = GameManager.Instance.highScoreThreeIntInput.ToString();
+        highscoreTwoInt.text = GameManager.Instance.highScoreTwoIntInput.ToString();
         highscoreThreeText.text = GameManager.Instance.highScoreThreeInput;
         highscoreThreeInt.text = GameManager.Instance.highScoreThreeIntInput.ToString();
         highscoreFourText.text = GameManager.Instance.highScoreThreeInput;

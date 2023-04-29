@@ -52,12 +52,12 @@ public class PlayerMovement : MonoBehaviour
         if (!paused && mainGameUIController.isGameActive)
         {
             PlayerMoving();
-            if (Input.GetButtonDown("FireRocket"))
+            if (Input.GetButtonDown("FireRocket") && GameManager.Instance.ammo > 0)
             {
                 GameManager.Instance.RocketsFiredStatsIncrease();
                 FireRocket();
             }
-            if (Input.GetButtonDown("Bomb"))
+            if (Input.GetButtonDown("Bomb") && GameManager.Instance.bombs > 0)
             {
                 GameManager.Instance.BombsDroppedStatsIncrease();
                 DropBomb();
