@@ -50,12 +50,18 @@ public class PlayerMovement : MonoBehaviour
         PlayerHealthSprite(GameManager.Instance.health);
         paused = GameManager.Instance.isGameActive;
         if (!paused && mainGameUIController.isGameActive)
-        {            
+        {
             PlayerMoving();
             if (Input.GetButtonDown("FireRocket"))
+            {
+                GameManager.Instance.RocketsFiredStatsIncrease();
                 FireRocket();
+            }
             if (Input.GetButtonDown("Bomb"))
+            {
+                GameManager.Instance.BombsDroppedStatsIncrease();
                 DropBomb();
+            }
         }
         if (isShieldActive)
         {

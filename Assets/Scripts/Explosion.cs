@@ -15,4 +15,23 @@ public class Explosion : MonoBehaviour
         if (time > timeToLive)
             Destroy(gameObject);
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            GameManager.Instance.AsteroidStatsIncrease();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.CompareTag("SmallAsteroid"))
+        {
+            GameManager.Instance.SmallAsteroidStatsIncrease();
+            Destroy(collision.gameObject);
+        }
+        else if (!collision.gameObject.CompareTag("PlayerShield"))
+        {
+            if (!collision.gameObject.CompareTag("Shields"))
+                Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }

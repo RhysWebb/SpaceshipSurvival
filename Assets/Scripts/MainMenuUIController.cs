@@ -292,7 +292,7 @@ public class MainMenuUIController : MonoBehaviour
             menus.SetTrigger("DifficultySelection");
             CloseStatisticsButton();
             ControlsCloseButton();
-            StartCoroutine(WaitingForSeconds(2));
+            StartCoroutine(WaitingForSeconds(4));
 
         }
         else

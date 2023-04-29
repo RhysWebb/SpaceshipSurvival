@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6690503890894855309}
   m_Layer: 0
   m_Name: SmallAsteroids
-  m_TagString: Asteroid
+  m_TagString: SmallAsteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2aed86a93d95744f837f683d40383c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 1471887799474312252, guid: 13ca887565ca67945b3568d15821aacb, type: 3}
   minSpeed: 400
   maxSpeed: 700
   maxTorque: 60

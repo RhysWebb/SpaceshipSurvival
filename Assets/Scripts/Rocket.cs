@@ -38,7 +38,21 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("PlayerShield"))
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            GameManager.Instance.AsteroidStatsIncrease();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("SmallAsteroid"))
+        {
+            GameManager.Instance.SmallAsteroidStatsIncrease();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if(!collision.gameObject.CompareTag("PlayerShield"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             if (!collision.gameObject.CompareTag("Shields"))

@@ -26,7 +26,21 @@ public class Bomb : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Rocket") || !collision.gameObject.CompareTag("Shields"))
+        if (collision.gameObject.CompareTag("Asteroid"))
+        {
+            GameManager.Instance.AsteroidStatsIncrease();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.CompareTag("SmallAsteroid"))
+        {
+            GameManager.Instance.SmallAsteroidStatsIncrease();
+            Instantiate(explosion, transform.position, transform.rotation);
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+        }
+        else if (!collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Rocket") || !collision.gameObject.CompareTag("Shields"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
