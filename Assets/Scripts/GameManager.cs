@@ -90,21 +90,91 @@ public class GameManager : MonoBehaviour
     // Game Management -------------------------------------------------
     // High score ------------------------------------------------------
     private string highScoreOne;
+    public string highScoreOneInput
+    {
+        get { return highScoreOne; }
+        set { highScoreOne = value; }
+    }
     private int highScoreOneInt;
-    public string highScoreTwo;
-    public int highScoreTwoInt;
-    public string highScoreThree;
-    public int highScoreThreeInt;
-    public string highScoreFour;
+    public int highScoreOneIntInput
+    {
+        get { return highScoreOneInt; } 
+        set { highScoreOneInt = value; }
+    }
+    private string highScoreTwo;
+    public string highScoreTwoInput
+    {
+        get { return highScoreTwo; }
+        set { highScoreTwo = value; }
+    }
+    private int highScoreTwoInt;
+    public int highScoreTwoIntInput
+    {
+        get { return highScoreTwoInt; }
+        set { highScoreTwoInt = value; }
+    }
+    private string highScoreThree;
+    public string highScoreThreeInput
+    {
+        get { return highScoreThree; }
+        set { highScoreThree = value; }
+    }
+    private int highScoreThreeInt;
+    public int highScoreThreeIntInput
+    {
+        get { return highScoreThreeInt; }
+        set { highScoreThreeInt = value; }
+    }
+    private string highScoreFour;
+    public string highScoreFourInput
+    {
+        get { return highScoreFour; }
+        set { highScoreFour = value; }
+    }
     private int highScoreFourInt;
-    public string highScoreFive;
+    public int highScoreFourIntInput
+    {
+        get { return highScoreFourInt; }
+        set { highScoreFourInt = value; }
+    }
+    private string highScoreFive;
+    public string highScoreFiveInput
+    {
+        get { return highScoreFive; }
+        set { highScoreFive = value; }
+    }
     private int highScoreFiveInt;
+    public int highScoreFiveIntInput
+    {
+        get { return highScoreFiveInt; }
+        set { highScoreFiveInt = value; }
+    }
     // High score ------------------------------------------------------
     // Stats -----------------------------------------------------------
     private int asteroidStats;
+    public int asteroidStatsInput
+    {
+        get { return asteroidStats; }
+        set { asteroidStats = value; }
+    }
     private int smallAsteroidStats;
+    public int smallAsteroidStatsInput
+    {
+        get { return smallAsteroidStats; }
+        set { smallAsteroidStats = value; }
+    }
     private int rocketsFiredStats;
+    public int rocketsFiredStatsInput
+    {
+        get { return rocketsFiredStats; }
+        set { rocketsFiredStats = value; }
+    }
     private int bombsDroppedStats;
+    public int bombsDroppedStatsInput
+    {
+        get { return bombsDroppedStats; }
+        set { bombsDroppedStats = value; }
+    }
     // Stats -----------------------------------------------------------
     // Variables -------------------------------------------------------
     

@@ -363,7 +363,21 @@ public class MainMenuUIController : MonoBehaviour
         isStatiticsActive = false;
         isHighscoreActive = false;
         isStatsActive = false;
-        highscoreOneText = GameManager.Instance.highscoreone
+        // Text fields ------------------------------------------------------------
+        highscoreOneText.text = GameManager.Instance.highScoreOneInput;
+        highscoreOneInt.text = GameManager.Instance.highScoreOneIntInput.ToString();
+        highscoreTwoText.text = GameManager.Instance.highScoreTwoInput;
+        highscoreTwoInt.text = GameManager.Instance.highScoreThreeIntInput.ToString();
+        highscoreThreeText.text = GameManager.Instance.highScoreThreeInput;
+        highscoreThreeInt.text = GameManager.Instance.highScoreThreeIntInput.ToString();
+        highscoreFourText.text = GameManager.Instance.highScoreThreeInput;
+        highscoreFourInt.text = GameManager.Instance.highScoreThreeIntInput.ToString();
+        highscoreFiveText.text = GameManager.Instance.highScoreFiveInput;
+        highscoreFiveInt.text = GameManager.Instance.highScoreFiveIntInput.ToString();
+        asteroidStats.text = GameManager.Instance.asteroidStatsInput.ToString();
+        smallAsteroidStats.text = GameManager.Instance.smallAsteroidStatsInput.ToString();
+        rocketStats.text = GameManager.Instance.rocketsFiredStatsInput.ToString();
+        bombStats.text = GameManager.Instance.bombsDroppedStatsInput.ToString();
     }
     void StartGame()
     {
