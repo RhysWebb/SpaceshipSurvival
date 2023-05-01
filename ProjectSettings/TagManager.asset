@@ -10,8 +10,6 @@ TagManager:
   - Debris
   - SupportShip
   - Explosion
-  - MiniRoid
-  - Fragment
   - PauseButton
   - Shields
   - InstantShields
@@ -20,6 +18,8 @@ TagManager:
   - PlayerShield
   - PlayerNameInput
   - SmallAsteroid
+  - GameMusic
+  - GameAmbience
   layers:
   - Default
   - TransparentFX

@@ -13,7 +13,9 @@ public class Explosion : MonoBehaviour
     {
         time += Time.deltaTime;
         if (time > timeToLive)
+        {
             Destroy(gameObject);
+        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

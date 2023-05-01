@@ -11,8 +11,7 @@ public class Bomb : MonoBehaviour
     public float time;
     public float lifeSpan = 3.0f;
     public GameObject explosion;
-
-    // Update is called once per frame
+    [SerializeField] private GameObject boomer;
     void Update()
     {
         transform.Rotate(new Vector3(0.0f, 0.0f, rotation * Time.deltaTime * speed));
@@ -20,6 +19,7 @@ public class Bomb : MonoBehaviour
         if (time > lifeSpan)
         {
             Instantiate(explosion, transform.position, transform.rotation);
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -31,6 +31,7 @@ public class Bomb : MonoBehaviour
             GameManager.Instance.AsteroidStatsIncrease();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("SmallAsteroid"))
@@ -38,12 +39,14 @@ public class Bomb : MonoBehaviour
             GameManager.Instance.SmallAsteroidStatsIncrease();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         else if (!collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Rocket") || !collision.gameObject.CompareTag("Shields"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

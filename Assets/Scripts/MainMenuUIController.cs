@@ -54,13 +54,17 @@ public class MainMenuUIController : MonoBehaviour
     private int difficultyInput;
     private bool selected = false;
     // Difficulty --------------------------------------------------------------------
+    // Sound -------------------------------------------------------------------------
+    private AudioSource mainMenuAudioSource;
+    // Sound -------------------------------------------------------------------------
     // Variables ---------------------------------------------------------------------
 
     // Start & Updates ---------------------------------------------------------------
     void Start()
     {
         StartingCaller();
-
+        mainMenuAudioSource = GetComponent<AudioSource>();
+        mainMenuAudioSource.clip = GameManager.Instance.buttonPress;
     }
     void Update()
     {
@@ -79,6 +83,7 @@ public class MainMenuUIController : MonoBehaviour
     // Open and Close Tutorials/Controls -------------------------------------------
     public void OpenControls()
     {
+        mainMenuAudioSource.Play();
         if (!isTutorialActive)
         {
             tutorialHolder.SetActive(true);
@@ -96,6 +101,7 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void ControlsCloseButton()
     {
+        mainMenuAudioSource.Play();
         tutorialHolder.SetActive(false);
         isTutorialActive = false;
         tutorialCombatHolder.SetActive(false);
@@ -107,6 +113,7 @@ public class MainMenuUIController : MonoBehaviour
     // Combat On & Off -------------------------------------------------------------
     public void OpenCombat()
     {
+        mainMenuAudioSource.Play();
         if (!isCombatActive)
         {
             if (isMovementActive)
@@ -142,6 +149,7 @@ public class MainMenuUIController : MonoBehaviour
     // Movement On & Off -----------------------------------------------------------
     public void OpenMovement()
     {
+        mainMenuAudioSource.Play();
         if (!isMovementActive)
         {
             if (isCombatActive)
@@ -205,6 +213,7 @@ public class MainMenuUIController : MonoBehaviour
     // Open and Close Statistics ---------------------------------------------------
     public void OpenStatistics()
     {
+        mainMenuAudioSource.Play();
         if (!isStatiticsActive)
         {
             highscoreHolder.SetActive(true);
@@ -222,6 +231,7 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void CloseStatisticsButton() 
     {
+        mainMenuAudioSource.Play();
         highscoreHolder.SetActive(false);
         isStatiticsActive = false;
         highscoresHolder.SetActive(false);
@@ -233,6 +243,7 @@ public class MainMenuUIController : MonoBehaviour
     // High scores On & Off --------------------------------------------------------
     public void OpenHighScores()
     {
+        mainMenuAudioSource.Play();
         if (!isHighscoreActive)
         {
             if (isStatsActive)
@@ -259,6 +270,7 @@ public class MainMenuUIController : MonoBehaviour
     // Stats On & Off --------------------------------------------------------------
     public void OpenStatisticsMini()
     {
+        mainMenuAudioSource.Play();
         if (!isStatsActive)
         {
             if (isHighscoreActive)
@@ -286,6 +298,7 @@ public class MainMenuUIController : MonoBehaviour
     // Difficulty ------------------------------------------------------------------
     public void NewGame()
     {
+        mainMenuAudioSource.Play();
         if (!selected)
         {
             selected = true;
@@ -303,10 +316,12 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void ReturnToMenus()
     {
+        mainMenuAudioSource.Play();
         menus.SetTrigger("BackToMenu");
     }
     public void DifficultyEasy()
     {
+        mainMenuAudioSource.Play();
         if (string.IsNullOrEmpty(playerNameInput.text))
         {
             playerNameInput.text = "Swabbie";
@@ -319,6 +334,7 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void DifficultyMedium()
     {
+        mainMenuAudioSource.Play();
         if (string.IsNullOrEmpty(playerNameInput.text))
         {
             playerNameInput.text = "Lt. Serge";
@@ -331,6 +347,7 @@ public class MainMenuUIController : MonoBehaviour
     }
     public void DifficultyHard()
     {
+        mainMenuAudioSource.Play();
         if (string.IsNullOrEmpty(playerNameInput.text))
         {
             playerNameInput.text = "Cptn. Hornswaggler";
@@ -381,12 +398,14 @@ public class MainMenuUIController : MonoBehaviour
     }
     void StartGame()
     {
+        mainMenuAudioSource.Play();
         GameManager.Instance.gameDifficultyNumber = difficultyInput;
         SceneManager.LoadScene(1);
     }
     public void ExitGame()
     {
-        //GameManager.Instance.SaveFile();
+        mainMenuAudioSource.Play();
+        GameManager.Instance.SaveFile();
 #if UNITY_EDITOR
         EditorApplication.ExitPlaymode();
 #else

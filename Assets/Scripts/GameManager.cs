@@ -176,6 +176,37 @@ public class GameManager : MonoBehaviour
         set { bombsDroppedStats = value; }
     }
     // Stats -----------------------------------------------------------
+    // Sound -----------------------------------------------------------
+    private AudioSource gameMusic;
+    private AudioSource gameAmbience;
+    [SerializeField] private AudioClip musicOneClip;
+    public AudioClip musicOne
+    {
+        get { return musicOneClip; }
+    }
+    [SerializeField] private AudioClip musicTwoClip;
+    public AudioClip musicTwo
+    {
+        get { return musicTwoClip; }
+    }
+    [SerializeField] private AudioClip musicThreeClip;
+    public AudioClip musicThree
+    {
+        get { return musicThreeClip; }
+    }
+    [SerializeField] private AudioClip musicFourClip;
+    public AudioClip musicFour
+    {
+        get { return musicFourClip; }
+    }
+    [SerializeField] private AudioClip buttonPressClip;
+    public AudioClip buttonPress
+    {
+        get { return buttonPressClip; }
+    }
+    [SerializeField] private AudioClip ambientOneClip;
+    [SerializeField] private AudioClip ambientThreeClip;
+    // Sound -----------------------------------------------------------
     // Variables -------------------------------------------------------
     
     // Awake, Start && Update ------------------------------------------
@@ -190,7 +221,38 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
         LoadSaveFile();
     }
+    private void Start()
+    {
+        gameMusic = GameObject.FindWithTag("GameMusic").GetComponent<AudioSource>();
+        gameAmbience = GameObject.FindWithTag("GameAmbience").GetComponent<AudioSource>();
+        StartCoroutine(AmbientSounds(RandomAmbience(), 2));
+    }
     // Awake, Start && Update ------------------------------------------
+    // Music -----------------------------------------------------------
+    AudioClip RandomAmbience()
+    {
+        int randomNumber;
+        randomNumber = Random.Range(0, 2);
+        switch (randomNumber)
+        {
+            case 0:
+                return ambientOneClip;
+            case 1: 
+                return ambientThreeClip;
+            default:
+                return ambientOneClip;
+        }
+    }
+    IEnumerator AmbientSounds(AudioClip inputAmbience, int inputSeconds)
+    {
+        while (isGameActive)
+        {
+            gameAmbience.clip = inputAmbience;
+            yield return new WaitForSeconds(inputSeconds);
+            gameAmbience.Play();
+        }
+    }
+    // Music -----------------------------------------------------------
     // High score ------------------------------------------------------
     public void HighScoreTable(string name, int score)
     {

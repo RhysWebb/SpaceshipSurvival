@@ -11,6 +11,7 @@ public class Rocket : MonoBehaviour
     public float maxDistance = 3.0f;
     private Vector3 lastPosition;
     private float distanceTraveled;
+    [SerializeField] private GameObject boomer;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class Rocket : MonoBehaviour
         DistanceTravelled();
         if (DistanceTravelled() > 4.5f)
         {
+            Instantiate(boomer, transform.position, transform.rotation);
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
@@ -43,6 +45,7 @@ public class Rocket : MonoBehaviour
             GameManager.Instance.AsteroidStatsIncrease();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         else if (collision.gameObject.CompareTag("SmallAsteroid"))
@@ -50,13 +53,17 @@ public class Rocket : MonoBehaviour
             GameManager.Instance.SmallAsteroidStatsIncrease();
             Instantiate(explosion, transform.position, transform.rotation);
             Destroy(collision.gameObject);
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
-        else if(!collision.gameObject.CompareTag("PlayerShield"))
+        else if (!collision.gameObject.CompareTag("PlayerShield"))
         {
             Instantiate(explosion, transform.position, transform.rotation);
             if (!collision.gameObject.CompareTag("Shields"))
+            {
                 Destroy(collision.gameObject);
+            }
+            Instantiate(boomer, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

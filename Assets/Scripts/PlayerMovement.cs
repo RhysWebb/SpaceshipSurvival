@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     [Space, SerializeField] GameObject[] brokenPieces;
     private int totalPieces;
     private bool paused = false;
-
+    private AudioSource playerAudioSource;
     public float counter;
     private MainGameUIController mainGameUIController;
     // Misc. -------------------------------------------------
@@ -43,7 +43,9 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
+        playerAudioSource = GetComponent<AudioSource>();
         totalPieces = 0;
+        StartCoroutine(PlayerDamaged());
     }
     void Update()
     {
@@ -73,11 +75,19 @@ public class PlayerMovement : MonoBehaviour
         ClampedVelocity();
     }
     // Start & Update ----------------------------------------
-    void PlayerDamaged()
+    
+    IEnumerator PlayerDamaged()
     {
-        if (playerDamaged)
+        while (playerDamaged)
         {
             spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(0.5f);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(0.5f);
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(0.5f);
+            spriteRenderer.enabled = true;
+            playerDamaged = false;
         }
     }
     // Player Functions --------------------------------------
@@ -158,7 +168,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if ((collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion")))
         {
-            mainGameUIController.LivesUpdate();
+            if (!playerDamaged)
+            {
+                Vector3 pushDirection = collision.transform.position - transform.position;
+                pushDirection = pushDirection.normalized;
+                rb.AddForce(pushDirection * 5, ForceMode2D.Impulse);
+                playerAudioSource.Play();
+                mainGameUIController.LivesUpdate();
+                playerDamaged = true;
+            }
         }
         else if (collision.CompareTag("Shields") && !isShieldActive)
         {
