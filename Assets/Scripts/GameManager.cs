@@ -206,6 +206,7 @@ public class GameManager : MonoBehaviour
     }
     [SerializeField] private AudioClip ambientOneClip;
     [SerializeField] private AudioClip ambientThreeClip;
+    [SerializeField] private float soundTimer;
     // Sound -----------------------------------------------------------
     // Variables -------------------------------------------------------
     
@@ -225,10 +226,23 @@ public class GameManager : MonoBehaviour
     {
         gameMusic = GameObject.FindWithTag("GameMusic").GetComponent<AudioSource>();
         gameAmbience = GameObject.FindWithTag("GameAmbience").GetComponent<AudioSource>();
-        StartCoroutine(AmbientSounds(RandomAmbience(), 2));
+    }
+    private void Update()
+    {
+        AmbientSounds();
     }
     // Awake, Start && Update ------------------------------------------
     // Music -----------------------------------------------------------
+    void AmbientSounds()
+    {
+        soundTimer += Time.deltaTime;
+        if (soundTimer > 30) 
+        {
+            gameAmbience.clip = RandomAmbience();
+            gameAmbience.Play();
+            soundTimer = 0;
+        }
+    }
     AudioClip RandomAmbience()
     {
         int randomNumber;
@@ -243,14 +257,29 @@ public class GameManager : MonoBehaviour
                 return ambientOneClip;
         }
     }
-    IEnumerator AmbientSounds(AudioClip inputAmbience, int inputSeconds)
+    public void PlayMusicOne()
     {
-        while (isGameActive)
-        {
-            gameAmbience.clip = inputAmbience;
-            yield return new WaitForSeconds(inputSeconds);
-            gameAmbience.Play();
-        }
+        gameMusic.Stop();
+        gameMusic.clip = musicOne;
+        gameMusic.Play();
+    }
+    public void PlayMusicTwo()
+    {
+        gameMusic.Stop();
+        gameMusic.clip = musicTwo;
+        gameMusic.Play();
+    }
+    public void PlayMusicThree()
+    {
+        gameMusic.Stop();
+        gameMusic.clip = musicThree;
+        gameMusic.Play();
+    }
+    public void PlayMusicFour()
+    {
+        gameMusic.Stop();
+        gameMusic.clip = musicFour;
+        gameMusic.Play();
     }
     // Music -----------------------------------------------------------
     // High score ------------------------------------------------------

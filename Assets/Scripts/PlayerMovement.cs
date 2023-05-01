@@ -27,7 +27,8 @@ public class PlayerMovement : MonoBehaviour
     // Misc. -------------------------------------------------
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb;
-
+    private float damageTimer;
+    private int damageCounter;
     [Space, SerializeField] GameObject[] brokenPieces;
     private int totalPieces;
     private bool paused = false;
@@ -45,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         playerAudioSource = GetComponent<AudioSource>();
         totalPieces = 0;
-        StartCoroutine(PlayerDamaged());
     }
     void Update()
     {
@@ -69,25 +69,30 @@ public class PlayerMovement : MonoBehaviour
         {
             playerShields.SetActive(true);
         }
+        PlayerDamaged();
     }
     private void FixedUpdate()
     {
         ClampedVelocity();
     }
     // Start & Update ----------------------------------------
-    
-    IEnumerator PlayerDamaged()
+    void PlayerDamaged()
     {
-        while (playerDamaged)
+        if (playerDamaged)
         {
-            spriteRenderer.enabled = false;
-            yield return new WaitForSeconds(0.5f);
-            spriteRenderer.enabled = true;
-            yield return new WaitForSeconds(0.5f);
-            spriteRenderer.enabled = false;
-            yield return new WaitForSeconds(0.5f);
-            spriteRenderer.enabled = true;
-            playerDamaged = false;
+            damageTimer += Time.deltaTime;
+            if (damageTimer > 1)
+            {
+                spriteRenderer.enabled = false;
+            }
+            else if (damageTimer > 2)
+            {
+                spriteRenderer.enabled = true;
+                damageCounter++;
+                damageTimer = 0;
+            }
+            if (damageCounter == 2)
+                playerDamaged = false;
         }
     }
     // Player Functions --------------------------------------
