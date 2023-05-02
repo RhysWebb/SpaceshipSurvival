@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3299997665360114041}
   - component: {fileID: 1859664125914956957}
-  - component: {fileID: 1736211863198436030}
   - component: {fileID: -5091117312525832564}
+  - component: {fileID: 4377578777986348201}
   - component: {fileID: 4085029108089641224}
   m_Layer: 0
   m_Name: Player_Death_body
@@ -87,19 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1736211863198436030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8503527132337535517}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b5a8deeb8e4ee14d803ea9d8362dedf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTorque: 10
 --- !u!50 &-5091117312525832564
 Rigidbody2D:
   serializedVersion: 4
@@ -121,6 +108,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4377578777986348201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8503527132337535517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfeb26c48e4608148a2b41a975a2355f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  timeToLive: 10
 --- !u!60 &4085029108089641224
 PolygonCollider2D:
   m_ObjectHideFlags: 0
