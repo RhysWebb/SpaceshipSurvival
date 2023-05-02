@@ -205,7 +205,10 @@ public class GameManager : MonoBehaviour
         get { return buttonPressClip; }
     }
     [SerializeField] private AudioClip ambientOneClip;
+    [SerializeField] private AudioClip ambientTwoClip;
     [SerializeField] private AudioClip ambientThreeClip;
+    [SerializeField] private AudioClip ambientFourClip;
+    [SerializeField] private AudioClip ambientFiveClip;
     [SerializeField] private float soundTimer;
     // Sound -----------------------------------------------------------
     // Variables -------------------------------------------------------
