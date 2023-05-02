@@ -12042,7 +12042,7 @@ MonoBehaviour:
   musicTwoClip: {fileID: 8300000, guid: bfeab878160a5b746b4b761cf22bb4f6, type: 3}
   musicThreeClip: {fileID: 8300000, guid: a5fde12e27b1441468fbf3e084cbe453, type: 3}
   musicFourClip: {fileID: 8300000, guid: 8b8df95839a84b047b51962b44b4927b, type: 3}
-  buttonPressClip: {fileID: 8300000, guid: 39383b9e1b382c447910ce94337c57ca, type: 3}
+  buttonPressClip: {fileID: 8300000, guid: c39374640b16e0a4085118a62b56d5cd, type: 3}
   ambientOneClip: {fileID: 8300000, guid: 6e2f153a60a3ddb48811b6923d0f0ecd, type: 3}
   ambientThreeClip: {fileID: 8300000, guid: 0c6d0679290bf4045a87f5556a1fbd1f, type: 3}
   soundTimer: 0
