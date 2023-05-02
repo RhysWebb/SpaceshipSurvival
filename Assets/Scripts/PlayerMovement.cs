@@ -85,7 +85,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 spriteRenderer.enabled = false;
             }
-            else if (damageTimer > 2)
+            if (damageTimer > 2)
             {
                 spriteRenderer.enabled = true;
                 damageCounter++;
