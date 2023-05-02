@@ -254,8 +254,14 @@ public class GameManager : MonoBehaviour
         {
             case 0:
                 return ambientOneClip;
-            case 1: 
+            case 1:
+                return ambientTwoClip;
+            case 2: 
                 return ambientThreeClip;
+            case 3:
+                return ambientFourClip;
+            case 4:
+                return ambientFiveClip;
             default:
                 return ambientOneClip;
         }
