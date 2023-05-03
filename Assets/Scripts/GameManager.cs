@@ -179,6 +179,7 @@ public class GameManager : MonoBehaviour
     // Sound -----------------------------------------------------------
     private AudioSource gameMusic;
     private AudioSource gameAmbience;
+    private AudioSource uiSounds;
     [SerializeField] private AudioClip musicOneClip;
     public AudioClip musicOne
     {
@@ -229,6 +230,7 @@ public class GameManager : MonoBehaviour
     {
         gameMusic = GameObject.FindWithTag("GameMusic").GetComponent<AudioSource>();
         gameAmbience = GameObject.FindWithTag("GameAmbience").GetComponent<AudioSource>();
+        uiSounds = GameObject.FindWithTag("uiSounds").GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -289,6 +291,10 @@ public class GameManager : MonoBehaviour
         gameMusic.Stop();
         gameMusic.clip = musicFour;
         gameMusic.Play();
+    }
+    public void ButtonHoverSound()
+    {
+        uiSounds.Play();
     }
     // Music -----------------------------------------------------------
     // High score ------------------------------------------------------
