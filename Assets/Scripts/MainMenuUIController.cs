@@ -4,9 +4,10 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUIController : MonoBehaviour
+public class MainMenuUIController : MonoBehaviour, IPointerEnterHandler
 {
     // Variables --------------------------------------------------------------------
     // Tutorial ---------------------------------------------------------------------
@@ -395,6 +396,10 @@ public class MainMenuUIController : MonoBehaviour
         smallAsteroidStats.text = GameManager.Instance.smallAsteroidStatsInput.ToString();
         rocketStats.text = GameManager.Instance.rocketsFiredStatsInput.ToString();
         bombStats.text = GameManager.Instance.bombsDroppedStatsInput.ToString();
+    }
+    public void MouseHoverSound()
+    {
+        GameManager.Instance.ButtonHoverSound();
     }
     void StartGame()
     {
