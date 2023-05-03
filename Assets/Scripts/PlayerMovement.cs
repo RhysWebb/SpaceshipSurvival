@@ -75,10 +75,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerShields.SetActive(true);
         }
-        PlayerDamaged();
-        if (Input.GetKey(KeyCode.Escape))
-            mainGameUIController.Pause();
-        
+        PlayerDamaged();       
     }
     private void FixedUpdate()
     {

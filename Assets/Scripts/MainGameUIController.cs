@@ -124,6 +124,11 @@ public class MainGameUIController : MonoBehaviour
         RocketGGUIUpdater();
         Time.timeScale = 1.0f;
     }
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+            Pause();
+    }
     // Awake, Start & Update -----------------------------------------------------------
 
     // Game UI -------------------------------------------------------------------------
