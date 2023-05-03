@@ -184,6 +184,25 @@ public class MainGameUIController : MonoBehaviour
     }
     // Game UI -------------------------------------------------------------------------
 
+    // Sound ---------------------------------------------------------------------------
+    public void MusicOneSelected()
+    {
+        GameManager.Instance.PlayMusicOne();
+    }
+    public void MusicTwoSelected()
+    {
+        GameManager.Instance.PlayMusicTwo();
+    }
+    public void MusicThreeSelected()
+    {
+        GameManager.Instance.PlayMusicThree();
+    }
+    public void MusicFourSelected()
+    {
+        GameManager.Instance.PlayMusicFour();
+    }
+    // Sound ---------------------------------------------------------------------------
+
     // Misc. ---------------------------------------------------------------------------
     public void LivesUpdate()
     {

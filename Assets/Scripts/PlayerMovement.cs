@@ -35,6 +35,9 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource playerAudioSource;
     public float counter;
     private MainGameUIController mainGameUIController;
+    [SerializeField] private AudioClip playerDamagedSound;
+    [SerializeField] private AudioClip reloadSound;
+    [SerializeField] private AudioClip shieldSound;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
 
@@ -70,31 +73,44 @@ public class PlayerMovement : MonoBehaviour
             playerShields.SetActive(true);
         }
         PlayerDamaged();
+        if (Input.GetKey(KeyCode.Escape))
+            mainGameUIController.Pause();
+        
     }
     private void FixedUpdate()
     {
         ClampedVelocity();
     }
     // Start & Update ----------------------------------------
+    // Damage ------------------------------------------------
     void PlayerDamaged()
     {
         if (playerDamaged)
         {
             damageTimer += Time.deltaTime;
-            if (damageTimer > 1)
+            if (damageTimer > 0.2)
             {
                 spriteRenderer.enabled = false;
             }
-            if (damageTimer > 2)
+            if (damageTimer > 0.4)
             {
                 spriteRenderer.enabled = true;
                 damageCounter++;
                 damageTimer = 0;
             }
-            if (damageCounter == 2)
+            if (damageCounter == 5)
                 playerDamaged = false;
         }
     }
+    // Damage ------------------------------------------------
+    // Sound -------------------------------------------------
+    void PlayerSoundController(AudioClip soundInput)
+    {
+        playerAudioSource.Stop();
+        playerAudioSource.clip = soundInput;
+        playerAudioSource.Play();
+    }
+    // Sound -------------------------------------------------
     // Player Functions --------------------------------------
     void PlayerMoving()
     {
@@ -178,19 +194,21 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 pushDirection = collision.transform.position - transform.position;
                 pushDirection = pushDirection.normalized;
                 rb.AddForce(pushDirection * 5, ForceMode2D.Impulse);
-                playerAudioSource.Play();
                 mainGameUIController.LivesUpdate();
                 playerDamaged = true;
+                PlayerSoundController(playerDamagedSound);
             }
         }
         else if (collision.CompareTag("Shields") && !isShieldActive)
         {
             isShieldActive = true;
+            PlayerSoundController(shieldSound);
         }
         else if (collision.CompareTag("InstantShields") && !isShieldActive)
         {
             Destroy(collision.gameObject);
             isShieldActive = true;
+            PlayerSoundController(shieldSound);
         }
         else if (collision.CompareTag("AmmoBombs"))
         {
@@ -199,6 +217,7 @@ public class PlayerMovement : MonoBehaviour
                 Destroy(collision.gameObject);
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
                 mainGameUIController.BombGUIUpdater();
+                PlayerSoundController(reloadSound);
             }
         }
         else if (collision.CompareTag("AmmoRockets"))
@@ -210,12 +229,14 @@ public class PlayerMovement : MonoBehaviour
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo += 5;
                     mainGameUIController.RocketGGUIUpdater();
+                    PlayerSoundController(reloadSound);
                 }
                 else if (GameManager.Instance.maxAmmo - GameManager.Instance.ammo < 5)
                 {
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
                     mainGameUIController.RocketGGUIUpdater();
+                    PlayerSoundController(reloadSound);
                 }
             }
         }

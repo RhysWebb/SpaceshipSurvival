@@ -249,7 +249,7 @@ public class GameManager : MonoBehaviour
     AudioClip RandomAmbience()
     {
         int randomNumber;
-        randomNumber = Random.Range(0, 2);
+        randomNumber = Random.Range(0, 5);
         switch (randomNumber)
         {
             case 0:
