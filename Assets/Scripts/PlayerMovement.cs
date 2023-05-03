@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip playerDamagedSound;
     [SerializeField] private AudioClip reloadSound;
     [SerializeField] private AudioClip shieldSound;
+    private Color flashColor = Color.red;
+    private Color originalColor;
     // Misc. -------------------------------------------------
     // Variables ---------------------------------------------
 
@@ -46,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GameObject.Find("PlayerRenderer").GetComponent<SpriteRenderer>();
+        originalColor = spriteRenderer.color;
         mainGameUIController = GameObject.Find("Canvas").GetComponent<MainGameUIController>();
         playerAudioSource = GetComponent<AudioSource>();
         totalPieces = 0;
@@ -90,16 +93,19 @@ public class PlayerMovement : MonoBehaviour
             damageTimer += Time.deltaTime;
             if (damageTimer > 0.2)
             {
-                spriteRenderer.enabled = false;
+                spriteRenderer.color = flashColor;
             }
             if (damageTimer > 0.4)
             {
-                spriteRenderer.enabled = true;
+                spriteRenderer.color = originalColor;
                 damageCounter++;
                 damageTimer = 0;
             }
             if (damageCounter == 5)
+            {
                 playerDamaged = false;
+                damageTimer = 0;
+            }
         }
     }
     // Damage ------------------------------------------------
