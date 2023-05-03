@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 93272411}
   - component: {fileID: 93272410}
   - component: {fileID: 93272409}
+  - component: {fileID: 93272412}
   m_Layer: 5
   m_Name: DifficultyMedium
   m_TagString: Untagged
@@ -394,6 +395,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93272407}
   m_CullTransparentMesh: 1
+--- !u!114 &93272412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 93272407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &94772488
 GameObject:
   m_ObjectHideFlags: 0
@@ -693,6 +723,7 @@ GameObject:
   - component: {fileID: 180094563}
   - component: {fileID: 180094562}
   - component: {fileID: 180094561}
+  - component: {fileID: 180094564}
   m_Layer: 0
   m_Name: TrackFour
   m_TagString: Untagged
@@ -815,6 +846,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180094559}
   m_CullTransparentMesh: 1
+--- !u!114 &180094564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 180094559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &202670241
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,6 +971,7 @@ GameObject:
   - component: {fileID: 203456463}
   - component: {fileID: 203456462}
   - component: {fileID: 203456461}
+  - component: {fileID: 203456464}
   m_Layer: 0
   m_Name: ExitButton
   m_TagString: Untagged
@@ -1033,6 +1094,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203456459}
   m_CullTransparentMesh: 1
+--- !u!114 &203456464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 203456459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &318437806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1307,7 @@ GameObject:
   - component: {fileID: 342049815}
   - component: {fileID: 342049814}
   - component: {fileID: 342049813}
+  - component: {fileID: 342049816}
   m_Layer: 0
   m_Name: TrackTwo
   m_TagString: Untagged
@@ -1339,6 +1430,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342049811}
   m_CullTransparentMesh: 1
+--- !u!114 &342049816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 342049811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &347724442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1863,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &528001750
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2623,6 +2743,7 @@ GameObject:
   - component: {fileID: 889762279}
   - component: {fileID: 889762278}
   - component: {fileID: 889762277}
+  - component: {fileID: 889762280}
   m_Layer: 5
   m_Name: DifficultyHard
   m_TagString: Untagged
@@ -2745,6 +2866,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889762275}
   m_CullTransparentMesh: 1
+--- !u!114 &889762280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889762275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &928341036
 GameObject:
   m_ObjectHideFlags: 0
@@ -2757,6 +2907,7 @@ GameObject:
   - component: {fileID: 928341040}
   - component: {fileID: 928341039}
   - component: {fileID: 928341038}
+  - component: {fileID: 928341041}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: PauseButton
@@ -2878,6 +3029,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 928341036}
   m_CullTransparentMesh: 1
+--- !u!114 &928341041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 928341036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &935196572
 GameObject:
   m_ObjectHideFlags: 0
@@ -4363,6 +4543,7 @@ GameObject:
   - component: {fileID: 1423507604}
   - component: {fileID: 1423507603}
   - component: {fileID: 1423507602}
+  - component: {fileID: 1423507605}
   m_Layer: 0
   m_Name: SettingsCloseButton
   m_TagString: Untagged
@@ -4484,6 +4665,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423507600}
   m_CullTransparentMesh: 1
+--- !u!114 &1423507605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423507600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1430924242
 GameObject:
   m_ObjectHideFlags: 0
@@ -4572,6 +4782,7 @@ GameObject:
   - component: {fileID: 1439678411}
   - component: {fileID: 1439678410}
   - component: {fileID: 1439678409}
+  - component: {fileID: 1439678412}
   m_Layer: 0
   m_Name: TrackThree
   m_TagString: Untagged
@@ -4694,6 +4905,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1439678407}
   m_CullTransparentMesh: 1
+--- !u!114 &1439678412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439678407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1516587698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5403,6 +5643,7 @@ GameObject:
   - component: {fileID: 1671618331}
   - component: {fileID: 1671618330}
   - component: {fileID: 1671618329}
+  - component: {fileID: 1671618332}
   m_Layer: 0
   m_Name: TrackOne
   m_TagString: Untagged
@@ -5525,6 +5766,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671618327}
   m_CullTransparentMesh: 1
+--- !u!114 &1671618332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671618327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1672577678
 GameObject:
   m_ObjectHideFlags: 0
@@ -5613,6 +5883,7 @@ GameObject:
   - component: {fileID: 1744833759}
   - component: {fileID: 1744833758}
   - component: {fileID: 1744833757}
+  - component: {fileID: 1744833760}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -5735,6 +6006,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1744833755}
   m_CullTransparentMesh: 1
+--- !u!114 &1744833760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1744833755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1757546193
 GameObject:
   m_ObjectHideFlags: 0
@@ -6500,6 +6800,7 @@ GameObject:
   - component: {fileID: 1923670326}
   - component: {fileID: 1923670325}
   - component: {fileID: 1923670324}
+  - component: {fileID: 1923670327}
   m_Layer: 0
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -6622,6 +6923,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1923670322}
   m_CullTransparentMesh: 1
+--- !u!114 &1923670327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923670322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1941450329
 GameObject:
   m_ObjectHideFlags: 0
@@ -6634,6 +6964,7 @@ GameObject:
   - component: {fileID: 1941450333}
   - component: {fileID: 1941450332}
   - component: {fileID: 1941450331}
+  - component: {fileID: 1941450334}
   m_Layer: 5
   m_Name: DifficultyEasy
   m_TagString: Untagged
@@ -6756,6 +7087,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941450329}
   m_CullTransparentMesh: 1
+--- !u!114 &1941450334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941450329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1941769506
 GameObject:
   m_ObjectHideFlags: 0
@@ -6768,6 +7128,7 @@ GameObject:
   - component: {fileID: 1941769510}
   - component: {fileID: 1941769509}
   - component: {fileID: 1941769508}
+  - component: {fileID: 1941769511}
   m_Layer: 0
   m_Name: ResumeButton
   m_TagString: Untagged
@@ -6890,6 +7251,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941769506}
   m_CullTransparentMesh: 1
+--- !u!114 &1941769511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941769506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1765695799}
+          m_TargetAssemblyTypeName: MainGameUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1972818398
 GameObject:
   m_ObjectHideFlags: 0
@@ -7798,12 +8188,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3602622826381119820, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3602622826381119820, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: Loop
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_Volume
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_PlayOnAwake

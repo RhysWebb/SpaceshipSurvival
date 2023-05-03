@@ -272,6 +272,7 @@ GameObject:
   - component: {fileID: 13955287}
   - component: {fileID: 13955286}
   - component: {fileID: 13955285}
+  - component: {fileID: 13955288}
   m_Layer: 5
   m_Name: DifficultyReturn
   m_TagString: Button
@@ -393,6 +394,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 13955283}
   m_CullTransparentMesh: 1
+--- !u!114 &13955288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 13955283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &19868601
 GameObject:
   m_ObjectHideFlags: 0
@@ -944,6 +974,7 @@ GameObject:
   - component: {fileID: 133899357}
   - component: {fileID: 133899356}
   - component: {fileID: 133899355}
+  - component: {fileID: 133899358}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Button
@@ -1065,6 +1096,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133899353}
   m_CullTransparentMesh: 1
+--- !u!114 &133899358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133899353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &136549990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1137,7 @@ GameObject:
   - component: {fileID: 136549994}
   - component: {fileID: 136549993}
   - component: {fileID: 136549992}
+  - component: {fileID: 136549995}
   m_Layer: 5
   m_Name: DifficultyHard
   m_TagString: Button
@@ -1199,6 +1260,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136549990}
   m_CullTransparentMesh: 1
+--- !u!114 &136549995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136549990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &149883221
 GameObject:
   m_ObjectHideFlags: 0
@@ -1863,6 +1953,7 @@ GameObject:
   - component: {fileID: 207778637}
   - component: {fileID: 207778636}
   - component: {fileID: 207778635}
+  - component: {fileID: 207778638}
   m_Layer: 5
   m_Name: DifficultyEasy
   m_TagString: Button
@@ -1985,6 +2076,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207778633}
   m_CullTransparentMesh: 1
+--- !u!114 &207778638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207778633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &220505000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,6 +3368,7 @@ GameObject:
   - component: {fileID: 391019845}
   - component: {fileID: 391019844}
   - component: {fileID: 391019843}
+  - component: {fileID: 391019846}
   m_Layer: 5
   m_Name: DButton
   m_TagString: Untagged
@@ -3370,6 +3491,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391019841}
   m_CullTransparentMesh: 1
+--- !u!114 &391019846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391019841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &395038974
 GameObject:
   m_ObjectHideFlags: 0
@@ -3693,6 +3843,7 @@ GameObject:
   - component: {fileID: 430311180}
   - component: {fileID: 430311179}
   - component: {fileID: 430311178}
+  - component: {fileID: 430311181}
   m_Layer: 5
   m_Name: StatsButton
   m_TagString: Button
@@ -3815,6 +3966,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 430311176}
   m_CullTransparentMesh: 1
+--- !u!114 &430311181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430311176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &447990808
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,6 +6356,7 @@ GameObject:
   - component: {fileID: 851692480}
   - component: {fileID: 851692479}
   - component: {fileID: 851692478}
+  - component: {fileID: 851692481}
   m_Layer: 5
   m_Name: AButton
   m_TagString: Untagged
@@ -6298,6 +6479,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 851692476}
   m_CullTransparentMesh: 1
+--- !u!114 &851692481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851692476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &872021519
 GameObject:
   m_ObjectHideFlags: 0
@@ -6349,6 +6559,7 @@ GameObject:
   - component: {fileID: 876631690}
   - component: {fileID: 876631689}
   - component: {fileID: 876631688}
+  - component: {fileID: 876631691}
   m_Layer: 5
   m_Name: MovementButton
   m_TagString: Button
@@ -6471,6 +6682,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 876631686}
   m_CullTransparentMesh: 1
+--- !u!114 &876631691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876631686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &881670286
 GameObject:
   m_ObjectHideFlags: 0
@@ -7106,6 +7346,7 @@ GameObject:
   - component: {fileID: 933936318}
   - component: {fileID: 933936317}
   - component: {fileID: 933936316}
+  - component: {fileID: 933936319}
   m_Layer: 5
   m_Name: CombatButton
   m_TagString: Button
@@ -7228,6 +7469,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933936314}
   m_CullTransparentMesh: 1
+--- !u!114 &933936319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 933936314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &937085431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,6 +7510,7 @@ GameObject:
   - component: {fileID: 937085434}
   - component: {fileID: 937085432}
   - component: {fileID: 937085433}
+  - component: {fileID: 937085436}
   m_Layer: 5
   m_Name: SpaceButton
   m_TagString: Untagged
@@ -7362,6 +7633,35 @@ RectTransform:
   m_AnchoredPosition: {x: -100, y: -200}
   m_SizeDelta: {x: 265, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &937085436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937085431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &974786373
 GameObject:
   m_ObjectHideFlags: 0
@@ -7509,6 +7809,7 @@ GameObject:
   - component: {fileID: 1036002165}
   - component: {fileID: 1036002164}
   - component: {fileID: 1036002163}
+  - component: {fileID: 1036002166}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Button
@@ -7630,6 +7931,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1036002161}
   m_CullTransparentMesh: 1
+--- !u!114 &1036002166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036002161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1128108497
 GameObject:
   m_ObjectHideFlags: 0
@@ -7779,6 +8109,7 @@ GameObject:
   - component: {fileID: 1165123585}
   - component: {fileID: 1165123584}
   - component: {fileID: 1165123583}
+  - component: {fileID: 1165123586}
   m_Layer: 5
   m_Name: DifficultyMedium
   m_TagString: Button
@@ -7901,6 +8232,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165123581}
   m_CullTransparentMesh: 1
+--- !u!114 &1165123586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165123581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1213805398
 GameObject:
   m_ObjectHideFlags: 0
@@ -8226,6 +8586,7 @@ GameObject:
   - component: {fileID: 1258432149}
   - component: {fileID: 1258432148}
   - component: {fileID: 1258432150}
+  - component: {fileID: 1258432151}
   m_Layer: 5
   m_Name: LeftMouseButton
   m_TagString: Untagged
@@ -8348,6 +8709,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1258432151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258432145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1280278691
 GameObject:
   m_ObjectHideFlags: 0
@@ -10563,6 +10953,7 @@ GameObject:
   - component: {fileID: 1692871268}
   - component: {fileID: 1692871267}
   - component: {fileID: 1692871269}
+  - component: {fileID: 1692871270}
   m_Layer: 5
   m_Name: SButton
   m_TagString: Untagged
@@ -10685,6 +11076,35 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1692871270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692871264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1696836645
 GameObject:
   m_ObjectHideFlags: 0
@@ -11772,6 +12192,7 @@ GameObject:
   - component: {fileID: 1871658021}
   - component: {fileID: 1871658020}
   - component: {fileID: 1871658019}
+  - component: {fileID: 1871658022}
   m_Layer: 5
   m_Name: WButton
   m_TagString: Untagged
@@ -11894,6 +12315,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871658017}
   m_CullTransparentMesh: 1
+--- !u!114 &1871658022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1871658017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1883542369
 GameObject:
   m_ObjectHideFlags: 0
@@ -12898,6 +13348,7 @@ GameObject:
   - component: {fileID: 2132959054}
   - component: {fileID: 2132959053}
   - component: {fileID: 2132959052}
+  - component: {fileID: 2132959055}
   m_Layer: 5
   m_Name: HighScoreButton
   m_TagString: Button
@@ -13020,3 +13471,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132959050}
   m_CullTransparentMesh: 1
+--- !u!114 &2132959055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132959050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 19868606}
+          m_TargetAssemblyTypeName: MainMenuUIController, Assembly-CSharp
+          m_MethodName: MouseHoverSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2

@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.UI;
 
 public class MainGameUIController : MonoBehaviour
 {
@@ -30,6 +31,9 @@ public class MainGameUIController : MonoBehaviour
         get { return isGameCurrentlyActive; }
         set { isGameCurrentlyActive = value; }
     }
+    [SerializeField] private Slider masterVolume;
+    [SerializeField] private Slider musicVolume;
+    [SerializeField] private Slider gameSoundsVolume;
     // Pause & Settings -------------------------------------------
 
     // Spawners ---------------------------------------------------
@@ -126,7 +130,7 @@ public class MainGameUIController : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetButtonDown("Cancel"))
             Pause();
     }
     // Awake, Start & Update -----------------------------------------------------------
@@ -206,6 +210,11 @@ public class MainGameUIController : MonoBehaviour
     {
         GameManager.Instance.PlayMusicFour();
     }
+    public void MouseHoverSound()
+    {
+        GameManager.Instance.ButtonHoverSound();
+    }
+
     // Sound ---------------------------------------------------------------------------
 
     // Misc. ---------------------------------------------------------------------------
