@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class MainMenuUIController : MonoBehaviour, IPointerEnterHandler
+public class MainMenuUIController : MonoBehaviour
 {
     // Variables --------------------------------------------------------------------
     // Tutorial ---------------------------------------------------------------------

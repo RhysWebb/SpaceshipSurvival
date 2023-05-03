@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerDamaged = false;
                 damageTimer = 0;
+                damageCounter = 0;
             }
         }
     }
