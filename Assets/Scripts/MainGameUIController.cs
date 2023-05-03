@@ -34,6 +34,9 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private Slider masterVolume;
     [SerializeField] private Slider musicVolume;
     [SerializeField] private Slider gameSoundsVolume;
+    [SerializeField] private AudioSource[] allAudioSourcecs;
+    [SerializeField] private AudioSource[] musicSources;
+    [SerializeField] private AudioSource[] gameSounds;
     // Pause & Settings -------------------------------------------
 
     // Spawners ---------------------------------------------------
@@ -47,6 +50,17 @@ public class MainGameUIController : MonoBehaviour
     private int difficultyInput;
     // Game Over --------------------------------------------------
     // Variables --------------------------------------------------
+
+    public void MasterVolumeSlider()
+    {
+        float minVolume = 0.0f;
+        float maxVolume = 0.6f;
+        float volume = Mathf.Lerp(minVolume, maxVolume, masterVolume.value);
+        foreach(AudioSource source in allAudioSourcecs)
+        {
+            source.volume = volume;
+        }
+    }
 
     // Start game function -------------------------------------------------------------
     public void StartGame(int difficulty)
