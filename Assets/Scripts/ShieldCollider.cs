@@ -42,6 +42,7 @@ public class ShieldCollider : MonoBehaviour
                 Destroy(collision.gameObject);
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
                 mainGameUIController.BombGUIUpdater();
+                playerMovement.PlayerSoundController(playerMovement.reloadSoundGetter);
             }
         }
         else if (collision.gameObject.CompareTag("AmmoRockets"))
@@ -53,12 +54,14 @@ public class ShieldCollider : MonoBehaviour
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo += 5;
                     mainGameUIController.RocketGGUIUpdater();
+                    playerMovement.PlayerSoundController(playerMovement.reloadSoundGetter);
                 }
                 else if (GameManager.Instance.maxAmmo - GameManager.Instance.ammo < 5)
                 {
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
                     mainGameUIController.RocketGGUIUpdater();
+                    playerMovement.PlayerSoundController(playerMovement.reloadSoundGetter);
                 }
             }
 

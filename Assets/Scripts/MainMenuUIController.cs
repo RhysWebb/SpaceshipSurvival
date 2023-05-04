@@ -63,6 +63,7 @@ public class MainMenuUIController : MonoBehaviour
     // Start & Updates ---------------------------------------------------------------
     void Start()
     {
+        Time.timeScale = 1.0f;
         StartingCaller();
         mainMenuAudioSource = GetComponent<AudioSource>();
         mainMenuAudioSource.clip = GameManager.Instance.buttonPress;

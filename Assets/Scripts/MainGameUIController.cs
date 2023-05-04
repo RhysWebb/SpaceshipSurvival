@@ -129,6 +129,9 @@ public class MainGameUIController : MonoBehaviour
         BombGUIUpdater();
         RocketGGUIUpdater();
         Time.timeScale = 1.0f;
+        masterVolume.onValueChanged.AddListener(SetVolumeMaster);
+        gameSoundsVolume.onValueChanged.AddListener(SetVolumeGameSounds);
+        musicVolume.onValueChanged.AddListener(SetVolumeMusic);
     }
     private void Update()
     {

@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour
     private MainGameUIController mainGameUIController;
     [SerializeField] private AudioClip playerDamagedSound;
     [SerializeField] private AudioClip reloadSound;
+    public AudioClip reloadSoundGetter
+    {
+        get { return reloadSound; }
+    }
     [SerializeField] private AudioClip shieldSound;
     private Color flashColor = Color.red;
     private Color originalColor;
@@ -108,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
     }
     // Damage ------------------------------------------------
     // Sound -------------------------------------------------
-    void PlayerSoundController(AudioClip soundInput)
+    public void PlayerSoundController(AudioClip soundInput)
     {
         playerAudioSource.Stop();
         playerAudioSource.clip = soundInput;
