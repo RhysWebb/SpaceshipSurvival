@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 93272412}
   m_Layer: 5
   m_Name: DifficultyMedium
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +458,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.29993, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -726,7 +726,7 @@ GameObject:
   - component: {fileID: 180094564}
   m_Layer: 0
   m_Name: TrackFour
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -974,7 +974,7 @@ GameObject:
   - component: {fileID: 203456464}
   m_Layer: 0
   m_Name: ExitButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1310,7 +1310,7 @@ GameObject:
   - component: {fileID: 342049816}
   m_Layer: 0
   m_Name: TrackTwo
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1627,8 +1627,8 @@ RectTransform:
   m_Father: {fileID: 318437807}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.29993, y: 0}
+  m_AnchorMax: {x: 0.29993, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1755,7 +1755,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 938384095}
   m_HandleRect: {fileID: 1589234843}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.501
@@ -2746,7 +2746,7 @@ GameObject:
   - component: {fileID: 889762280}
   m_Layer: 5
   m_Name: DifficultyHard
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3169,7 +3169,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5009501, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -3333,7 +3333,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 1588150941}
   m_HandleRect: {fileID: 1672577679}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.501
@@ -4389,8 +4389,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 94772489}
   m_HandleRect: {fileID: 384455707}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 0.6
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
   m_Value: 0.3
   m_OnValueChanged:
@@ -4546,7 +4546,7 @@ GameObject:
   - component: {fileID: 1423507605}
   m_Layer: 0
   m_Name: SettingsCloseButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4785,7 +4785,7 @@ GameObject:
   - component: {fileID: 1439678412}
   m_Layer: 0
   m_Name: TrackThree
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5261,7 +5261,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0.5009501, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5336,8 +5336,8 @@ RectTransform:
   m_Father: {fileID: 1821406883}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5009501, y: 0}
+  m_AnchorMax: {x: 0.5009501, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5396,7 +5396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1626218876
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5646,7 +5646,7 @@ GameObject:
   - component: {fileID: 1671618332}
   m_Layer: 0
   m_Name: TrackOne
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5828,8 +5828,8 @@ RectTransform:
   m_Father: {fileID: 602520835}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5009501, y: 0}
+  m_AnchorMax: {x: 0.5009501, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5886,7 +5886,7 @@ GameObject:
   - component: {fileID: 1744833760}
   m_Layer: 5
   m_Name: ExitButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6294,12 +6294,10 @@ MonoBehaviour:
   settingsScreen: {fileID: 1626218875}
   gameOverScore: {fileID: 1757546195}
   gameOverScreen: {fileID: 567227192}
-  masterVolume: {fileID: 0}
-  musicVolume: {fileID: 0}
-  gameSoundsVolume: {fileID: 0}
-  allAudioSourcecs: []
-  musicSources: []
-  gameSounds: []
+  masterVolume: {fileID: 1337041009}
+  musicVolume: {fileID: 1000705494}
+  gameSoundsVolume: {fileID: 516718135}
+  audioMixer: {fileID: 24100000, guid: 032b7e0f5d75c4c4c9590cbc2476a404, type: 2}
   spawnedItem:
   - {fileID: 7209852670713811524, guid: d653a7de135072546929d242beadbfac, type: 3}
   - {fileID: 7209852670713811524, guid: d653a7de135072546929d242beadbfac, type: 3}
@@ -6809,7 +6807,7 @@ GameObject:
   - component: {fileID: 1923670327}
   m_Layer: 0
   m_Name: SettingsButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6973,7 +6971,7 @@ GameObject:
   - component: {fileID: 1941450334}
   m_Layer: 5
   m_Name: DifficultyEasy
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7137,7 +7135,7 @@ GameObject:
   - component: {fileID: 1941769511}
   m_Layer: 0
   m_Name: ResumeButton
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8113,6 +8111,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1214043399620882413, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5470077874880698211, guid: 032b7e0f5d75c4c4c9590cbc2476a404, type: 2}
     - target: {fileID: 1780782601042082410, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -8198,9 +8200,17 @@ PrefabInstance:
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 3602622826381119820, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3eb1d30675a5942b96d13aa80a44b4, type: 3}
+    - target: {fileID: 3602622826381119820, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3602622826381119820, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5470077874880698211, guid: 032b7e0f5d75c4c4c9590cbc2476a404, type: 2}
     - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: Loop
       value: 1
@@ -8210,9 +8220,17 @@ PrefabInstance:
       value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f3eb1d30675a5942b96d13aa80a44b4, type: 3}
+    - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6459523946155237349, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -5470077874880698211, guid: 032b7e0f5d75c4c4c9590cbc2476a404, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 140839e64a8632d4b9690270c0a9827e, type: 3}
 --- !u!1 &1780782601631399026 stripped

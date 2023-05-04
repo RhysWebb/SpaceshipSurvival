@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class MainGameUIController : MonoBehaviour
 {
@@ -34,9 +35,7 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private Slider masterVolume;
     [SerializeField] private Slider musicVolume;
     [SerializeField] private Slider gameSoundsVolume;
-    [SerializeField] private AudioSource[] allAudioSourcecs;
-    [SerializeField] private AudioSource[] musicSources;
-    [SerializeField] private AudioSource[] gameSounds;
+    [SerializeField] private AudioMixer audioMixer;
     // Pause & Settings -------------------------------------------
 
     // Spawners ---------------------------------------------------
@@ -50,17 +49,6 @@ public class MainGameUIController : MonoBehaviour
     private int difficultyInput;
     // Game Over --------------------------------------------------
     // Variables --------------------------------------------------
-
-    public void MasterVolumeSlider()
-    {
-        float minVolume = 0.0f;
-        float maxVolume = 0.6f;
-        float volume = Mathf.Lerp(minVolume, maxVolume, masterVolume.value);
-        foreach(AudioSource source in allAudioSourcecs)
-        {
-            source.volume = volume;
-        }
-    }
 
     // Start game function -------------------------------------------------------------
     public void StartGame(int difficulty)
@@ -152,7 +140,7 @@ public class MainGameUIController : MonoBehaviour
     // Game UI -------------------------------------------------------------------------
     public void Pause()
     {
-        if (!pauseActive)
+        if (!pauseActive && isGameActive)
         {
             pauseScreen.gameObject.SetActive(true);
             pauseAnimator.SetTrigger("Paused");
@@ -228,7 +216,18 @@ public class MainGameUIController : MonoBehaviour
     {
         GameManager.Instance.ButtonHoverSound();
     }
-
+    public void SetVolumeMaster(float volume)
+    {
+        audioMixer.SetFloat("masterVolume", Mathf.Log10(volume) * 20);
+    }
+    public void SetVolumeMusic(float volume)
+    {
+        audioMixer.SetFloat("musicVolume", Mathf.Log10(volume) * 20);
+    }
+    public void SetVolumeGameSounds(float volume)
+    {
+        audioMixer.SetFloat("gameSoundsVolume", Mathf.Log10(volume) * 20);
+    }
     // Sound ---------------------------------------------------------------------------
 
     // Misc. ---------------------------------------------------------------------------
