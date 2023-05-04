@@ -36,6 +36,7 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private Slider musicVolume;
     [SerializeField] private Slider gameSoundsVolume;
     [SerializeField] private AudioMixer audioMixer;
+    private AudioSource mainGameAudioSource;
     // Pause & Settings -------------------------------------------
 
     // Spawners ---------------------------------------------------
@@ -132,6 +133,8 @@ public class MainGameUIController : MonoBehaviour
         masterVolume.onValueChanged.AddListener(SetVolumeMaster);
         gameSoundsVolume.onValueChanged.AddListener(SetVolumeGameSounds);
         musicVolume.onValueChanged.AddListener(SetVolumeMusic);
+        mainGameAudioSource = GetComponent<AudioSource>();
+        mainGameAudioSource.clip = GameManager.Instance.buttonPress;
     }
     private void Update()
     {
@@ -162,6 +165,7 @@ public class MainGameUIController : MonoBehaviour
     }
     public void Settings()
     {
+        mainGameAudioSource.Play();
         if (pauseActive && !isSettingsActive)
         {
             pauseAnimator.SetTrigger("SettingsSelected");
@@ -201,18 +205,22 @@ public class MainGameUIController : MonoBehaviour
     // Sound ---------------------------------------------------------------------------
     public void MusicOneSelected()
     {
+        mainGameAudioSource.Play();
         GameManager.Instance.PlayMusicOne();
     }
     public void MusicTwoSelected()
     {
+        mainGameAudioSource.Play();
         GameManager.Instance.PlayMusicTwo();
     }
     public void MusicThreeSelected()
     {
+        mainGameAudioSource.Play();
         GameManager.Instance.PlayMusicThree();
     }
     public void MusicFourSelected()
     {
+        mainGameAudioSource.Play();
         GameManager.Instance.PlayMusicFour();
     }
     public void MouseHoverSound()
