@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     // Variables ---------------------------------------------
     // Speed -------------------------------------------------
-    private float speed = 1.2f;
+    [SerializeField] private float speed = 1.2f;
     private float maxVelocity = 1.2f;
     private float rotationalSpeed = 125f;
     // Speed -------------------------------------------------
