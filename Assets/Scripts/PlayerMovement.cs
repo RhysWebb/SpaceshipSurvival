@@ -222,8 +222,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (GameManager.Instance.bombs < GameManager.Instance.maxBombs)
             {
+                int tempText;
+                tempText = GameManager.Instance.maxBombs - GameManager.Instance.bombs;
                 Destroy(collision.gameObject);
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
+                GameManager.Instance.UpdateFloatingText("+" + tempText);
+                Instantiate(GameManager.Instance.reloadItemObject, transform.position, transform.rotation);
                 mainGameUIController.BombGUIUpdater();
                 PlayerSoundController(reloadSound);
             }
@@ -236,13 +240,19 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo += 5;
+                    GameManager.Instance.UpdateFloatingText("+5");
+                    Instantiate(GameManager.Instance.reloadItemObject, transform.position, transform.rotation);
                     mainGameUIController.RocketGGUIUpdater();
                     PlayerSoundController(reloadSound);
                 }
                 else if (GameManager.Instance.maxAmmo - GameManager.Instance.ammo < 5)
                 {
+                    int tempText;
+                    tempText = GameManager.Instance.maxAmmo - GameManager.Instance.ammo;
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
+                    GameManager.Instance.UpdateFloatingText("+" + tempText);
+                    Instantiate(GameManager.Instance.reloadItemObject, transform.position, transform.rotation);
                     mainGameUIController.RocketGGUIUpdater();
                     PlayerSoundController(reloadSound);
                 }

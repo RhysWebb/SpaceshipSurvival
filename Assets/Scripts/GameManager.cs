@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -212,8 +213,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip ambientFiveClip;
     [SerializeField] private float soundTimer;
     // Sound -----------------------------------------------------------
+    // Floating text ---------------------------------------------------
+    [SerializeField] private GameObject reloadItem;
+    public GameObject reloadItemObject
+    {
+        get { return reloadItem; }
+    }
+    private TextMeshPro reloadText;
+    // Floating text ---------------------------------------------------
     // Variables -------------------------------------------------------
-    
+
     // Awake, Start && Update ------------------------------------------
     private void Awake()
     {
@@ -231,6 +240,7 @@ public class GameManager : MonoBehaviour
         gameMusic = GameObject.FindWithTag("GameMusic").GetComponent<AudioSource>();
         gameAmbience = GameObject.FindWithTag("GameAmbience").GetComponent<AudioSource>();
         uiSounds = GameObject.FindWithTag("uiSounds").GetComponent<AudioSource>();
+        reloadText = reloadText.GetComponent<TextMeshPro>();
     }
     private void Update()
     {
@@ -297,6 +307,12 @@ public class GameManager : MonoBehaviour
         uiSounds.Play();
     }
     // Music -----------------------------------------------------------
+    // Floating text ---------------------------------------------------
+    public void UpdateFloatingText(string updateText) 
+    {
+        reloadText.text = updateText;
+    }
+    // Floating text ---------------------------------------------------
     // High score ------------------------------------------------------
     public void HighScoreTable(string name, int score)
     {
