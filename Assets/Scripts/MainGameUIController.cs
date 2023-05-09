@@ -46,6 +46,10 @@ public class MainGameUIController : MonoBehaviour
     [SerializeField] private GameObject supportShip;
     // Spawners ---------------------------------------------------
 
+    // Health -----------------------------------------------------
+    [SerializeField] private Slider shipsHealth;
+    // Health -----------------------------------------------------
+
     // Game Over --------------------------------------------------
     private int difficultyInput;
     // Game Over --------------------------------------------------
@@ -241,13 +245,46 @@ public class MainGameUIController : MonoBehaviour
     }
     // Sound ---------------------------------------------------------------------------
 
-    // Misc. ---------------------------------------------------------------------------
+    // Health --------------------------------------------------------------------------
     public void LivesUpdate()
     {
         GameManager.Instance.health--;
-        if (GameManager.Instance.health <= 0)
-            GameOver();
+        PlayerHealthBar(GameManager.Instance.health);
     }
+    private void PlayerHealthBar(int inputHealth)
+    {
+        switch (inputHealth)
+        {
+            case 6:
+                shipsHealth.value = 1.0f;
+                break;
+            case 5: 
+                shipsHealth.value = 0.85f; 
+                break;
+            case 4: 
+                shipsHealth.value = 0.65f;
+                break;
+            case 3:
+                shipsHealth.value = 0.50f;
+                break;
+            case 2:
+                shipsHealth.value = 0.35f;
+                break;
+            case 1:
+                shipsHealth.value = 0.15f;
+                break;
+            case 0:
+                shipsHealth.value = 0.00f;
+                GameOver();
+                break;
+            default:
+                shipsHealth.value = 1.0f;
+                break;
+        }
+    }
+    // Health --------------------------------------------------------------------------
+
+    // Misc. ---------------------------------------------------------------------------
     public void GameOver()
     {
         isGameActive = false;
