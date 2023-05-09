@@ -219,7 +219,12 @@ public class GameManager : MonoBehaviour
     {
         get { return reloadItem; }
     }
-    private TextMeshPro reloadText;
+    private string reloadText;
+    public string reloadTextInput
+    {
+        get { return reloadText; }
+        set { reloadText = value; }
+    }
     // Floating text ---------------------------------------------------
     // Variables -------------------------------------------------------
 
@@ -240,7 +245,7 @@ public class GameManager : MonoBehaviour
         gameMusic = GameObject.FindWithTag("GameMusic").GetComponent<AudioSource>();
         gameAmbience = GameObject.FindWithTag("GameAmbience").GetComponent<AudioSource>();
         uiSounds = GameObject.FindWithTag("uiSounds").GetComponent<AudioSource>();
-        reloadText = reloadText.GetComponent<TextMeshPro>();
+
     }
     private void Update()
     {
@@ -310,7 +315,7 @@ public class GameManager : MonoBehaviour
     // Floating text ---------------------------------------------------
     public void UpdateFloatingText(string updateText) 
     {
-        reloadText.text = updateText;
+        reloadText = updateText;
     }
     // Floating text ---------------------------------------------------
     // High score ------------------------------------------------------

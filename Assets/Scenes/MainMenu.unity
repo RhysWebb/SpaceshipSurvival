@@ -12460,6 +12460,7 @@ MonoBehaviour:
   ambientFourClip: {fileID: 8300000, guid: fcc69d596e136463999c775beed3baa8, type: 3}
   ambientFiveClip: {fileID: 8300000, guid: 0c6d0679290bf4045a87f5556a1fbd1f, type: 3}
   soundTimer: 0
+  reloadItem: {fileID: 4530903231114708817, guid: 2b45a7b0b9040b64f8c42596bd1a294f, type: 3}
 --- !u!4 &1962414437
 Transform:
   m_ObjectHideFlags: 0
