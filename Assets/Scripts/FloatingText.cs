@@ -10,13 +10,13 @@ public class FloatingText : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float textSpeed;
     private float counter;
-    private TextMeshProUGUI textMeshPro;
+    private TMP_Text textMeshPro;
     // Variables --------------------------------------------
 
     private void Start()
     {
         transform.localScale = new Vector3(0.2f, 0.2f, 0.2f);        
-        textMeshPro = GetComponent<TextMeshProUGUI>();
+        textMeshPro = GetComponent<TMP_Text>();
         textMeshPro.text = $"{GameManager.Instance.reloadTextInput}";
 
     }

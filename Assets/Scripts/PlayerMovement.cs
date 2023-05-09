@@ -224,9 +224,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 int tempText;
                 tempText = GameManager.Instance.maxBombs - GameManager.Instance.bombs;
+                GameManager.Instance.UpdateFloatingText("+" + tempText);
                 Destroy(collision.gameObject);
                 GameManager.Instance.bombs = GameManager.Instance.maxBombs;
-                GameManager.Instance.UpdateFloatingText("+" + tempText);
+                
                 Instantiate(GameManager.Instance.reloadItemObject, transform.position, transform.rotation);
                 mainGameUIController.BombGUIUpdater();
                 PlayerSoundController(reloadSound);
@@ -238,9 +239,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (GameManager.Instance.maxAmmo - GameManager.Instance.ammo >= 5)
                 {
+                    GameManager.Instance.UpdateFloatingText("+5");
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo += 5;
-                    GameManager.Instance.UpdateFloatingText("+5");
+
                     Instantiate(GameManager.Instance.reloadItemObject, transform.position, transform.rotation);
                     mainGameUIController.RocketGGUIUpdater();
                     PlayerSoundController(reloadSound);
@@ -249,9 +251,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     int tempText;
                     tempText = GameManager.Instance.maxAmmo - GameManager.Instance.ammo;
+                    GameManager.Instance.UpdateFloatingText("+" + tempText);
                     Destroy(collision.gameObject);
                     GameManager.Instance.ammo = GameManager.Instance.maxAmmo;
-                    GameManager.Instance.UpdateFloatingText("+" + tempText);
+                    
                     Instantiate(GameManager.Instance.reloadItemObject, transform.position, transform.rotation);
                     mainGameUIController.RocketGGUIUpdater();
                     PlayerSoundController(reloadSound);
