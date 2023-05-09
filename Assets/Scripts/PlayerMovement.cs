@@ -195,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
     // Trigggers & Enumerators -------------------------------
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((collision.CompareTag("Asteroid") || collision.CompareTag("Debris") || collision.gameObject.CompareTag("Explosion")))
+        if ((collision.CompareTag("Asteroid") || collision.CompareTag("SmallAsteroid") || collision.gameObject.CompareTag("Explosion")))
         {
             if (!playerDamaged)
             {
