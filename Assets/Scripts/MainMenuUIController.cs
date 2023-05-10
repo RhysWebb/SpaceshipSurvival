@@ -60,6 +60,8 @@ public class MainMenuUIController : MonoBehaviour
     // Sound -------------------------------------------------------------------------
     // Interactables -----------------------------------------------------------------
     private bool buttonPressed = false;
+    private Coroutine lastRun;
+    private bool runCompleted;
     // Interactables -----------------------------------------------------------------
     // Variables ---------------------------------------------------------------------
 
@@ -93,7 +95,6 @@ public class MainMenuUIController : MonoBehaviour
             mainMenuAudioSource.Play();
             tutorialHolder.SetActive(true);
             isTutorialActive = true;
-            StartCoroutine(ControlsOpening(1.6f));
         }
         else if (isTutorialActive)
         {
@@ -148,13 +149,23 @@ public class MainMenuUIController : MonoBehaviour
     // Combat Buttons --------------------------------------------------------------
     public void CombatSpaceButton()
     {
-        mainMenuAudioSource.Play();
-        bombAnimator.SetTrigger("DropBomb");
+        if (!buttonPressed)
+        {
+            mainMenuAudioSource.Play();
+            bombAnimator.SetTrigger("DropBomb");
+            buttonPressed = true;
+            StartCoroutine(CombatButtonPushReset());
+        }
     }
     public void CombatLMBButton()
     {
-        mainMenuAudioSource.Play();
-        rocketAnimator.SetTrigger("FireRocket");
+        if (!buttonPressed)
+        {
+            mainMenuAudioSource.Play();
+            rocketAnimator.SetTrigger("FireRocket");
+            buttonPressed = true;
+            StartCoroutine(CombatButtonPushReset());
+        }
     }
     // Combat Buttons --------------------------------------------------------------
     // Movement On & Off -----------------------------------------------------------
@@ -386,11 +397,19 @@ public class MainMenuUIController : MonoBehaviour
     }
     // Difficulty ------------------------------------------------------------------
     // Enumerators -----------------------------------------------------------------
-    IEnumerator ControlsOpening(float secondsToWait)
+    IEnumerator ControlsOpening()
     {
-        yield return new WaitForSeconds(secondsToWait);
+        runCompleted = false;
+        lastRun = StartCoroutine(ControlsOpening());
+        yield return new WaitForSeconds(1.6f);
         tutorialMovementHolder.SetActive(true);
         isMovementActive = true;
+        runCompleted = true;
+    }
+    IEnumerator CombatButtonPushReset()
+    {
+        yield return new WaitForSeconds(4);
+        buttonPressed = false;
     }
     IEnumerator ButtonPushReset()
     {
