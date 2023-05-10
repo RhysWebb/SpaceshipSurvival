@@ -58,6 +58,9 @@ public class MainMenuUIController : MonoBehaviour
     // Sound -------------------------------------------------------------------------
     private AudioSource mainMenuAudioSource;
     // Sound -------------------------------------------------------------------------
+    // Interactables -----------------------------------------------------------------
+    private bool buttonPressed = false;
+    // Interactables -----------------------------------------------------------------
     // Variables ---------------------------------------------------------------------
 
     // Start & Updates ---------------------------------------------------------------
@@ -85,14 +88,16 @@ public class MainMenuUIController : MonoBehaviour
     // Open and Close Tutorials/Controls -------------------------------------------
     public void OpenControls()
     {
-        mainMenuAudioSource.Play();
         if (!isTutorialActive)
         {
+            mainMenuAudioSource.Play();
             tutorialHolder.SetActive(true);
             isTutorialActive = true;
+            StartCoroutine(ControlsOpening(1.6f));
         }
         else if (isTutorialActive)
         {
+            mainMenuAudioSource.Play();
             tutorialHolder.SetActive(false);
             isTutorialActive = false;
             tutorialCombatHolder.SetActive(false);
@@ -115,11 +120,11 @@ public class MainMenuUIController : MonoBehaviour
     // Combat On & Off -------------------------------------------------------------
     public void OpenCombat()
     {
-        mainMenuAudioSource.Play();
         if (!isCombatActive)
         {
             if (isMovementActive)
             {
+                mainMenuAudioSource.Play();
                 tutorialMovementHolder.SetActive(false);
                 isMovementActive = false;
                 tutorialCombatHolder.SetActive(true);
@@ -127,12 +132,14 @@ public class MainMenuUIController : MonoBehaviour
             }
             else
             {
+                mainMenuAudioSource.Play();
                 tutorialCombatHolder.SetActive(true);
                 isCombatActive = true;
             }
         }
         else if (isCombatActive)
         {
+            mainMenuAudioSource.Play();
             tutorialCombatHolder.SetActive(false);
             isCombatActive = false;
         }
@@ -141,21 +148,23 @@ public class MainMenuUIController : MonoBehaviour
     // Combat Buttons --------------------------------------------------------------
     public void CombatSpaceButton()
     {
+        mainMenuAudioSource.Play();
         bombAnimator.SetTrigger("DropBomb");
     }
     public void CombatLMBButton()
     {
+        mainMenuAudioSource.Play();
         rocketAnimator.SetTrigger("FireRocket");
     }
     // Combat Buttons --------------------------------------------------------------
     // Movement On & Off -----------------------------------------------------------
     public void OpenMovement()
     {
-        mainMenuAudioSource.Play();
         if (!isMovementActive)
         {
             if (isCombatActive)
             {
+                mainMenuAudioSource.Play();
                 tutorialCombatHolder.SetActive(false);
                 isCombatActive = false;
                 tutorialMovementHolder.SetActive(true);
@@ -163,12 +172,14 @@ public class MainMenuUIController : MonoBehaviour
             } 
             else
             {
+                mainMenuAudioSource.Play();
                 tutorialMovementHolder.SetActive(true);
                 isMovementActive = true;
             }
         }
         else if (isMovementActive)
         {
+            mainMenuAudioSource.Play();
             tutorialMovementHolder.SetActive(false);
             isMovementActive = false;
         }
@@ -300,26 +311,39 @@ public class MainMenuUIController : MonoBehaviour
     // Difficulty ------------------------------------------------------------------
     public void NewGame()
     {
-        mainMenuAudioSource.Play();
-        if (!selected)
+        if (!selected && !buttonPressed)
         {
+            mainMenuAudioSource.Play();
             selected = true;
             menus.SetTrigger("DifficultySelection");
             CloseStatisticsButton();
             ControlsCloseButton();
             StartCoroutine(WaitingForSeconds(1));
+            buttonPressed = true; 
+            StartCoroutine(ButtonPushReset());
 
         }
-        else
+        else if (selected && !buttonPressed) 
         {
+            mainMenuAudioSource.Play();
             menus.SetTrigger("Reselected");
-            playerNameInput.onValueChanged.RemoveListener(PlayerNameUpdate);
+            StartCoroutine(WaitingForSeconds(1));
+            CloseStatisticsButton();
+            ControlsCloseButton();
+            buttonPressed = true;
+            StartCoroutine(ButtonPushReset());
         }
     }
     public void ReturnToMenus()
     {
-        mainMenuAudioSource.Play();
-        menus.SetTrigger("BackToMenu");
+        if (!buttonPressed)
+        {
+            mainMenuAudioSource.Play();
+            menus.SetTrigger("BackToMenu");
+            playerNameInput.onValueChanged.RemoveListener(PlayerNameUpdate);
+            buttonPressed = true;
+            StartCoroutine(ButtonPushReset());
+        }
     }
     public void DifficultyEasy()
     {
@@ -362,6 +386,17 @@ public class MainMenuUIController : MonoBehaviour
     }
     // Difficulty ------------------------------------------------------------------
     // Enumerators -----------------------------------------------------------------
+    IEnumerator ControlsOpening(float secondsToWait)
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        tutorialMovementHolder.SetActive(true);
+        isMovementActive = true;
+    }
+    IEnumerator ButtonPushReset()
+    {
+        yield return new WaitForSeconds(1);
+        buttonPressed = false;
+    }
     IEnumerator WaitingForSeconds(int input)
     {
         yield return new WaitForSeconds(input);

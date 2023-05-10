@@ -158,7 +158,11 @@ public class MainGameUIController : MonoBehaviour
             isGameActive = false;
             Time.timeScale = 0.0f;
         }
-        else if (pauseActive)
+    }
+    public void Unpause()
+    {
+        mainGameAudioSource.Play();
+        if (pauseActive && !isGameActive)
         {
             pauseAnimator.SetTrigger("UnPause");
             pauseScreen.gameObject.SetActive(false);
@@ -175,7 +179,11 @@ public class MainGameUIController : MonoBehaviour
             pauseAnimator.SetTrigger("SettingsSelected");
             isSettingsActive = true;
         }
-        else if (pauseActive && isSettingsActive)
+    }
+    public void CloseSettings()
+    {
+        mainGameAudioSource.Play();
+        if (pauseActive && isSettingsActive)
         {
             pauseAnimator.SetTrigger("SettingsClosed");
             isSettingsActive = false;
