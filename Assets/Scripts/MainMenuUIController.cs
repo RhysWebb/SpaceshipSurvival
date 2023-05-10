@@ -60,8 +60,6 @@ public class MainMenuUIController : MonoBehaviour
     // Sound -------------------------------------------------------------------------
     // Interactables -----------------------------------------------------------------
     private bool buttonPressed = false;
-    private Coroutine lastRun;
-    private bool runCompleted;
     // Interactables -----------------------------------------------------------------
     // Variables ---------------------------------------------------------------------
 
@@ -397,15 +395,6 @@ public class MainMenuUIController : MonoBehaviour
     }
     // Difficulty ------------------------------------------------------------------
     // Enumerators -----------------------------------------------------------------
-    IEnumerator ControlsOpening()
-    {
-        runCompleted = false;
-        lastRun = StartCoroutine(ControlsOpening());
-        yield return new WaitForSeconds(1.6f);
-        tutorialMovementHolder.SetActive(true);
-        isMovementActive = true;
-        runCompleted = true;
-    }
     IEnumerator CombatButtonPushReset()
     {
         yield return new WaitForSeconds(4);
